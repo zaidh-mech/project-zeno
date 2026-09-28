@@ -86,6 +86,7 @@ export default function Home() {
         {stars.map((star, i) => <span className="star" key={i} style={{ left: star.left, top: star.top, animationDelay: star.delay }} />)}
       </div>
       <div className="portal">
+        <div className="first-screen">
         <header className="topline">
           <span className="brand"><span className="brand-mark" aria-hidden="true" /> Aura</span>
           <Link className="topline-note" href="/control">Connect your desk buddy →</Link>
@@ -106,6 +107,7 @@ export default function Home() {
             <p className="hint">A small birthday surprise, just for you</p>
           </div>
         </section>
+        </div>
         <MemoryGallery />
         <footer className="footer">Made with love, from {content.sender}</footer>
       </div>

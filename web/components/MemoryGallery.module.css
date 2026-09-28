@@ -1,4 +1,4 @@
-.gallery { width: 100%; padding: 90px 0 40px; text-align: center; }
+.gallery { width: 100%; min-height: 100svh; min-height: 100dvh; padding: 90px 0 40px; text-align: center; scroll-snap-align: start; scroll-snap-stop: always; }
 .heading { margin: 0 auto 42px; max-width: 560px; }
 .thread { color: var(--rose); font-size: 36px; }
 .heading h2 { font-size: clamp(2.3rem, 6vw, 4rem); font-weight: 400; line-height: 1.1; letter-spacing: -.045em; margin: 16px 0; }
