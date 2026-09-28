@@ -3,3 +3,7 @@ node_modules/
 out/
 *.tsbuildinfo
 .env.local
+.gallery-data/
+.pages-build-*/
+.next-check/
+.gallery-test-*/

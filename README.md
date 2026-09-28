@@ -10,7 +10,7 @@ Aura is a birthday desk companion with animated eyes, touch, speaker replies, an
 | Device | [C3 firmware](src/c3_main.cpp), [C3 setup](markdowns/c3_firmware.md), and [PlatformIO environments](platformio.ini); [earlier S3 firmware](src/main.cpp) |
 | AI service | [Phone audio contract](markdowns/phone_backend.md), [personality](markdowns/ai_personality_backend.md), and [Python backend](backend/app.py) |
 | Enclosure | [Compact C3 CAD specification](markdowns/c3_compact_cad_spec.md) and [OpenSCAD model](aura_c3_compact_enclosure.scad); [earlier S3 design](markdowns/cad_design_spec.md) |
-| NFC portal and control | [Web app](web/), [Android control setup](markdowns/phone_control.md), and [birthday page setup](markdowns/nfc_nextjs_app.md) |
+| NFC portal and control | [Web app](web/), [Android control setup](markdowns/phone_control.md), [birthday page setup](markdowns/nfc_nextjs_app.md), and [gallery admin / GitHub Pages publishing](markdowns/memory_gallery.md) |
 
 ## Bring-up order
 

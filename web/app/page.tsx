@@ -5,6 +5,7 @@ import Link from "next/link";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import { content } from "@/lib/content";
+import MemoryGallery from "@/components/MemoryGallery";
 
 const AuraScene = dynamic(() => import("@/components/AuraScene"), { ssr: false });
 
@@ -96,6 +97,7 @@ export default function Home() {
             <p className="hint">A small birthday surprise, just for you</p>
           </div>
         </section>
+        <MemoryGallery />
         <footer className="footer">Made with love, from {content.sender}</footer>
       </div>
       <AnimatePresence>

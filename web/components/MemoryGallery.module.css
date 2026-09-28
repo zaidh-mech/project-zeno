@@ -1,0 +1,75 @@
+.gallery { width: 100%; padding: 90px 0 40px; text-align: center; }
+.heading { margin: 0 auto 42px; max-width: 560px; }
+.thread { color: var(--rose); font-size: 36px; }
+.heading h2 { font-size: clamp(2.3rem, 6vw, 4rem); font-weight: 400; line-height: 1.1; letter-spacing: -.045em; margin: 16px 0; }
+.heading p, .toolbar, .storage, .status, .pinForm, .storyCopy > p, .storyCopy label, .storyNav { font: 14px/1.7 Arial, Helvetica, sans-serif; }
+.heading p { color: #c7bddc; }
+.locked { display: flex; align-items: center; justify-content: center; gap: 80px; padding: 40px 20px; }
+.stack { width: 210px; height: 250px; position: relative; flex-shrink: 0; }
+.stack span { position: absolute; inset: 0; background: #e9e4f0; border: 12px solid #faf6f3; border-bottom-width: 55px; box-shadow: 0 12px 35px #05051c66; transform: rotate(-13deg); }
+.stack span:nth-child(2) { transform: rotate(8deg); background: #a49abb; }
+.stack span:last-child { transform: rotate(-4deg); background: #cdc2d7; display: flex; align-items: end; justify-content: center; padding-bottom: 22px; color: #4d385c; font: italic 25px Georgia, serif; }
+.pinForm { display: flex; align-items: center; flex-direction: column; max-width: 310px; }
+.pinForm h3 { font: 28px/1.2 Georgia, serif; margin: 0 0 15px; }
+.pinForm label { color: #c7bddc; }
+.pinForm input { width: 190px; margin-top: 24px; padding: 12px 12px 12px 24px; text-align: center; font: 28px/1.2 Arial, sans-serif; letter-spacing: 14px; background: #25243f; color: #fff; border: 1px solid #8d809f; border-radius: 10px; }
+.primary { background: var(--rose); border: 0; border-radius: 30px; padding: 14px 25px; color: #241a35; font-weight: 600; }
+.gallery button:disabled { opacity: .5; cursor: default; }
+.gallery input:focus-visible, .gallery textarea:focus-visible, .gallery button:focus-visible, .photo:focus-within { outline: 3px solid #b97d9f; outline-offset: 4px; }
+.error { color: #ffc4d4; min-height: 24px; margin: 12px 0; }
+.pinForm .adminPassword { width: 100%; font-size: 16px; letter-spacing: normal; padding: 14px; text-align: left; }
+.actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.toolbar { flex-wrap: wrap; }
+.empty { padding: 55px 18px; border: 1px dashed #80738e; border-radius: 12px; margin-top: 25px; color: #d6cbe5; }
+.empty p { font-size: 22px; }
+.viewPhoto { width: 100%; padding: 0; border: 0; }
+.readCaption { min-height: 54px; margin: 16px 4px 0; font: italic 19px/1.4 Georgia, serif; overflow-wrap: anywhere; }
+.storyCopy .readStory { font: 19px/1.8 Georgia, serif; color: #493750; white-space: pre-wrap; overflow-wrap: anywhere; }
+.cardActions { display: flex; gap: 12px; margin: 12px 4px 0; padding-top: 12px; border-top: 1px solid #e1d5df; flex-wrap: wrap; }
+.cardActions button { background: transparent; color: #844562; font: 12px/1.5 Arial, sans-serif; padding: 4px 0; border: 0; text-decoration: underline; text-underline-offset: 3px; }
+.confirmation { width: min(460px, calc(100% - 32px)); padding: 28px; }
+.confirmation h3 { font: 27px/1.2 Georgia, serif; margin: 0 0 16px; }
+.confirmation p { font: 15px/1.7 Arial, sans-serif; }
+.confirmation button { padding: 12px 22px; border: 1px solid #b7a3b8; border-radius: 25px; }
+.toolbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; text-align: left; }
+.toolbar button { color: #eedfeb; border: 1px solid #80738e; background: transparent; padding: 9px 17px; border-radius: 24px; white-space: nowrap; }
+.storage, .status { text-align: left; margin: 0; color: #bfb4d0; font-size: 12px; }
+.status { min-height: 24px; margin-top: 5px; }
+.grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 42px 28px; padding: 35px 8px 20px; }
+.polaroid { padding: 13px 13px 15px; background: #faf6f3; color: #3a2f45; box-shadow: 0 16px 30px #06071955; transform: rotate(-3deg); transition: transform .25s; text-align: left; min-width: 0; }
+.polaroid:nth-child(3n + 2) { transform: rotate(2.5deg) translateY(12px); }
+.polaroid:nth-child(3n) { transform: rotate(-1deg); }
+.polaroid:hover, .polaroid:focus-within { transform: rotate(0) translateY(-5px); }
+.photo { aspect-ratio: 1; display: grid; position: relative; background: #e5dfeb; cursor: pointer; overflow: hidden; }
+.photo img { width: 100%; height: 100%; object-fit: cover; position: absolute; }
+.photo input { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; }
+.placeholder { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; text-align: center; padding: 14px; font: 14px/1.4 Arial, sans-serif; color: #61516f; }
+.placeholder > span:first-child { font: 36px Georgia, serif; color: #8c729c; }
+.placeholder small { font: italic 16px/1.45 Georgia, serif; max-width: 18ch; }
+.replace { position: absolute; bottom: 8px; right: 8px; pointer-events: none; background: #211b32d9; color: white; padding: 6px 10px; border-radius: 15px; font: 11px Arial, sans-serif; }
+.caption textarea { width: 100%; resize: vertical; min-height: 68px; max-height: 140px; border: 0; background: transparent; color: #48324f; font: italic 19px/1.4 Georgia, serif; padding: 15px 4px 0; }
+.caption textarea::placeholder { color: #87768b; }
+.storyButton { display: flex; justify-content: space-between; gap: 8px; align-items: center; width: 100%; border: 0; background: transparent; color: #76526d; padding: 10px 4px 0; font: 12px/1.4 Arial, sans-serif; text-align: left; }
+.storyButton span { font-size: 22px; }
+.closing { margin-top: 45px; font-style: italic; color: #c1b1d0; font-size: 20px; }
+.srOnly { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; }
+.dialog { color-scheme: light; margin: auto; border: 0; border-radius: 5px; padding: 0; width: min(880px, calc(100% - 32px)); max-height: 90svh; background: #f9f3f4; color: #3c2e46; box-shadow: 0 24px 100px #0008; text-align: left; }
+.dialog::backdrop { background: #0c0d22dd; backdrop-filter: blur(10px); }
+.storyLayout { display: grid; grid-template-columns: .9fr 1fr; }
+.storyPhoto { margin: 40px 0 40px 28px; padding: 12px 12px 20px; background: white; box-shadow: 0 7px 20px #43334c18; align-self: start; transform: rotate(-3deg); }
+.storyPhoto img { width: 100%; max-height: 420px; object-fit: contain; background: #e5dfeb; }
+.storyPhoto p { text-align: center; font: italic 21px/1.5 Georgia, serif; overflow-wrap: anywhere; }
+.storyEmpty { aspect-ratio: 1; background: #e5dfeb; display: flex; flex-direction: column; gap: 16px; justify-content: center; align-items: center; text-align: center; font-style: italic; padding: 20px; }
+.storyEmpty span { font-size: 14px; color: #796680; }
+.storyCopy { padding: 48px 30px 28px; }
+.storyCopy h3 { font: 32px/1.15 Georgia, serif; margin: 8px 0 16px; }
+.storyCopy > p { color: #796680; }
+.storyCopy label { display: block; margin: 20px 0 8px; }
+.storyCopy textarea { width: 100%; border: 1px solid #d4c5d1; border-radius: 5px; padding: 14px; background: #fffcfd; color: #493750; resize: vertical; font: 17px/1.7 Georgia, serif; }
+.close { position: absolute; right: 10px; top: 8px; width: 40px; height: 40px; background: transparent; border: 0; color: #6f5575; font-size: 27px; }
+.storyNav { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-top: 20px; }
+.storyNav button { border: 0; background: transparent; color: #714668; padding: 10px 0; }
+.storyCopy .dialogStatus { font-size: 12px; }
+@media (max-width: 760px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 30px 22px; } .locked { gap: 35px; } .stack { width: 150px; height: 190px; } .storyLayout { grid-template-columns: 1fr; } .storyPhoto { max-width: 300px; margin: 45px auto 0; width: calc(100% - 70px); } .storyCopy { padding-top: 25px; } }
+@media (max-width: 480px) { .gallery { padding-top: 70px; } .locked { flex-direction: column; gap: 45px; padding-top: 15px; } .grid { grid-template-columns: 1fr; padding: 28px 18px; gap: 35px; } .polaroid:nth-child(3n + 2) { transform: rotate(2deg); } .toolbar { align-items: start; } .toolbar p { margin-top: 0; } .storyCopy { padding: 25px 22px; } }
+@media (prefers-reduced-motion: reduce) { .polaroid { transition: none; } }

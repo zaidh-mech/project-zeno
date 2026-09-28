@@ -56,6 +56,7 @@ button:focus-visible { outline: 3px solid var(--rose); outline-offset: 5px; }
 .topline-note:hover { opacity: 1; color: var(--rose); }
 .hero { width: 100%; flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding-top: 16px; }
 .hero-copy { position: relative; z-index: 2; }
+.hero { min-height: calc(100svh - 100px); }
 .hero h1 { font-weight: 400; font-size: clamp(3.55rem, 13vw, 7.8rem); line-height: .89; letter-spacing: -.055em; margin: 4px 0 16px; text-wrap: balance; }
 .hero h1 span { display: block; color: var(--rose); font-style: italic; font-size: .75em; letter-spacing: -.05em; margin-top: .13em; }
 .intro { color: #d8d0eb; font: 400 clamp(14px, 3.6vw, 17px)/1.65 Arial, Helvetica, sans-serif; margin: 0 auto; max-width: 36ch; }
