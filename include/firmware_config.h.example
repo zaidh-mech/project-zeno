@@ -1,0 +1,14 @@
+// Copy this file to firmware_config.h and set values for your network.
+// firmware_config.h is ignored by git so credentials stay local.
+#pragma once
+#define AURA_WIFI_SSID ""
+#define AURA_WIFI_PASSWORD ""
+#define AURA_BACKEND_URL "http://192.168.1.100:8000/v1/voice"
+#define AURA_DEVICE_TOKEN ""
+
+// C3 phone-first HTTPS playback only: paste the trusted issuing root CA PEM.
+// The phone website provisions the C3 Wi-Fi, backend URL, and device token;
+// AURA_WIFI_* and AURA_BACKEND_URL above are used by the original S3 target.
+// #define AURA_BACKEND_CA_CERT R"PEM(-----BEGIN CERTIFICATE-----
+// ...public root CA PEM...
+// -----END CERTIFICATE-----)PEM"
