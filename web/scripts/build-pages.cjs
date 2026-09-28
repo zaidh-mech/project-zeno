@@ -15,14 +15,15 @@ const { loadEnvConfig } = require('@next/env');
     for (const folder of ['app', 'components', 'lib', 'public']) {
       await fs.cp(path.join(root, folder), path.join(staging, folder), {
         recursive: true,
-        filter: source => ![path.join(root, 'app', 'api'), path.join(root, 'app', 'admin')].includes(source),
+        filter: source => source !== path.join(root, 'app', 'api'),
       });
     }
     for (const file of ['package.json', 'tsconfig.json', 'postcss.config.mjs', 'next-env.d.ts']) await fs.copyFile(path.join(root, file), path.join(staging, file));
     // Static builds must never typecheck or bundle server-only implementation files.
     for (const file of ['gallery-auth.ts', 'gallery-store.ts', 'gallery-export.ts']) await fs.unlink(path.join(staging, 'lib', file));
-    await fs.writeFile(path.join(staging, 'next.config.mjs'), `export default ${JSON.stringify({ output: 'export', trailingSlash: true, basePath, images: { unoptimized: true }, env: { NEXT_PUBLIC_GALLERY_STATIC: 'true', NEXT_PUBLIC_BASE_PATH: basePath } })};\n`);
-    const result = spawnSync(process.execPath, [require.resolve('next/dist/bin/next'), 'build', staging], { cwd: root, stdio: 'inherit', env: { ...process.env, NEXT_PUBLIC_GALLERY_STATIC: 'true', NEXT_PUBLIC_BASE_PATH: basePath } });
+    const githubRepository = process.env.GITHUB_REPOSITORY || 'zaidh-mech/project-zeno';
+    await fs.writeFile(path.join(staging, 'next.config.mjs'), `export default ${JSON.stringify({ output: 'export', trailingSlash: true, basePath, images: { unoptimized: true }, env: { NEXT_PUBLIC_GALLERY_STATIC: 'true', NEXT_PUBLIC_BASE_PATH: basePath, NEXT_PUBLIC_GITHUB_REPOSITORY: githubRepository } })};\n`);
+    const result = spawnSync(process.execPath, [require.resolve('next/dist/bin/next'), 'build', staging], { cwd: root, stdio: 'inherit', env: { ...process.env, NEXT_PUBLIC_GALLERY_STATIC: 'true', NEXT_PUBLIC_BASE_PATH: basePath, NEXT_PUBLIC_GITHUB_REPOSITORY: githubRepository } });
     if (result.status !== 0) throw new Error('GitHub Pages build failed.');
     const output = path.join(root, 'out');
     // This fixed output path is inside the web workspace; only generated files are replaced.
@@ -30,11 +31,12 @@ const { loadEnvConfig } = require('@next/env');
     await fs.rm(output, { recursive: true, force: true });
     await fs.cp(path.join(staging, 'out'), output, { recursive: true });
     await fs.writeFile(path.join(output, '.nojekyll'), '');
-    for (const name of ['admin', 'api', '.env.local', '.gallery-data']) {
+    for (const name of ['api', '.env.local', '.gallery-data']) {
       const exists = await fs.access(path.join(output, name)).then(() => true, () => false);
       if (exists) throw new Error(`Private path found in static output: ${name}`);
     }
-    console.log(`Read-only GitHub Pages site ready in web/out (base path: ${basePath || '/'}).`);
+    await fs.access(path.join(output, 'admin', 'index.html'));
+    console.log(`GitHub Pages viewer and admin site ready in web/out (base path: ${basePath || '/'}).`);
   } finally {
     if (path.dirname(staging) === root && path.basename(staging).startsWith('.pages-build-')) await fs.rm(staging, { recursive: true, force: true });
   }

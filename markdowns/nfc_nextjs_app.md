@@ -25,7 +25,7 @@ Edit `.env.local` before building:
 | `NEXT_PUBLIC_AURA_LETTER` | Letter body; write `\n` between paragraphs |
 | `NEXT_PUBLIC_AURA_LETTERS` | Optional JSON array of `{ "title": "...", "body": "..." }`; replaces the default three-letter deck. Bodies can be any length. |
 
-These `NEXT_PUBLIC_` variables are embedded into the browser bundle at build time. The sample content is generic until personalized. Do not put secrets in them. Set `AURA_GALLERY_PIN`, `AURA_GALLERY_ADMIN_PASSWORD`, and `AURA_GALLERY_SESSION_SECRET` in `.env.local` for the local gallery studio at `/admin`. Export the album there, then run `npm run build:pages` to build the read-only GitHub Pages site in `web/out/`. The included GitHub Actions workflow publishes that site. See [gallery editing and publishing instructions](memory_gallery.md).
+These `NEXT_PUBLIC_` variables are embedded into the browser bundle at build time. The sample content is generic until personalized. Do not put secrets in them. GitHub Pages now publishes both the read-only viewer and an online admin studio at `/admin/`; see [gallery access and publishing instructions](memory_gallery.md). The local studio still uses `AURA_GALLERY_PIN`, `AURA_GALLERY_ADMIN_PASSWORD`, and `AURA_GALLERY_SESSION_SECRET` in `.env.local`.
 
 ## Program the NFC sticker
 
@@ -44,4 +44,4 @@ The letter is static and needs no backend. Voice use on `/control` does need the
 - `web/app/globals.css`: Tailwind entry and the custom visual system.
 - `web/lib/content.ts`: build-time content configuration.
 
-The app uses Next.js App Router, React 19, Tailwind CSS 4, Three.js with React Three Fiber 9, and Motion for React (the current Framer Motion package). Local development includes a server-backed admin studio. `npm run build:pages` creates a separate static site with no admin or API routes and an encrypted album that visitors open using the PIN.
+The app uses Next.js App Router, React 19, Tailwind CSS 4, Three.js with React Three Fiber 9, and Motion for React (the current Framer Motion package). Local development includes a server-backed admin studio. `npm run build:pages` creates a static viewer and admin site without local API routes. The online studio authenticates writes through GitHub and publishes the encrypted album by committing it to the repository.

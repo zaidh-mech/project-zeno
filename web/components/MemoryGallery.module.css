@@ -1,7 +1,7 @@
 .gallery { width: 100%; min-height: 100svh; min-height: 100dvh; padding: 90px 0 40px; text-align: center; scroll-snap-align: start; scroll-snap-stop: always; }
 .heading { margin: 0 auto 42px; max-width: 560px; }
 .thread { color: var(--rose); font-size: 36px; }
-.heading h2 { font-size: clamp(2.3rem, 6vw, 4rem); font-weight: 400; line-height: 1.1; letter-spacing: -.045em; margin: 16px 0; }
+.heading h1, .heading h2 { font-size: clamp(2.3rem, 6vw, 4rem); font-weight: 400; line-height: 1.1; letter-spacing: -.045em; margin: 16px 0; }
 .heading p, .toolbar, .storage, .status, .pinForm, .storyCopy > p, .storyCopy label, .storyNav { font: 14px/1.7 Arial, Helvetica, sans-serif; }
 .heading p { color: #c7bddc; }
 .locked { display: flex; align-items: center; justify-content: center; gap: 80px; padding: 40px 20px; }
@@ -10,7 +10,7 @@
 .stack span:nth-child(2) { transform: rotate(8deg); background: #a49abb; }
 .stack span:last-child { transform: rotate(-4deg); background: #cdc2d7; display: flex; align-items: end; justify-content: center; padding-bottom: 22px; color: #4d385c; font: italic 25px Georgia, serif; }
 .pinForm { display: flex; align-items: center; flex-direction: column; max-width: 310px; }
-.pinForm h3 { font: 28px/1.2 Georgia, serif; margin: 0 0 15px; }
+.pinForm h2, .pinForm h3 { font: 28px/1.2 Georgia, serif; margin: 0 0 15px; }
 .pinForm label { color: #c7bddc; }
 .pinForm input { width: 190px; margin-top: 24px; padding: 12px 12px 12px 24px; text-align: center; font: 28px/1.2 Arial, sans-serif; letter-spacing: 14px; background: #25243f; color: #fff; border: 1px solid #8d809f; border-radius: 10px; }
 .primary { background: var(--rose); border: 0; border-radius: 30px; padding: 14px 25px; color: #241a35; font-weight: 600; }

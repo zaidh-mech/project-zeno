@@ -7,7 +7,8 @@ const { loadEnvConfig } = require('@next/env');
   const root = path.resolve(__dirname, '..');
   loadEnvConfig(root);
   const output = path.join(root, 'out');
-  for (const name of ['admin', 'api', '.env.local', '.gallery-data']) assert.equal(await fs.access(path.join(output, name)).then(() => true, () => false), false, `No ${name} in public output`);
+  for (const name of ['api', '.env.local', '.gallery-data']) assert.equal(await fs.access(path.join(output, name)).then(() => true, () => false), false, `No ${name} in public output`);
+  assert.ok((await fs.readFile(path.join(output, 'admin', 'index.html'), 'utf8')).includes('Your private album studio.'), 'Online admin sign-in is published');
   const secrets = [process.env.AURA_GALLERY_ADMIN_PASSWORD, process.env.AURA_GALLERY_SESSION_SECRET].filter(Boolean);
   async function scan(directory) {
     for (const entry of await fs.readdir(directory, { withFileTypes: true })) {
@@ -25,5 +26,5 @@ const { loadEnvConfig } = require('@next/env');
   const payload = JSON.parse(await fs.readFile(path.join(output, 'gallery.enc.json'), 'utf8'));
   assert.equal(payload.version, 1);
   assert.equal(payload.iterations, 250000);
-  console.log('PASS: static album exists, viewer page renders, and no admin routes, API routes, raw storage, or admin credentials are published.');
+  console.log('PASS: static album and admin sign-in render, with no API routes, raw storage, or admin credentials published.');
 })().catch(error => { console.error(error); process.exitCode = 1; });

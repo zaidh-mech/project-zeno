@@ -29,12 +29,26 @@ export default function MemoryGallery({ admin = false }: { admin?: boolean }) {
   const confirmation = useRef<HTMLDialogElement>(null);
   const heading = useRef<HTMLHeadingElement>(null);
   const passcodeInput = useRef<HTMLInputElement>(null);
+  const viewerPin = useRef("");
   const current = memories.find(memory => memory.id === activeId);
   const active = memories.findIndex(memory => memory.id === activeId);
 
   useEffect(() => { if (activeId) dialog.current?.showModal(); }, [activeId]);
   useEffect(() => { if (deleteTarget) confirmation.current?.showModal(); }, [deleteTarget]);
   useEffect(() => { if (unlocked) heading.current?.focus(); }, [unlocked]);
+  useEffect(() => {
+    if (!unlocked || admin || !isStaticGallery) return;
+    const refresh = () => {
+      if (document.visibilityState !== "visible" || !viewerPin.current) return;
+      void readPublishedGallery(viewerPin.current).then(setMemories).catch(() => setStatus("The album changed. Lock and reopen it if your PIN was updated."));
+    };
+    const interval = window.setInterval(refresh, 60_000);
+    document.addEventListener("visibilitychange", refresh);
+    return () => { window.clearInterval(interval); document.removeEventListener("visibilitychange", refresh); };
+  }, [unlocked, admin]);
+  useEffect(() => {
+    if (activeId && !memories.some(memory => memory.id === activeId)) { dialog.current?.close(); setActiveId(null); }
+  }, [activeId, memories]);
   useEffect(() => {
     if (!dirty) return;
     const warn = (event: BeforeUnloadEvent) => { event.preventDefault(); };
@@ -46,7 +60,7 @@ export default function MemoryGallery({ admin = false }: { admin?: boolean }) {
     event.preventDefault(); setBusy(true); setError("");
     try {
       if (isStaticGallery) {
-        setMemories(await readPublishedGallery(passcode)); setStatus(""); setPasscode(""); setUnlocked(true); return;
+        setMemories(await readPublishedGallery(passcode)); viewerPin.current = passcode; setStatus(""); setPasscode(""); setUnlocked(true); return;
       }
       await api("/api/gallery/unlock", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(admin ? { role: "admin", password: passcode } : { pin: passcode }) });
       const result = await api("/api/gallery");
@@ -109,7 +123,7 @@ export default function MemoryGallery({ admin = false }: { admin?: boolean }) {
     await action(async () => {
       if (admin && dirty) await saveWriting();
       if (!isStaticGallery) await api("/api/gallery/unlock", { method: "DELETE" });
-      dialog.current?.close(); setUnlocked(false); setMemories([]); setActiveId(null); setError("");
+      dialog.current?.close(); viewerPin.current = ""; setUnlocked(false); setMemories([]); setActiveId(null); setError("");
       requestAnimationFrame(() => passcodeInput.current?.focus());
     });
   }
