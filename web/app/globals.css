@@ -23,7 +23,7 @@ button:focus-visible { outline: 3px solid var(--rose); outline-offset: 5px; }
 
 .universe {
   min-height: 100svh;
-  overflow: hidden;
+  overflow: clip;
   position: relative;
   isolation: isolate;
   background:
