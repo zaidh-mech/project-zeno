@@ -1,6 +1,6 @@
 # Aura birthday portal
 
-The NFC companion is a mobile-first Next.js app in [`web/`](../web/). Its front page shows a floating 3D Aura with a heart, quiet stars, and a single button that reveals a personal letter. The letter works with keyboard and screen readers. A CSS companion replaces the 3D scene when WebGL is unavailable or reduced motion is requested. The page now links to [`/control`](../web/app/control/page.tsx), the Android C3 pairing, Wi-Fi, eye, and voice interface; see [phone control setup](phone_control.md).
+The NFC companion is a mobile-first Next.js app in [`web/`](../web/). Its front page shows a floating 3D Aura with a heart, quiet stars, a tap-to-connect pet, and a full-screen deck of letters. Each letter scrolls independently, with previous/next buttons, page dots, arrow keys, and horizontal swipes for navigation. A CSS companion replaces the 3D scene when WebGL is unavailable or reduced motion is requested. The pet pairs over Web Bluetooth using the same Aura service as [`/control`](../web/app/control/page.tsx) and sends a smile command when tapped again. Voice and Wi-Fi setup remain on `/control`; see [phone control setup](phone_control.md).
 
 ## Run it
 
@@ -23,6 +23,7 @@ Edit `.env.local` before building:
 | `NEXT_PUBLIC_AURA_PET_NAME` | Affectionate name in the birthday greeting |
 | `NEXT_PUBLIC_AURA_SENDER` | Signature |
 | `NEXT_PUBLIC_AURA_LETTER` | Letter body; write `\n` between paragraphs |
+| `NEXT_PUBLIC_AURA_LETTERS` | Optional JSON array of `{ "title": "...", "body": "..." }`; replaces the default three-letter deck. Bodies can be any length. |
 
 These `NEXT_PUBLIC_` variables are embedded into the browser bundle at build time. The sample content is generic until personalized. Do not put secrets in them. Set `AURA_GALLERY_PIN`, `AURA_GALLERY_ADMIN_PASSWORD`, and `AURA_GALLERY_SESSION_SECRET` in `.env.local` for the local gallery studio at `/admin`. Export the album there, then run `npm run build:pages` to build the read-only GitHub Pages site in `web/out/`. The included GitHub Actions workflow publishes that site. See [gallery editing and publishing instructions](memory_gallery.md).
 
@@ -37,8 +38,9 @@ The letter is static and needs no backend. Voice use on `/control` does need the
 
 ## Component structure
 
-- `web/app/page.tsx`: interaction, WebGL detection, letter dialog, focus handling.
+- `web/app/page.tsx`: interaction, WebGL detection, full-screen letter deck, focus handling.
 - `web/components/AuraScene.tsx`: React Three Fiber companion and heart.
+- `web/components/CompanionPet.tsx`: tap-to-connect Web Bluetooth pet and smile interaction.
 - `web/app/globals.css`: Tailwind entry and the custom visual system.
 - `web/lib/content.ts`: build-time content configuration.
 

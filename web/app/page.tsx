@@ -6,6 +6,7 @@ import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import { content } from "@/lib/content";
 import MemoryGallery from "@/components/MemoryGallery";
+import CompanionPet from "@/components/CompanionPet";
 
 const AuraScene = dynamic(() => import("@/components/AuraScene"), { ssr: false });
 
@@ -29,11 +30,14 @@ function FallbackBuddy() {
 
 export default function Home() {
   const [open, setOpen] = useState(false);
+  const [letterIndex, setLetterIndex] = useState(0);
   const [canUseWebGL, setCanUseWebGL] = useState(false);
   const [visualReady, setVisualReady] = useState(false);
   const reduceMotion = useReducedMotion();
   const closeRef = useRef<HTMLButtonElement>(null);
   const openRef = useRef<HTMLButtonElement>(null);
+  const letterScrollRef = useRef<HTMLDivElement>(null);
+  const swipeStart = useRef<{ x: number; y: number } | null>(null);
 
   useEffect(() => {
     try {
@@ -52,9 +56,11 @@ export default function Home() {
     closeRef.current?.focus();
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") setOpen(false);
+      if (event.key === "ArrowRight") setLetterIndex((index) => Math.min(index + 1, content.letters.length - 1));
+      if (event.key === "ArrowLeft") setLetterIndex((index) => Math.max(index - 1, 0));
       if (event.key === "Tab") {
-        const dialog = document.getElementById("birthday-letter");
-        const focusable = dialog?.querySelectorAll<HTMLElement>("button, a[href], [tabindex]:not([tabindex='-1'])");
+        const dialog = document.getElementById("letter-deck");
+        const focusable = dialog?.querySelectorAll<HTMLElement>("button:not([disabled]), a[href], [tabindex]:not([tabindex='-1'])");
         if (!focusable?.length) return;
         const first = focusable[0];
         const last = focusable[focusable.length - 1];
@@ -69,6 +75,8 @@ export default function Home() {
       openRef.current?.focus();
     };
   }, [open]);
+
+  useEffect(() => { letterScrollRef.current?.scrollTo({ top: 0, behavior: "instant" }); }, [letterIndex]);
 
   const show3D = visualReady && canUseWebGL && !reduceMotion;
 
@@ -85,14 +93,15 @@ export default function Home() {
         <section className="hero" aria-labelledby="birthday-heading">
           <div className="hero-copy">
             <h1 id="birthday-heading">Happy birthday<span>{content.petName}.</span></h1>
-            <p className="intro">I kept a little note here for you. Come closer and open it whenever you&apos;re ready.</p>
+            <p className="intro">I kept a few letters here for you. Read them whenever you&apos;re ready.</p>
           </div>
           <div className="scene-wrap" role="img" aria-label="Aura, a floating little companion with a heart">
             {show3D ? <AuraScene /> : <FallbackBuddy />}
           </div>
+          <CompanionPet />
           <div className="invitation">
-            <button className="open-button" ref={openRef} type="button" onClick={() => setOpen(true)} aria-haspopup="dialog">
-              Open your letter <span aria-hidden="true">♡</span>
+            <button className="open-button" ref={openRef} type="button" onClick={() => { setLetterIndex(0); setOpen(true); }} aria-haspopup="dialog">
+              Open your letters <span aria-hidden="true">♡</span>
             </button>
             <p className="hint">A small birthday surprise, just for you</p>
           </div>
@@ -107,24 +116,47 @@ export default function Home() {
             initial={reduceMotion ? false : { opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={reduceMotion ? { opacity: 0 } : { opacity: 0 }}
-            onMouseDown={(event) => { if (event.target === event.currentTarget) setOpen(false); }}
           >
             <motion.article
-              id="birthday-letter"
-              className="letter"
+              id="letter-deck"
+              className="letter-deck"
               role="dialog"
               aria-modal="true"
               aria-labelledby="letter-heading"
-              initial={reduceMotion ? false : { opacity: 0, y: 25, scale: 0.97 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={reduceMotion ? { opacity: 0 } : { opacity: 0, y: 16, scale: 0.98 }}
+              initial={reduceMotion ? false : { opacity: 0, y: 18 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={reduceMotion ? { opacity: 0 } : { opacity: 0, y: 12 }}
               transition={{ duration: reduceMotion ? 0 : 0.36, ease: [0.22, 1, 0.36, 1] }}
             >
-              <button ref={closeRef} className="close-button" type="button" onClick={() => setOpen(false)} aria-label="Close letter">×</button>
-              <span className="letter-kicker">A letter for {content.recipient}</span>
-              <h2 id="letter-heading">For you, {content.petName}</h2>
-              <div className="letter-body">{content.letter}</div>
-              <p className="signature">With love,<br />{content.sender}</p>
+              <header className="letter-deck-header">
+                <span className="letter-deck-brand">Letters for {content.recipient}</span>
+                <button ref={closeRef} className="close-button" type="button" onClick={() => setOpen(false)} aria-label="Close letters">×</button>
+              </header>
+              <div className="letter-stage" onTouchStart={(event) => { swipeStart.current = { x: event.touches[0].clientX, y: event.touches[0].clientY }; }} onTouchEnd={(event) => {
+                const start = swipeStart.current;
+                swipeStart.current = null;
+                if (!start) return;
+                const dx = event.changedTouches[0].clientX - start.x;
+                const dy = event.changedTouches[0].clientY - start.y;
+                if (Math.abs(dx) < 60 || Math.abs(dx) < Math.abs(dy) * 1.3) return;
+                setLetterIndex((index) => Math.max(0, Math.min(content.letters.length - 1, index + (dx < 0 ? 1 : -1))));
+              }}>
+                <div className="letter-scroll" ref={letterScrollRef}>
+                  <div className="letter-paper" key={letterIndex}>
+                    <span className="letter-kicker">Letter {letterIndex + 1} of {content.letters.length}</span>
+                    <h2 id="letter-heading">{content.letters[letterIndex].title}</h2>
+                    <div className="letter-body">{content.letters[letterIndex].body}</div>
+                    <p className="signature">With love,<br />{content.sender}</p>
+                  </div>
+                </div>
+              </div>
+              <nav className="letter-deck-nav" aria-label="Browse letters">
+                <button type="button" onClick={() => setLetterIndex((index) => index - 1)} disabled={letterIndex === 0}>Previous</button>
+                <div className="letter-pages" aria-label={`Letter ${letterIndex + 1} of ${content.letters.length}`}>
+                  {content.letters.map((letter, index) => <button key={`${letter.title}-${index}`} type="button" onClick={() => setLetterIndex(index)} aria-label={`Open letter ${index + 1}: ${letter.title}`} aria-current={letterIndex === index ? "page" : undefined} className={letterIndex === index ? "letter-page-current" : ""} />)}
+                </div>
+                <button type="button" onClick={() => setLetterIndex((index) => index + 1)} disabled={letterIndex === content.letters.length - 1}>Next letter</button>
+              </nav>
             </motion.article>
           </motion.div>
         )}

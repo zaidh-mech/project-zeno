@@ -202,7 +202,7 @@ export default function ControlPage() {
       const stream = await navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: true, noiseSuppression: true }, video: false });
       const context = new AudioContext();
       try {
-        await context.audioWorklet.addModule("/pcm-capture-processor.js");
+        await context.audioWorklet.addModule(`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/pcm-capture-processor.js`);
         const source = context.createMediaStreamSource(stream);
         const worklet = new AudioWorkletNode(context, "pcm-capture-processor");
         const mute = context.createGain();
