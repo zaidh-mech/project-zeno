@@ -11,6 +11,9 @@
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-snap-type: y mandatory; }
+html:has(.admin-page) { scroll-snap-type: none; }
+.admin-page { overflow: visible; }
+.admin-page .topline { gap: 20px; flex-wrap: wrap; }
 body {
   margin: 0;
   background: var(--ink);
