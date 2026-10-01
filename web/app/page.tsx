@@ -33,6 +33,7 @@ function FallbackBuddy() {
 export default function Home() {
   const [open, setOpen] = useState(false);
   const [letterIndex, setLetterIndex] = useState(0);
+  const [choosingLetter, setChoosingLetter] = useState(true);
   const [canUseWebGL, setCanUseWebGL] = useState(false);
   const [visualReady, setVisualReady] = useState(false);
   const reduceMotion = useReducedMotion();
@@ -58,7 +59,7 @@ export default function Home() {
     closeRef.current?.focus();
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") setOpen(false);
-      if (!(event.target instanceof HTMLSelectElement)) {
+      if (!choosingLetter) {
         if (event.key === "ArrowRight") setLetterIndex((index) => Math.min(index + 1, content.letters.length - 1));
         if (event.key === "ArrowLeft") setLetterIndex((index) => Math.max(index - 1, 0));
       }
@@ -78,9 +79,9 @@ export default function Home() {
       window.removeEventListener("keydown", onKeyDown);
       openRef.current?.focus();
     };
-  }, [open]);
+  }, [open, choosingLetter]);
 
-  useEffect(() => { letterScrollRef.current?.scrollTo({ top: 0, behavior: "instant" }); }, [letterIndex]);
+  useEffect(() => { letterScrollRef.current?.scrollTo({ top: 0, behavior: "instant" }); }, [letterIndex, choosingLetter]);
 
   const show3D = visualReady && canUseWebGL && !reduceMotion;
 
@@ -106,7 +107,7 @@ export default function Home() {
           </div>
           <CompanionPet />
           <div className="invitation">
-            <button className="open-button" ref={openRef} type="button" onClick={() => { setLetterIndex(0); setOpen(true); }} aria-haspopup="dialog">
+            <button className="open-button" ref={openRef} type="button" onClick={() => { setLetterIndex(0); setChoosingLetter(true); setOpen(true); }} aria-haspopup="dialog">
               Open your letters <span aria-hidden="true">♡</span>
             </button>
             <p className="hint">A small birthday surprise, just for you</p>
@@ -144,25 +145,37 @@ export default function Home() {
               <div className="letter-stage" onTouchStart={(event) => { swipeStart.current = { x: event.touches[0].clientX, y: event.touches[0].clientY }; }} onTouchEnd={(event) => {
                 const start = swipeStart.current;
                 swipeStart.current = null;
-                if (!start) return;
+                if (!start || choosingLetter) return;
                 const dx = event.changedTouches[0].clientX - start.x;
                 const dy = event.changedTouches[0].clientY - start.y;
                 if (Math.abs(dx) < 60 || Math.abs(dx) < Math.abs(dy) * 1.3) return;
                 setLetterIndex((index) => Math.max(0, Math.min(content.letters.length - 1, index + (dx < 0 ? 1 : -1))));
               }}>
                 <div className="letter-scroll" ref={letterScrollRef}>
-                  <div className="letter-paper" key={letterIndex}>
+                  {choosingLetter ? <div className="letter-collection">
+                    <h2 id="letter-heading">A little stack of love.</h2>
+                    <p>Pick the words you need today.</p>
+                    <div className="letter-card-stack">
+                      {content.letters.map((letter, index) => <button className="letter-choice-card" key={index} onClick={() => { setLetterIndex(index); setChoosingLetter(false); }} aria-label={`Read letter ${index + 1}: ${letter.title}`}>
+                        <span className="letter-card-number">Letter {String(index + 1).padStart(2, "0")}</span>
+                        <span className="letter-card-title">{letter.title}</span>
+                        <span className="letter-card-seal" aria-hidden="true">♡</span>
+                      </button>)}
+                    </div>
+                  </div> : <div className="letter-paper" key={letterIndex}>
                     <span className="letter-kicker">Letter {letterIndex + 1} of {content.letters.length}</span>
                     <h2 id="letter-heading">{content.letters[letterIndex].title}</h2>
                     <div className="letter-body">{content.letters[letterIndex].body}</div>
                     <p className="signature">With love,<br />{content.sender}</p>
-                  </div>
+                  </div>}
                 </div>
               </div>
               <nav className="letter-deck-nav" aria-label="Browse letters">
-                <button type="button" onClick={() => setLetterIndex((index) => index - 1)} disabled={letterIndex === 0}>Previous</button>
-                <label className="letter-picker"><span className="letter-picker-label">Choose a letter</span><select aria-label="Choose a letter" value={letterIndex} onChange={event => setLetterIndex(Number(event.target.value))}>{content.letters.map((letter, index) => <option key={index} value={index}>{index + 1}. {letter.title}</option>)}</select></label>
-                <button type="button" onClick={() => setLetterIndex((index) => index + 1)} disabled={letterIndex === content.letters.length - 1}>Next letter</button>
+                {choosingLetter ? <p className="letter-stack-hint">{content.letters.length} letters, always here for you</p> : <>
+                  <button type="button" onClick={() => setLetterIndex((index) => index - 1)} disabled={letterIndex === 0}>Previous</button>
+                  <button className="letter-stack-return" type="button" onClick={() => setChoosingLetter(true)}>Letter stack</button>
+                  <button type="button" onClick={() => setLetterIndex((index) => index + 1)} disabled={letterIndex === content.letters.length - 1}>Next letter</button>
+                </>}
               </nav>
             </motion.article>
           </motion.div>
