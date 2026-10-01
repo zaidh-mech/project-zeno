@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useCompanionEnabled } from "@/lib/site-settings";
 import { useEffect, useRef, useState } from "react";
 import styles from "./page.module.css";
 
@@ -59,6 +60,11 @@ function expressionFromSpeech(transcript: string): Expression | null {
 }
 
 export default function ControlPage() {
+  const enabled = useCompanionEnabled();
+  return enabled ? <ControlPanel /> : <main className="universe"><div className="portal"><h1>Page unavailable</h1><Link href="/">Return home</Link></div></main>;
+}
+
+function ControlPanel() {
   const [supported, setSupported] = useState(true);
   const [connected, setConnected] = useState(false);
   const [deviceName, setDeviceName] = useState("Aura");

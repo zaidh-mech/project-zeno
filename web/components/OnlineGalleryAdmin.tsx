@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import type { FormEvent } from "react";
-import { openGithubAlbum, publishGithubAlbum } from "@/lib/gallery-github";
+import { openGithubAlbum, publishGithubAlbum, readGithubSettings, publishGithubSettings } from "@/lib/gallery-github";
 import type { GalleryMemory } from "@/lib/gallery-reader";
 import styles from "./MemoryGallery.module.css";
 import online from "./OnlineGalleryAdmin.module.css";
@@ -13,6 +13,8 @@ export default function OnlineGalleryAdmin() {
   const [tokenInput, setTokenInput] = useState("");
   const [pinInput, setPinInput] = useState("");
   const [signedIn, setSignedIn] = useState(false);
+  const [companionEnabled, setCompanionEnabled] = useState(false);
+  const settingsSha = useRef("");
   const [busy, setBusy] = useState(false);
   const [dirty, setDirty] = useState(false);
   const [status, setStatus] = useState("");
@@ -37,6 +39,8 @@ export default function OnlineGalleryAdmin() {
     setBusy(true); setStatus("");
     try {
       const album = await openGithubAlbum(tokenInput.trim(), pinInput);
+      const settings = await readGithubSettings(tokenInput.trim());
+      settingsSha.current = settings.sha; setCompanionEnabled(settings.enabled);
       token.current = tokenInput.trim(); pin.current = pinInput; sha.current = album.sha;
       setMemories(album.memories); setTokenInput(""); setPinInput(""); setSignedIn(true);
       setStatus("Signed in. Changes you publish here will update the visitor site automatically.");
@@ -53,6 +57,18 @@ export default function OnlineGalleryAdmin() {
       setStatus(`${message} GitHub Pages is updating the visitor site now; it usually takes about a minute.`);
       return true;
     } catch (error) { setStatus(error instanceof Error ? error.message : "Couldn’t publish. Try again."); return false; }
+    finally { setBusy(false); }
+  }
+
+  async function toggleCompanion() {
+    if (busy) return;
+    setBusy(true); setStatus("Publishing the visitor setting…");
+    try {
+      const next = !companionEnabled;
+      settingsSha.current = await publishGithubSettings(token.current, settingsSha.current, next);
+      setCompanionEnabled(next);
+      setStatus(`${next ? "Companion enabled" : "Companion hidden"}. The visitor site will update after GitHub Pages finishes deploying (usually about a minute).`);
+    } catch (error) { setStatus(error instanceof Error ? error.message : "Could not publish the setting."); }
     finally { setBusy(false); }
   }
 
@@ -101,6 +117,10 @@ export default function OnlineGalleryAdmin() {
         <button className={styles.primary} disabled={busy || pinInput.length !== 4 || !tokenInput.trim()}>{busy ? "Checking access…" : "Open admin studio"}</button>
       </form>
     </div> : <>
+      <div className={online.setting}>
+        <div><h2>Keep the surprise safe.</h2><p>Reveal the companion only when you are ready. When hidden, its artwork, links and controls disappear from the visitor site.</p><small>Changes publish automatically. Allow about a minute for deployment.</small></div>
+        <button type="button" role="switch" aria-checked={companionEnabled} aria-label="Show companion on visitor site" disabled={busy} onClick={() => { void toggleCompanion(); }}>{companionEnabled ? "On — visible" : "Off — hidden"}</button>
+      </div>
       <div className={styles.toolbar}><p>Only your GitHub account can publish this album.</p><div className={styles.actions}>
         <button disabled={busy} onClick={() => { void publish([...memories, { id: crypto.randomUUID(), photo: "", caption: "", story: "" }], "Memory added."); }}>Add a memory</button>
         <button disabled={busy || !dirty} onClick={() => { void publish(memories, "Writing saved."); }}>Save writing</button>

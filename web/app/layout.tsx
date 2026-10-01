@@ -2,8 +2,8 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "A little birthday universe | Aura",
-  description: "A birthday note from Aura, waiting just for you.",
+  title: "A little birthday universe",
+  description: "Letters, memories and little moments, just for you.",
 };
 
 export const viewport: Viewport = {

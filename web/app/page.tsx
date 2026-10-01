@@ -6,11 +6,12 @@ import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import { content } from "@/lib/content";
 import MemoryGallery from "@/components/MemoryGallery";
-import CompanionPet from "@/components/CompanionPet";
+import { useCompanionEnabled } from "@/lib/site-settings";
 import TouchSky from "@/components/TouchSky";
 import PlayCorner from "@/components/PlayCorner";
 
 const AuraScene = dynamic(() => import("@/components/AuraScene"), { ssr: false });
+const CompanionPet = dynamic(() => import("@/components/CompanionPet"), { ssr: false });
 
 const stars = Array.from({ length: 28 }, (_, i) => ({
   left: `${(i * 47 + 13) % 100}%`,
@@ -31,6 +32,7 @@ function FallbackBuddy() {
 }
 
 export default function Home() {
+  const companionEnabled = useCompanionEnabled();
   const [open, setOpen] = useState(false);
   const [letterIndex, setLetterIndex] = useState(0);
   const [choosingLetter, setChoosingLetter] = useState(true);
@@ -43,6 +45,7 @@ export default function Home() {
   const swipeStart = useRef<{ x: number; y: number } | null>(null);
 
   useEffect(() => {
+    if (!companionEnabled) return;
     try {
       const canvas = document.createElement("canvas");
       setCanUseWebGL(Boolean(canvas.getContext("webgl2") || canvas.getContext("webgl")));
@@ -50,7 +53,7 @@ export default function Home() {
       setCanUseWebGL(false);
     }
     setVisualReady(true);
-  }, []);
+  }, [companionEnabled]);
 
   useEffect(() => {
     if (!open) return;
@@ -94,18 +97,18 @@ export default function Home() {
       <div className="portal">
         <div className="first-screen">
         <header className="topline">
-          <span className="brand"><span className="brand-mark" aria-hidden="true" /> Aura</span>
-          <Link className="topline-note" href="/control">Connect your desk buddy →</Link>
+          <span className="brand">{companionEnabled ? "Aura" : "Just for you"}</span>
+          {companionEnabled && <Link className="topline-note" href="/control">Connect your desk buddy →</Link>}
         </header>
         <section className="hero" aria-labelledby="birthday-heading">
           <div className="hero-copy">
             <h1 id="birthday-heading">Happy birthday<span>{content.petName}.</span></h1>
             <p className="intro">I kept a few letters here for you. Read them whenever you&apos;re ready.</p>
           </div>
-          <div className="scene-wrap" role="img" aria-label="Aura, a floating little companion with a heart">
+          {companionEnabled && <><div className="scene-wrap" role="img" aria-label="Aura, a floating little companion with a heart">
             {show3D ? <AuraScene /> : <FallbackBuddy />}
           </div>
-          <CompanionPet />
+          <CompanionPet /></>}
           <div className="invitation">
             <button className="open-button" ref={openRef} type="button" onClick={() => { setLetterIndex(0); setChoosingLetter(true); setOpen(true); }} aria-haspopup="dialog">
               Open your letters <span aria-hidden="true">♡</span>

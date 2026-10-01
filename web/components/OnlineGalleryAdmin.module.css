@@ -2,3 +2,9 @@
 .storyLabel { display: block; margin: 10px 4px 0; color: #654f67; font: 12px/1.5 Arial, Helvetica, sans-serif; }
 .storyLabel textarea { display: block; width: 100%; min-height: 100px; margin-top: 6px; padding: 9px; resize: vertical; border: 1px solid #d8cbd7; border-radius: 5px; background: #fffdfb; color: #493750; font: 15px/1.55 Georgia, serif; }
 .storyLabel textarea:focus-visible { outline: 3px solid #b97d9f; outline-offset: 3px; }
+.setting { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 24px; text-align: left; padding: 24px; margin-bottom: 30px; border: 1px solid #80738e; border-radius: 16px; background: #242039; }
+.setting > div { flex: 1 1 260px; }
+.setting h2 { margin: 0 0 10px; font: 26px/1.2 Georgia, serif; }
+.setting p, .setting small { color: #d6cbe5; font: 14px/1.6 Arial, sans-serif; }
+.setting button { min-height: 48px; border: 1px solid #a392b5; border-radius: 28px; padding: 12px 24px; background: #3b334a; color: #f9eef7; white-space: nowrap; }
+.setting button[aria-checked=true] { background: #f5b6c6; color: #30233c; }

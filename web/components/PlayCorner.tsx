@@ -45,7 +45,7 @@ function Noughts() {
     }, 550);
     return () => clearTimeout(timer);
   }, [thinking, board, won, draw]);
-  return <><p>You are the hearts. Aura is the stars. Get three in a row.</p><p role="status">{won === "♡" ? "You won! A little victory for your day." : won ? "Aura wins this round. Rematch?" : draw ? "A perfect little tie." : thinking ? "Aura is choosing…" : "Your turn. Pick a square."}</p>
+  return <><p>You are the hearts. The computer plays stars. Get three in a row.</p><p role="status">{won === "♡" ? "You won! A little victory for your day." : won ? "The stars win this round. Rematch?" : draw ? "A perfect little tie." : thinking ? "The stars are choosing…" : "Your turn. Pick a square."}</p>
     <div className={styles.noughts}>{board.map((value, index) => <button key={index} disabled={Boolean(value || won || draw || thinking)} aria-label={`Row ${Math.floor(index / 3) + 1}, column ${index % 3 + 1}: ${value || "empty"}`} onClick={() => { const next = [...board]; next[index] = "♡"; setBoard(next); setThinking(!winner(next) && next.some(cell => !cell)); }}>{value}</button>)}</div>
     <button className={styles.restart} onClick={() => { setBoard(Array<string>(9).fill("")); setThinking(false); }}>New round</button></>;
 }
@@ -83,7 +83,7 @@ function Constellation() {
     <button className={styles.restart} onClick={start}>{phase === "idle" ? "Start the stars" : "Start a new sky"}</button></>;
 }
 
-const games = [{ name: "Find our pairs", description: "Little things belong together", component: Pairs }, { name: "Hearts & stars", description: "A friendly match with Aura", component: Noughts }, { name: "Remember the sky", description: "Follow a growing constellation", component: Constellation }];
+const games = [{ name: "Find our pairs", description: "Little things belong together", component: Pairs }, { name: "Hearts & stars", description: "A friendly hearts-and-stars match", component: Noughts }, { name: "Remember the sky", description: "Follow a growing constellation", component: Constellation }];
 export default function PlayCorner() {
   const [selected, setSelected] = useState(0);
   const Game = games[selected].component;

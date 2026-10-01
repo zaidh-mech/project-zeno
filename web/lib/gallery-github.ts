@@ -49,3 +49,19 @@ export async function publishGithubAlbum(token: string, pin: string, sha: string
   if (typeof result.content?.sha !== "string") throw new Error("GitHub saved the album but did not return its new version. Reload before editing again.");
   return result.content.sha;
 }
+
+export async function readGithubSettings(token: string): Promise<{ enabled: boolean; sha: string }> {
+  const file = await request(`${apiBase}/contents/web/public/site-settings.json?ref=main`, token);
+  const settings = JSON.parse(atob(file.content.replace(/\s/g, "")));
+  if (typeof file.sha !== "string" || typeof settings.companionEnabled !== "boolean") throw new Error("Site settings could not be read. Reload before changing them.");
+  return { enabled: settings.companionEnabled, sha: file.sha };
+}
+
+export async function publishGithubSettings(token: string, sha: string, enabled: boolean): Promise<string> {
+  const result = await request(`${apiBase}/contents/web/public/site-settings.json`, token, {
+    method: "PUT", headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ message: "Update visitor site settings", content: btoa(JSON.stringify({ companionEnabled: enabled })), sha, branch: "main" }),
+  });
+  if (typeof result.content?.sha !== "string") throw new Error("Reload the admin page to check the saved setting.");
+  return result.content.sha;
+}

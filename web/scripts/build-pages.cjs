@@ -6,6 +6,7 @@ const { loadEnvConfig } = require('@next/env');
 (async () => {
   const root = path.resolve(__dirname, '..');
   loadEnvConfig(root);
+  const settings = JSON.parse(await fs.readFile(path.join(root, 'public', 'site-settings.json'), 'utf8'));
   const repository = process.env.GITHUB_REPOSITORY?.split('/')[1] || 'project-zeno';
   const basePath = process.env.PAGES_BASE_PATH ?? (repository.endsWith('.github.io') ? '' : `/${repository}`);
   if (basePath && !/^\/[a-zA-Z0-9._-]+$/.test(basePath)) throw new Error('PAGES_BASE_PATH must be empty or a single /repository-name.');
@@ -15,7 +16,7 @@ const { loadEnvConfig } = require('@next/env');
     for (const folder of ['app', 'components', 'lib', 'public']) {
       await fs.cp(path.join(root, folder), path.join(staging, folder), {
         recursive: true,
-        filter: source => source !== path.join(root, 'app', 'api'),
+        filter: source => source !== path.join(root, 'app', 'api') && (settings.companionEnabled === true || source !== path.join(root, 'app', 'control')),
       });
     }
     for (const file of ['package.json', 'tsconfig.json', 'postcss.config.mjs', 'next-env.d.ts']) await fs.copyFile(path.join(root, file), path.join(staging, file));
