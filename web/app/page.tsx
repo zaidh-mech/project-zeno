@@ -9,6 +9,8 @@ import MemoryGallery from "@/components/MemoryGallery";
 import { useCompanionEnabled } from "@/lib/site-settings";
 import TouchSky from "@/components/TouchSky";
 import PlayCorner from "@/components/PlayCorner";
+import KeepsakeIntro from "@/components/KeepsakeIntro";
+import TogetherCards from "@/components/TogetherCards";
 
 const AuraScene = dynamic(() => import("@/components/AuraScene"), { ssr: false });
 const CompanionPet = dynamic(() => import("@/components/CompanionPet"), { ssr: false });
@@ -100,25 +102,11 @@ export default function Home() {
           <span className="brand">{companionEnabled ? "Aura" : "Just for you"}</span>
           {companionEnabled && <Link className="topline-note" href="/control">Connect your desk buddy →</Link>}
         </header>
-        <section className="hero" aria-labelledby="birthday-heading">
-          <div className="hero-copy">
-            <h1 id="birthday-heading">Happy birthday<span>{content.petName}.</span></h1>
-            <p className="intro">I kept a few letters here for you. Read them whenever you&apos;re ready.</p>
-          </div>
-          {companionEnabled && <><div className="scene-wrap" role="img" aria-label="Aura, a floating little companion with a heart">
-            {show3D ? <AuraScene /> : <FallbackBuddy />}
-          </div>
-          <CompanionPet /></>}
-          <div className="invitation">
-            <button className="open-button" ref={openRef} type="button" onClick={() => { setLetterIndex(0); setChoosingLetter(true); setOpen(true); }} aria-haspopup="dialog">
-              Open your letters <span aria-hidden="true">♡</span>
-            </button>
-            <p className="hint">A small birthday surprise, just for you</p>
-            <a className="play-link" href="#play">Stay for a little game</a>
-          </div>
-        </section>
+        <KeepsakeIntro buttonRef={openRef} onOpen={() => { setLetterIndex(0); setChoosingLetter(true); setOpen(true); }} />
+        {companionEnabled && <div className="hero"><div className="scene-wrap" role="img" aria-label="Aura, a floating little companion with a heart">{show3D ? <AuraScene /> : <FallbackBuddy />}</div><CompanionPet /></div>}
         </div>
         <MemoryGallery />
+        <TogetherCards />
         <PlayCorner />
         <footer className="footer">Made with love, from {content.sender}</footer>
       </div>

@@ -1,0 +1,40 @@
+.hero { flex: 1; width: 100%; display: grid; grid-template-columns: 1fr 1fr; align-content: center; align-items: center; gap: 24px; padding: 50px 0 28px; }
+.copy { text-align: left; position: relative; z-index: 2; }
+.dedication { color: #edc5d4; font: italic 19px/1.5 Georgia, serif; margin: 0 0 20px; }
+.copy h1 { font: 400 clamp(48px, 6.5vw, 83px)/1.02 Georgia, serif; letter-spacing: -.055em; margin: 0 0 25px; overflow-wrap: anywhere; }
+.intro { font: 16px/1.9 Arial, sans-serif; color: #d7cfe3; margin: 0 0 26px; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.actions button, .actions a { min-height: 48px; border: 1px solid #c8a6c4; border-radius: 30px; padding: 14px 20px; font: 600 14px/1.4 Arial, sans-serif; text-decoration: none; }
+.actions button { background: #f5c6d5; color: #302139; box-shadow: 0 8px 35px #db9abb25; }
+.actions a { color: #f1dbe9; background: #ffffff08; }
+.actions span { margin-left: 9px; }
+.signature { color: #bca6c7; font: italic 16px/1.5 Georgia, serif; margin-top: 24px; }
+.keepsakes { height: 435px; position: relative; isolation: isolate; min-width: 0; }
+.orbit { position: absolute; width: 95%; aspect-ratio: 1; left: 0; top: 10px; border: 1px solid #c3a1bf26; border-radius: 50%; transform: rotate(-22deg) scaleY(.9); background: radial-gradient(ellipse, #b58cad18, transparent 65%); }
+.scribble { position: absolute; right: 10px; top: 0; color: #cbb7d5; font: italic 18px/1.5 Georgia, serif; transform: rotate(5deg); }
+.envelope { position: absolute; left: 0; top: 48px; width: 58%; height: 285px; transform: rotate(-9deg); border: 0; background: transparent; padding: 0; transition: transform .3s; text-align: left; }
+.paper { display: block; position: absolute; inset: 0 10px 0; padding: 22px; background: #f7f0e8; color: #5b3e58; box-shadow: 0 12px 35px #05071944; border-radius: 3px; transition: translate .3s; }
+.paper small { font: 11px/1.4 Arial, sans-serif; color: #936578; }
+.paper strong { display: block; font: italic 27px/1.2 Georgia, serif; margin-top: 15px; }
+.inkLines { display: block; height: 30px; margin-top: 17px; background: repeating-linear-gradient(transparent 0 9px, #d5bec9 9px 10px); }
+.pocket { position: absolute; inset: 155px 0 0; background: #dbb1bf; border-radius: 3px 3px 9px 9px; box-shadow: 0 12px 28px #09071c44; border-top: 1px solid #f8dbe4; }
+.pocket::before { content: ''; position: absolute; inset: 0; background: #eac3cf; clip-path: polygon(0 0,50% 50%,100% 0,100% 100%,0 100%); }
+.pocket > span { position: absolute; bottom: 23px; left: 18px; font: italic 14px Georgia, serif; color: #694351; }
+.pocket i { position: absolute; top: 22px; left: calc(50% - 20px); display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: #ac607c; border: 3px double #dd9ab0; color: #ffdfeb; font: 25px Georgia, serif; }
+.envelope:hover, .envelope:focus-visible { transform: rotate(-5deg) translateY(-8px); z-index: 3; }
+.envelope:hover .paper, .envelope:focus-visible .paper { translate: 0 -12px; }
+.polaroid { position: absolute; right: 0; top: 130px; width: 48%; padding: 12px 12px 18px; transform: rotate(9deg); background: #fbf5ee; color: #563e53; text-align: center; text-decoration: none; box-shadow: 0 14px 40px #07071c66; transition: transform .3s; }
+.polaroid:hover, .polaroid:focus-visible { transform: rotate(4deg) translateY(-8px); }
+.tape { position: absolute; width: 72px; height: 24px; top: -10px; left: calc(50% - 36px); transform: rotate(-5deg); background: #d4bfdacc; z-index: 1; }
+.picture { position: relative; display: block; aspect-ratio: 1; overflow: hidden; }
+.picture svg { width: 100%; height: 100%; object-fit: cover; }
+.picture > span { position: absolute; left: 0; right: 0; bottom: 14px; color: #fff5ed; font: italic 25px Georgia, serif; }
+.polaroid strong { display: block; font: italic 19px/1.4 Georgia, serif; margin-top: 14px; }
+.polaroid small { display: block; font: 10px/1.5 Arial, sans-serif; margin-top: 5px; }
+.caption { position: absolute; bottom: 0; left: 12px; font: italic 14px/1.5 Georgia, serif; color: #c2afcb; }
+.trail { grid-column: 1/-1; display: flex; align-items: center; justify-content: center; gap: 20px; padding-top: 24px; }
+.trail a { color: #d0bdd8; font: 13px/1.5 Arial, sans-serif; padding: 10px 0; text-decoration: none; }
+.trail a:hover { color: #ffd4e4; text-decoration: underline; text-underline-offset: 5px; }
+.trail span { color: #b58baf; }
+@media(max-width: 760px) { .hero { grid-template-columns: 1fr; padding-top: 32px; gap: 12px; } .copy { text-align: center; } .copy h1 { font-size: clamp(44px, 10vw, 68px); } .dedication { margin-bottom: 12px; } .intro { font-size: 14px; line-height: 1.7; margin-bottom: 20px; } .actions { justify-content: center; } .signature { margin: 16px 0 0; } .keepsakes { width: min(100%, 410px); margin: 10px auto 0; height: 365px; } .envelope { height: 245px; top: 35px; } .paper { padding: 16px; } .paper strong { font-size: 23px; } .pocket { top: 125px; } .polaroid { top: 95px; } .scribble { font-size: 15px; } .trail { gap: 12px; padding-top: 10px; flex-wrap: wrap; } .trail a { font-size: 12px; } }
+@media(prefers-reduced-motion: reduce) { .envelope, .paper, .polaroid { transition: none; } }

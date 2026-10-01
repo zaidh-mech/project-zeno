@@ -128,7 +128,7 @@ export default function MemoryGallery({ admin = false }: { admin?: boolean }) {
     });
   }
 
-  return <section className={styles.gallery} aria-labelledby="gallery-heading">
+  return <section id={admin ? undefined : "album"} className={styles.gallery} aria-labelledby="gallery-heading">
     <div className={styles.heading}>
       <span className={styles.thread} aria-hidden="true">♡</span>
       <h2 id="gallery-heading" tabIndex={-1} ref={heading}>{admin ? "Keep our memories here." : "A little collection of us."}</h2>
