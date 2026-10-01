@@ -7,6 +7,8 @@ import { useEffect, useRef, useState } from "react";
 import { content } from "@/lib/content";
 import MemoryGallery from "@/components/MemoryGallery";
 import CompanionPet from "@/components/CompanionPet";
+import TouchSky from "@/components/TouchSky";
+import PlayCorner from "@/components/PlayCorner";
 
 const AuraScene = dynamic(() => import("@/components/AuraScene"), { ssr: false });
 
@@ -56,11 +58,13 @@ export default function Home() {
     closeRef.current?.focus();
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") setOpen(false);
-      if (event.key === "ArrowRight") setLetterIndex((index) => Math.min(index + 1, content.letters.length - 1));
-      if (event.key === "ArrowLeft") setLetterIndex((index) => Math.max(index - 1, 0));
+      if (!(event.target instanceof HTMLSelectElement)) {
+        if (event.key === "ArrowRight") setLetterIndex((index) => Math.min(index + 1, content.letters.length - 1));
+        if (event.key === "ArrowLeft") setLetterIndex((index) => Math.max(index - 1, 0));
+      }
       if (event.key === "Tab") {
         const dialog = document.getElementById("letter-deck");
-        const focusable = dialog?.querySelectorAll<HTMLElement>("button:not([disabled]), a[href], [tabindex]:not([tabindex='-1'])");
+        const focusable = dialog?.querySelectorAll<HTMLElement>("button:not([disabled]), select, a[href], [tabindex]:not([tabindex='-1'])");
         if (!focusable?.length) return;
         const first = focusable[0];
         const last = focusable[focusable.length - 1];
@@ -82,6 +86,7 @@ export default function Home() {
 
   return (
     <main className="universe">
+      <TouchSky />
       <div className="starfield" aria-hidden="true">
         {stars.map((star, i) => <span className="star" key={i} style={{ left: star.left, top: star.top, animationDelay: star.delay }} />)}
       </div>
@@ -105,10 +110,12 @@ export default function Home() {
               Open your letters <span aria-hidden="true">♡</span>
             </button>
             <p className="hint">A small birthday surprise, just for you</p>
+            <a className="play-link" href="#play">Stay for a little game</a>
           </div>
         </section>
         </div>
         <MemoryGallery />
+        <PlayCorner />
         <footer className="footer">Made with love, from {content.sender}</footer>
       </div>
       <AnimatePresence>
@@ -154,9 +161,7 @@ export default function Home() {
               </div>
               <nav className="letter-deck-nav" aria-label="Browse letters">
                 <button type="button" onClick={() => setLetterIndex((index) => index - 1)} disabled={letterIndex === 0}>Previous</button>
-                <div className="letter-pages" aria-label={`Letter ${letterIndex + 1} of ${content.letters.length}`}>
-                  {content.letters.map((letter, index) => <button key={`${letter.title}-${index}`} type="button" onClick={() => setLetterIndex(index)} aria-label={`Open letter ${index + 1}: ${letter.title}`} aria-current={letterIndex === index ? "page" : undefined} className={letterIndex === index ? "letter-page-current" : ""} />)}
-                </div>
+                <label className="letter-picker"><span className="letter-picker-label">Choose a letter</span><select aria-label="Choose a letter" value={letterIndex} onChange={event => setLetterIndex(Number(event.target.value))}>{content.letters.map((letter, index) => <option key={index} value={index}>{index + 1}. {letter.title}</option>)}</select></label>
                 <button type="button" onClick={() => setLetterIndex((index) => index + 1)} disabled={letterIndex === content.letters.length - 1}>Next letter</button>
               </nav>
             </motion.article>
