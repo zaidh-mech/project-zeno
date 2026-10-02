@@ -17,8 +17,8 @@
 .card div p { font: 16px/1.75 Georgia, serif; margin: 0 0 28px; }
 .card button { margin-top: auto; border-radius: 24px; border: 1px solid #915e79; padding: 12px 23px; color: #fff1f5; background: #78536e; min-height: 44px; font: 14px/1.4 Arial, sans-serif; }
 .card small { font: 11px/1.6 Arial, sans-serif; color: #805f73; margin-top: 16px; }
-.answer { width: 100%; text-align: left; margin: 0 0 24px; }
-.answer label { display: block; margin-bottom: 8px; font: 14px/1.5 Arial, sans-serif; color: #684458; }
+.answer { width: 100%; text-align: left; margin: 0 0 24px; padding-top: 18px; border-top: 1px solid #d2b8c5; }
+.answer label { display: block; margin-bottom: 10px; font: 600 15px/1.5 Arial, sans-serif; color: #684458; }
 .answer textarea { display: block; width: 100%; min-height: 120px; resize: vertical; border: 1px solid #c8a8b8; border-radius: 9px; padding: 14px; color: #573c50; background: #fffaf6; font: 16px/1.65 Georgia, serif; }
 .answer textarea::placeholder { color: #8a6c7d; }
 .answer textarea:focus-visible { outline: 3px solid #ac7897; outline-offset: 3px; }
