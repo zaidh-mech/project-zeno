@@ -1,4 +1,5 @@
 import { decryptGallery, encryptGallery, type GalleryMemory } from "./gallery-reader";
+import { decryptNicknameGallery, encryptNicknameGallery } from "./gallery-names";
 
 const repository = process.env.NEXT_PUBLIC_GITHUB_REPOSITORY || "zaidh-mech/project-zeno";
 const owner = repository.split("/")[0];
@@ -24,7 +25,7 @@ async function request(url: string, token: string, options?: RequestInit) {
   return response.json();
 }
 
-export async function openGithubAlbum(token: string, pin: string): Promise<{ memories: GalleryMemory[]; sha: string }> {
+async function loadGithubAlbum(token: string) {
   const person = await request("https://api.github.com/user", token);
   if (typeof person.login !== "string" || person.login.toLowerCase() !== owner.toLowerCase()) throw new Error("Only the repository owner can open this admin studio.");
   const repo = await request(apiBase, token);
@@ -36,11 +37,33 @@ export async function openGithubAlbum(token: string, pin: string): Promise<{ mem
   const payload = file.encoding === "base64" && typeof file.content === "string" && file.content
     ? JSON.parse(atob(file.content.replace(/\s/g, "")))
     : await request(url, token, { headers: { Accept: "application/vnd.github.raw+json" } });
-  return { memories: await decryptGallery(payload, pin), sha: file.sha };
+  return { payload, sha: file.sha as string };
+}
+
+export async function openGithubAlbum(token: string, pin: string): Promise<{ memories: GalleryMemory[]; sha: string }> {
+  const { payload, sha } = await loadGithubAlbum(token);
+  return { memories: await decryptGallery(payload, pin), sha };
+}
+
+export async function openGithubNicknameAlbum(token: string, names: string[], legacyPin: string) {
+  const { payload, sha } = await loadGithubAlbum(token);
+  if (payload.version === 1) {
+    if (!/^\d{4}$/.test(legacyPin)) throw new Error("This album still uses the old PIN. Enter it in the one-time setup field to keep your existing photos.");
+    return { memories: await decryptGallery(payload, legacyPin), names: [] as string[], sha };
+  }
+  return { ...await decryptNicknameGallery(payload, names), sha };
+}
+
+export async function publishGithubNicknameAlbum(token: string, names: string[], sha: string, memories: GalleryMemory[]): Promise<string> {
+  return publishPayload(token, sha, await encryptNicknameGallery(memories, names));
 }
 
 export async function publishGithubAlbum(token: string, pin: string, sha: string, memories: GalleryMemory[]): Promise<string> {
   const payload = await encryptGallery(memories, pin);
+  return publishPayload(token, sha, payload);
+}
+
+async function publishPayload(token: string, sha: string, payload: string): Promise<string> {
   const result = await request(`${apiBase}/contents/${filePath}`, token, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },

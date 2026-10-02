@@ -1,5 +1,6 @@
 export type GalleryMemory = { id: string; photo: string; caption: string; story: string };
 export const isStaticGallery = process.env.NEXT_PUBLIC_GALLERY_STATIC === "true";
+import { decryptNicknameGallery } from "./gallery-names";
 
 const bytes = (value: string) => Uint8Array.from(atob(value), character => character.charCodeAt(0));
 const base64 = (value: Uint8Array) => {
@@ -35,9 +36,11 @@ export async function encryptGallery(memories: GalleryMemory[], pin: string): Pr
   return result;
 }
 
-export async function readPublishedGallery(pin: string): Promise<GalleryMemory[]> {
+export async function readPublishedGallery(pin: string | string[]): Promise<GalleryMemory[]> {
   const base = process.env.NEXT_PUBLIC_BASE_PATH || "";
   const response = await fetch(`${base}/gallery.enc.json`, { cache: "no-store" });
   if (!response.ok) throw new Error("The album hasn’t been published yet. Please come back soon.");
-  return (await decryptGallery(await response.json(), pin)).filter(memory => memory.photo);
+  const payload = await response.json();
+  const memories = Array.isArray(pin) ? (await decryptNicknameGallery(payload, pin)).memories : await decryptGallery(payload, pin);
+  return memories.filter(memory => memory.photo);
 }

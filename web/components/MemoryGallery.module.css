@@ -18,6 +18,12 @@
 .gallery input:focus-visible, .gallery textarea:focus-visible, .gallery button:focus-visible, .photo:focus-within { outline: 3px solid #b97d9f; outline-offset: 4px; }
 .error { color: #ffc4d4; min-height: 24px; margin: 12px 0; }
 .pinForm .adminPassword { width: 100%; font-size: 16px; letter-spacing: normal; padding: 14px; text-align: left; }
+.nameAnswers { width: 100%; padding: 0; margin: 0; border: 0; text-align: left; }
+.nameAnswers legend { color: #f4d7e4; font: 22px/1.4 Georgia, serif; margin-bottom: 10px; }
+.nameAnswers p { color: #c7bddc; font: 13px/1.6 Arial, sans-serif; margin: 0 0 18px; }
+.nameAnswers label { display: block; margin-top: 12px; }
+.nameAnswers label > span { font: 12px/1.4 Arial, sans-serif; }
+.pinForm .nameAnswers input { width: 100%; margin-top: 5px; padding: 12px 14px; text-align: left; font: 16px/1.4 Arial, sans-serif; letter-spacing: normal; min-height: 44px; }
 .actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
 .toolbar { flex-wrap: wrap; }
 .empty { padding: 55px 18px; border: 1px dashed #80738e; border-radius: 12px; margin-top: 25px; color: #d6cbe5; }
