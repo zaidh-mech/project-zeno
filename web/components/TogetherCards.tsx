@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./TogetherCards.module.css";
 
 const decks = [
@@ -33,10 +33,35 @@ const decks = [
 export default function TogetherCards() {
   const [deck, setDeck] = useState(0);
   const [card, setCard] = useState<number | null>(null);
+  const [answers, setAnswers] = useState<Record<string, string>>({});
+  const [ready, setReady] = useState(false);
+  const [saved, setSaved] = useState(true);
   const current = decks[deck];
+  const answerKey = card === null ? "" : `${current.name}:${current.cards[card][0]}`;
+  useEffect(() => {
+    try {
+      const stored: unknown = JSON.parse(localStorage.getItem("our-moments-answers-v1") || "{}");
+      if (stored && typeof stored === "object" && !Array.isArray(stored)) {
+        setAnswers(Object.fromEntries(Object.entries(stored).filter(([, value]) => typeof value === "string")));
+      }
+    } catch { setSaved(false); }
+    setReady(true);
+  }, []);
+  function answer(value: string) {
+    const next = { ...answers, [answerKey]: value };
+    setAnswers(next);
+    try { localStorage.setItem("our-moments-answers-v1", JSON.stringify(next)); setSaved(true); }
+    catch { setSaved(false); }
+  }
   function draw() { setCard(previous => previous === null ? Math.floor(Math.random() * current.cards.length) : (previous + 1 + Math.floor(Math.random() * (current.cards.length - 1))) % current.cards.length); }
   return <section className={styles.section} id="together" aria-labelledby="together-title">
     <div className={styles.copy}><p className={styles.note}>For all the moments still to come</p><h2 id="together-title">Let’s make<br />another memory.</h2><p>A little date. A question we haven’t asked.<br />A reason to put another photo in our album.</p><div className={styles.choices} role="group" aria-label="Choose a kind of moment">{decks.map((item, index) => <button key={item.name} aria-pressed={index === deck} onClick={() => { setDeck(index); setCard(null); }}><span aria-hidden="true">{item.mark}</span>{item.name}</button>)}</div><a href="#album">Revisit a memory instead</a></div>
-    <div className={styles.stack}><article className={styles.card}><span className={styles.mark} aria-hidden="true">{current.mark}</span><p className={styles.category}>{current.name}</p><div aria-live="polite" aria-atomic="true"><h3>{card === null ? "A moment, just for us." : current.cards[card][0]}</h3><p>{card === null ? current.intro : current.cards[card][1]}</p></div><button onClick={draw}>{card === null ? "Draw a card" : "Try another card"}</button><small>Do it together, or save the idea for your next call.</small></article></div>
+    <div className={styles.stack}><article className={styles.card}><span className={styles.mark} aria-hidden="true">{current.mark}</span><p className={styles.category}>{current.name}</p><div aria-live="polite" aria-atomic="true"><h3>{card === null ? "A moment, just for us." : current.cards[card][0]}</h3><p>{card === null ? current.intro : current.cards[card][1]}</p></div>
+      {card !== null && <div className={styles.answer}>
+        <label htmlFor="moment-answer">Your answer</label>
+        <textarea id="moment-answer" key={answerKey} rows={4} disabled={!ready} value={answers[answerKey] || ""} onChange={event => answer(event.target.value)} placeholder={deck === 0 ? "Our plan, our favorite part, or what we would try…" : deck === 1 ? "Write what comes to your heart…" : "The story, the title, or the moment we want to keep…"} aria-describedby="answer-save-status" />
+        <p id="answer-save-status" className={styles.saveStatus} role="status">{!ready ? "Loading your answer…" : saved ? "Answers save automatically on this device." : "Your answer is here for this visit. This browser could not save it for later."}</p>
+      </div>}
+      <button onClick={draw}>{card === null ? "Draw a card" : "Try another card"}</button><small>Do it together, or save the idea for your next call.</small></article></div>
   </section>;
 }
