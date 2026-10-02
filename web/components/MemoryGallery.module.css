@@ -24,6 +24,26 @@
 .nameAnswers label { display: block; margin-top: 12px; }
 .nameAnswers label > span { font: 12px/1.4 Arial, sans-serif; }
 .pinForm .nameAnswers input { width: 100%; margin-top: 5px; padding: 12px 14px; text-align: left; font: 16px/1.4 Arial, sans-serif; letter-spacing: normal; min-height: 44px; }
+.gallery:has(.nameAnswers) { padding: clamp(30px, 5vh, 56px) 0 44px; scroll-snap-stop: normal; }
+.gallery:has(.nameAnswers) .heading { margin-bottom: 24px; }
+.gallery:has(.nameAnswers) .heading h2 { font-size: clamp(2.2rem, 4.5vw, 3.5rem); }
+.gallery:has(.nameAnswers) .locked { gap: clamp(32px, 6vw, 72px); padding: 12px 20px 0; }
+.gallery:has(.nameAnswers) .pinForm { width: min(100%, 440px); max-width: 440px; min-width: 0; }
+.nameAnswers { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 16px; }
+.nameAnswers legend, .nameAnswers > p, .nameAnswers label:last-child { grid-column: 1 / -1; }
+.nameAnswers legend { width: 100%; }
+.nameAnswers > p { margin-bottom: 6px; }
+.gallery:has(.nameAnswers) .error:empty { min-height: 0; margin: 16px 0 0; }
+.gallery:has(.nameAnswers) .primary { margin-top: 16px; min-height: 48px; }
+@media (max-width: 600px) {
+  .gallery:has(.nameAnswers) .locked { flex-direction: column; gap: 22px; padding: 8px 0 0; }
+  .gallery:has(.nameAnswers) .stack { width: 95px; height: 115px; }
+  .gallery:has(.nameAnswers) .stack span { border-width: 6px; border-bottom-width: 24px; }
+  .gallery:has(.nameAnswers) .stack span:last-child { padding-bottom: 8px; font-size: 15px; }
+  .gallery:has(.nameAnswers) .pinForm h3 { font-size: 24px; }
+  .nameAnswers legend { font-size: 20px; }
+}
+@media (max-width: 380px) { .nameAnswers { grid-template-columns: 1fr; } }
 .actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
 .toolbar { flex-wrap: wrap; }
 .empty { padding: 55px 18px; border: 1px dashed #80738e; border-radius: 12px; margin-top: 25px; color: #d6cbe5; }
