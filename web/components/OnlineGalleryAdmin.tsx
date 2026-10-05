@@ -11,7 +11,14 @@ const photoTypes = ["image/jpeg", "image/png", "image/webp", "image/gif"];
 
 export default function OnlineGalleryAdmin() {
   const [tokenInput, setTokenInput] = useState("");
-  useEffect(() => { setTokenInput(localStorage.getItem("github-token") || ""); }, []);
+  const [hasSavedToken, setHasSavedToken] = useState(false);
+  useEffect(() => {
+    const saved = localStorage.getItem("github-token");
+    if (saved) {
+      setTokenInput(saved);
+      setHasSavedToken(true);
+    }
+  }, []);
   const [pinInput, setPinInput] = useState("");
   const [signedIn, setSignedIn] = useState(false);
   const [companionEnabled, setCompanionEnabled] = useState(false);
@@ -112,11 +119,21 @@ export default function OnlineGalleryAdmin() {
       <div className={styles.stack} aria-hidden="true"><span /><span /><span>just us ♡</span></div>
       <form onSubmit={signIn} className={styles.pinForm}>
         <h2>Your private album studio.</h2>
-        <label htmlFor="github-token">GitHub access token</label>
-        <input className={styles.adminPassword} id="github-token" type="password" autoComplete="off" required value={tokenInput} onChange={event => setTokenInput(event.target.value)} placeholder="Paste your GitHub token" />
+        {!hasSavedToken ? (
+          <>
+            <label htmlFor="github-token">GitHub access token</label>
+            <input className={styles.adminPassword} id="github-token" type="password" autoComplete="off" required value={tokenInput} onChange={event => setTokenInput(event.target.value)} placeholder="Paste your GitHub token" />
+            <p className={online.help}>Use a fine-grained token for <strong>project-zeno</strong> with <strong>Contents: read and write</strong>. It will be saved in your browser.</p>
+          </>
+        ) : (
+          <details className={online.legacy}>
+            <summary>Update saved GitHub token</summary>
+            <label htmlFor="github-token">GitHub access token</label>
+            <input className={styles.adminPassword} id="github-token" type="password" autoComplete="off" required value={tokenInput} onChange={event => setTokenInput(event.target.value)} placeholder="Paste your GitHub token" />
+          </details>
+        )}
         <label htmlFor="admin-pin">Admin PIN</label>
         <input className={styles.adminPassword} id="admin-pin" type="password" inputMode="numeric" autoComplete="off" pattern="[0-9]{4}" maxLength={4} required value={pinInput} onChange={event => setPinInput(event.target.value.replace(/\D/g, ""))} placeholder="Current PIN" />
-        <p className={online.help}>Use a fine-grained token for <strong>project-zeno</strong> with <strong>Contents: read and write</strong>. It will be saved in your browser.</p>
         <p role="status" className={styles.error}>{status}</p>
         <button className={styles.primary} disabled={busy || !tokenInput.trim() || pinInput.length !== 4}>{busy ? "Checking access…" : "Open admin studio"}</button>
       </form>
