@@ -87,7 +87,7 @@ const games = [{ name: "Find our pairs", description: "Little things belong toge
 export default function PlayCorner() {
   const [selected, setSelected] = useState(0);
   const Game = games[selected].component;
-  return <section id="play" className={styles.section} aria-labelledby="play-heading"><div className={styles.heading}><span aria-hidden="true">✧</span><h2 id="play-heading">Stay a little. Play a little.</h2><p>Three small ways to spend a happy moment here.</p></div>
+  return <section className={styles.section} aria-labelledby="play-heading"><div className={styles.heading}><span aria-hidden="true">✧</span><h2 id="play-heading">Stay a little. Play a little.</h2><p>Three small ways to spend a happy moment here.</p></div>
     <div className={styles.layout}><nav className={styles.choices} aria-label="Choose a game">{games.map((game, index) => <button key={game.name} aria-pressed={selected === index} onClick={() => setSelected(index)}><strong>{game.name}</strong><span>{game.description}</span></button>)}</nav>
     <div className={styles.game}><h3>{games[selected].name}</h3><Game key={selected} /></div></div></section>;
 }
