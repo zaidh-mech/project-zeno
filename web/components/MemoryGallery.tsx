@@ -138,10 +138,10 @@ export default function MemoryGallery({ admin = false }: { admin?: boolean }) {
       <div className={styles.stack} aria-hidden="true"><span /><span /><span>just us ♡</span></div>
       <form onSubmit={unlock} className={styles.pinForm}>
         <h3>{admin ? "Your album studio." : "Our memories live here."}</h3>
-        <label htmlFor="gallery-passcode">{admin ? "Sign in with your private admin password" : "Enter our four-digit PIN to open the album"}</label>
-        <input ref={passcodeInput} className={admin ? styles.adminPassword : undefined} id="gallery-passcode" type="password" inputMode={admin ? "text" : "numeric"} autoComplete={admin ? "current-password" : "off"} pattern={admin ? undefined : "[0-9]{4}"} maxLength={admin ? 200 : 4} minLength={admin ? 12 : 4} required value={passcode} onChange={e => setPasscode(admin ? e.target.value : e.target.value.replace(/\D/g, ""))} aria-describedby="pin-error" placeholder={admin ? "Admin password" : "••••"} />
+        <label htmlFor="gallery-passcode">{admin ? "Sign in with your admin PIN" : "Enter our four-digit PIN to open the album"}</label>
+        <input ref={passcodeInput} className={admin ? styles.adminPassword : undefined} id="gallery-passcode" type="password" inputMode="numeric" autoComplete={admin ? "current-password" : "off"} pattern="[0-9]{4}" maxLength={4} minLength={4} required value={passcode} onChange={e => setPasscode(e.target.value.replace(/\D/g, ""))} aria-describedby="pin-error" placeholder={admin ? "Admin PIN" : "••••"} />
         <p id="pin-error" role="alert" className={styles.error}>{error}</p>
-        <button className={styles.primary} disabled={busy || (admin ? passcode.length < 12 : passcode.length !== 4)}>{busy ? "Opening…" : admin ? "Sign in to edit" : "Open our album"}</button>
+        <button className={styles.primary} disabled={busy || passcode.length !== 4}>{busy ? "Opening…" : admin ? "Sign in to edit" : "Open our album"}</button>
       </form>
     </div> : <>
       <div className={styles.toolbar}><p>{admin ? "Add a photo. Leave a little love underneath." : "Take your time. There’s a story in every photo."}</p><div className={styles.actions}>
