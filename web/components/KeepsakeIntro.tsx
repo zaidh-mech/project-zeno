@@ -13,7 +13,11 @@ interface KeepsakeIntroProps {
 export default function KeepsakeIntro({ onOpen, buttonRef, isOpen = false }: KeepsakeIntroProps) {
   const [unsealing, setUnsealing] = useState(false);
   const keepsakesRef = useRef<HTMLDivElement>(null);
-  const [tilt, setTilt] = useState({ x: 0, y: 0 });
+
+  // Smooth lerp pointer tracking without React state re-renders
+  const targetTilt = useRef({ x: 0, y: 0 });
+  const currentTilt = useRef({ x: 0, y: 0 });
+  const rafId = useRef<number | null>(null);
 
   // Reset unsealing state when letter deck closes
   useEffect(() => {
@@ -22,21 +26,54 @@ export default function KeepsakeIntro({ onOpen, buttonRef, isOpen = false }: Kee
     }
   }, [isOpen]);
 
+  const updateTilt = () => {
+    const dx = targetTilt.current.x - currentTilt.current.x;
+    const dy = targetTilt.current.y - currentTilt.current.y;
+
+    currentTilt.current.x += dx * 0.08;
+    currentTilt.current.y += dy * 0.08;
+
+    if (keepsakesRef.current) {
+      keepsakesRef.current.style.setProperty("--tilt-x", currentTilt.current.x.toFixed(4));
+      keepsakesRef.current.style.setProperty("--tilt-y", currentTilt.current.y.toFixed(4));
+    }
+
+    if (Math.abs(dx) > 0.0005 || Math.abs(dy) > 0.0005) {
+      rafId.current = requestAnimationFrame(updateTilt);
+    } else {
+      rafId.current = null;
+    }
+  };
+
   const handlePointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const rect = keepsakesRef.current?.getBoundingClientRect();
     if (!rect) return;
     const x = (e.clientX - rect.left) / rect.width - 0.5;
     const y = (e.clientY - rect.top) / rect.height - 0.5;
-    setTilt({
+    targetTilt.current = {
       x: Math.max(-1, Math.min(1, x * 2)),
       y: Math.max(-1, Math.min(1, y * 2)),
-    });
+    };
+    if (rafId.current === null) {
+      rafId.current = requestAnimationFrame(updateTilt);
+    }
   };
 
   const handlePointerLeave = () => {
-    setTilt({ x: 0, y: 0 });
+    targetTilt.current = { x: 0, y: 0 };
+    if (rafId.current === null) {
+      rafId.current = requestAnimationFrame(updateTilt);
+    }
   };
+
+  useEffect(() => {
+    return () => {
+      if (rafId.current !== null) {
+        cancelAnimationFrame(rafId.current);
+      }
+    };
+  }, []);
 
   const triggerOpen = () => {
     if (unsealing || isOpen) return;
@@ -97,76 +134,76 @@ export default function KeepsakeIntro({ onOpen, buttonRef, isOpen = false }: Kee
         className={styles.keepsakes}
         onPointerMove={handlePointerMove}
         onPointerLeave={handlePointerLeave}
-        style={{
-          "--tilt-x": tilt.x,
-          "--tilt-y": tilt.y,
-        } as React.CSSProperties}
       >
         <span className={styles.orbit} aria-hidden="true" />
         <span className={styles.scribble} aria-hidden="true">
           all my favorite things<br />begin with you.
         </span>
 
-        {/* 3D Envelope */}
-        <button
-          className={`${styles.envelope} ${unsealing || isOpen ? styles.unsealed : ""}`}
-          onClick={triggerOpen}
-          aria-label={`Open your collection of ${content.letters.length} letters`}
-          aria-haspopup="dialog"
-          aria-expanded={isOpen || unsealing}
-          type="button"
-        >
-          <div className={styles.envelopeBack} aria-hidden="true" />
+        {/* Ambient floating levitation wrapper for envelope */}
+        <div className={`${styles.envelopeFloatWrap} ${unsealing || isOpen ? styles.unsealingWrap : ""}`}>
+          <button
+            className={`${styles.envelope} ${unsealing || isOpen ? styles.unsealed : ""}`}
+            onClick={triggerOpen}
+            aria-label={`Open your collection of ${content.letters.length} letters`}
+            aria-haspopup="dialog"
+            aria-expanded={isOpen || unsealing}
+            type="button"
+          >
+            <div className={styles.envelopeBack} aria-hidden="true" />
 
-          {/* Letter Paper inside */}
-          <span className={styles.paper}>
-            <span className={styles.paperHeader}>
-              <small>{content.letters.length} letters for you</small>
-              <span className={styles.paperMiniSeal} aria-hidden="true">✦</span>
+            {/* Letter Paper inside */}
+            <span className={styles.paper}>
+              <span className={styles.paperHeader}>
+                <small>{content.letters.length} letters for you</small>
+                <span className={styles.paperMiniSeal} aria-hidden="true">✦</span>
+              </span>
+              <strong>
+                For the days<br />
+                you need a<br />
+                little love.
+              </strong>
+              <span className={styles.inkLines} aria-hidden="true" />
             </span>
-            <strong>
-              For the days<br />
-              you need a<br />
-              little love.
-            </strong>
-            <span className={styles.inkLines} aria-hidden="true" />
-          </span>
 
-          {/* Front Pocket */}
-          <div className={styles.pocket} aria-hidden="true">
-            <span className={styles.pocketTag}>To: my favorite person</span>
-          </div>
-
-          {/* Triangular Top Flap with Embossed Wax Seal */}
-          <div className={styles.flap} aria-hidden="true">
-            <span className={styles.flapFoil} />
-            <div className={styles.waxSeal}>
-              <span className={styles.waxHeart}>♡</span>
+            {/* Front Pocket */}
+            <div className={styles.pocket} aria-hidden="true">
+              <span className={styles.pocketTag}>To: my favorite person</span>
             </div>
-          </div>
-        </button>
 
-        {/* Polaroid Memory */}
-        <a className={styles.polaroid} href="#album" aria-label="Open our private memory album">
-          <span className={styles.tape} aria-hidden="true" />
-          <span className={styles.picture} aria-hidden="true">
-            <svg viewBox="0 0 200 220" role="presentation">
-              <rect width="200" height="220" fill="#57506e" />
-              <circle cx="140" cy="55" r="27" fill="#f0ddc9" />
-              <path d="M0 158 Q45 103 100 154 T220 137 V220 H0Z" fill="#898098" />
-              <path d="M0 185 Q55 136 122 179 T220 169 V220 H0Z" fill="#b8a4b3" />
-              <path d="M0 209 Q75 168 140 211 T220 196 V220 H0Z" fill="#d8bbc6" />
-              <g fill="#f5e4df">
-                <circle cx="35" cy="45" r="2" />
-                <circle cx="75" cy="79" r="1.5" />
-                <circle cx="167" cy="111" r="2" />
-              </g>
-            </svg>
-            <span>you & me</span>
-          </span>
-          <strong>Our little collection.</strong>
-          <small>Memories, safely tucked away ♡</small>
-        </a>
+            {/* Triangular Top Flap with Embossed Wax Seal */}
+            <div className={styles.flap} aria-hidden="true">
+              <span className={styles.flapFoil} />
+              <div className={styles.waxSeal}>
+                <span className={styles.waxHeart}>♡</span>
+              </div>
+            </div>
+          </button>
+        </div>
+
+        {/* Ambient floating levitation wrapper for polaroid */}
+        <div className={styles.polaroidFloatWrap}>
+          <a className={styles.polaroid} href="#album" aria-label="Open our private memory album">
+            <span className={styles.tape} aria-hidden="true" />
+            <span className={styles.picture} aria-hidden="true">
+              <svg viewBox="0 0 200 220" role="presentation">
+                <rect width="200" height="220" fill="#57506e" />
+                <circle cx="140" cy="55" r="27" fill="#f0ddc9" />
+                <path d="M0 158 Q45 103 100 154 T220 137 V220 H0Z" fill="#898098" />
+                <path d="M0 185 Q55 136 122 179 T220 169 V220 H0Z" fill="#b8a4b3" />
+                <path d="M0 209 Q75 168 140 211 T220 196 V220 H0Z" fill="#d8bbc6" />
+                <g fill="#f5e4df">
+                  <circle cx="35" cy="45" r="2" />
+                  <circle cx="75" cy="79" r="1.5" />
+                  <circle cx="167" cy="111" r="2" />
+                </g>
+              </svg>
+              <span>you & me</span>
+            </span>
+            <strong>Our little collection.</strong>
+            <small>Memories, safely tucked away ♡</small>
+          </a>
+        </div>
 
         <span className={styles.caption}>A letter to open. A moment to keep.</span>
       </div>
