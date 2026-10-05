@@ -119,6 +119,7 @@ bool initAudio() {
   rx.use_apll = false;
   if (i2s_driver_install(I2S_NUM_0, &rx, 0, nullptr) != ESP_OK) return false;
   i2s_pin_config_t rxPins{};
+  rxPins.mck_io_num = I2S_PIN_NO_CHANGE;
   rxPins.bck_io_num = PIN_MIC_BCLK;
   rxPins.ws_io_num = PIN_MIC_WS;
   rxPins.data_out_num = I2S_PIN_NO_CHANGE;
@@ -138,6 +139,7 @@ bool initAudio() {
   tx.use_apll = false;
   if (i2s_driver_install(I2S_NUM_1, &tx, 0, nullptr) != ESP_OK) return false;
   i2s_pin_config_t txPins{};
+  txPins.mck_io_num = I2S_PIN_NO_CHANGE;
   txPins.bck_io_num = PIN_SPK_BCLK;
   txPins.ws_io_num = PIN_SPK_LRC;
   txPins.data_out_num = PIN_SPK_DIN;
