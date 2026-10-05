@@ -141,9 +141,52 @@ export default function MemoryGallery({ admin = false }: { admin?: boolean }) {
       <div className={styles.stack} aria-hidden="true"><span /><span /><span>just us ♡</span></div>
       <form onSubmit={unlock} className={styles.pinForm}>
         <h3>{admin ? "Your album studio." : "Our memories live here."}</h3>
-        {isStaticGallery ? <fieldset className={styles.nameAnswers}><legend>What are five cute names I love to call you?</legend><p>Five different names, in any order. You know them by heart ♡</p>{nameAnswers.map((value, index) => <label key={index} htmlFor={`gallery-name-${index}`}><span>Name {index + 1}</span><input ref={index === 0 ? passcodeInput : undefined} id={`gallery-name-${index}`} type="text" autoComplete="off" autoCapitalize="none" maxLength={100} required value={value} onChange={event => setNameAnswers(previous => previous.map((name, i) => i === index ? event.target.value : name))} placeholder={`Cute name ${index + 1}`} aria-describedby="pin-error" disabled={busy} /></label>)}</fieldset> : <><label htmlFor="gallery-passcode">{admin ? "Sign in with your private admin password" : "Enter our four-digit PIN to open the album"}</label>
-        <input ref={passcodeInput} className={admin ? styles.adminPassword : undefined} id="gallery-passcode" type="password" inputMode={admin ? "text" : "numeric"} autoComplete={admin ? "current-password" : "off"} pattern={admin ? undefined : "[0-9]{4}"} maxLength={admin ? 200 : 4} minLength={admin ? 12 : 4} required value={passcode} onChange={e => setPasscode(admin ? e.target.value : e.target.value.replace(/\D/g, ""))} aria-describedby="pin-error" placeholder={admin ? "Admin password" : "••••"} />
-        </>}
+        {isStaticGallery ? (
+          <fieldset className={styles.nameAnswers}>
+            <legend>What are five cute names I love to call you?</legend>
+            <p>Five different names, in any order. You know them by heart ♡</p>
+            {nameAnswers.map((value, index) => (
+              <label key={index} htmlFor={`gallery-name-${index}`} className={styles.nameField}>
+                <span className={styles.nameLabel}>Name {index + 1}</span>
+                <input
+                  ref={index === 0 ? passcodeInput : undefined}
+                  id={`gallery-name-${index}`}
+                  className={styles.nameInput}
+                  type="text"
+                  autoComplete="off"
+                  autoCapitalize="none"
+                  maxLength={100}
+                  required
+                  value={value}
+                  onChange={event => setNameAnswers(previous => previous.map((name, i) => i === index ? event.target.value : name))}
+                  placeholder={`Cute name ${index + 1}`}
+                  aria-describedby="pin-error"
+                  disabled={busy}
+                />
+              </label>
+            ))}
+          </fieldset>
+        ) : (
+          <>
+            <label htmlFor="gallery-passcode">{admin ? "Sign in with your private admin password" : "Enter our four-digit PIN to open the album"}</label>
+            <input
+              ref={passcodeInput}
+              className={admin ? styles.adminPassword : styles.pinInput}
+              id="gallery-passcode"
+              type="password"
+              inputMode={admin ? "text" : "numeric"}
+              autoComplete={admin ? "current-password" : "off"}
+              pattern={admin ? undefined : "[0-9]{4}"}
+              maxLength={admin ? 200 : 4}
+              minLength={admin ? 12 : 4}
+              required
+              value={passcode}
+              onChange={e => setPasscode(admin ? e.target.value : e.target.value.replace(/\D/g, ""))}
+              aria-describedby="pin-error"
+              placeholder={admin ? "Admin password" : "••••"}
+            />
+          </>
+        )}
         <p id="pin-error" role="alert" className={styles.error}>{error}</p>
         <button className={styles.primary} disabled={busy || (isStaticGallery ? nicknameList(nameAnswers.join("\n")).length !== 5 : admin ? passcode.length < 12 : passcode.length !== 4)}>{busy ? "Opening…" : admin ? "Sign in to edit" : "Open our album"}</button>
       </form>
