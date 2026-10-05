@@ -109,7 +109,7 @@ export default function Home() {
         </div>
         <MemoryGallery />
         <TogetherCards />
-        <div className="fourth-screen">
+        <div id="play" className="fourth-screen">
           <PlayCorner />
           <footer className="footer">Made with love, from {content.sender}</footer>
         </div>

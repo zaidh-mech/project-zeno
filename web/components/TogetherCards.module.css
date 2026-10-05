@@ -3,9 +3,8 @@
   height: 100svh;
   height: 100dvh;
   min-height: 100dvh;
-  max-height: 100dvh;
   scroll-snap-align: start;
-  scroll-snap-stop: always;
+  scroll-snap-stop: normal;
   padding: clamp(20px, 3vh, 48px) 16px;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -13,13 +12,8 @@
   align-items: center;
   gap: clamp(24px, 4vw, 56px);
   text-align: left;
-  overflow-y: auto;
-  overscroll-behavior-y: contain;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
   box-sizing: border-box;
 }
-.section::-webkit-scrollbar { display: none; }
 
 .note { color: #e6bfd0 !important; font-style: italic !important; }
 .copy h2 { font: 400 clamp(38px, 5vw, 60px)/1.08 Georgia, serif; letter-spacing: -.035em; margin: 18px 0 25px; }
