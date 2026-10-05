@@ -19,6 +19,8 @@ with an Android browser for microphone input. The ESP32-S3 design is retained.
 | Phone control | `web/app/control` | `markdowns/phone_control.md` |
 | Gallery | `web/lib/gallery-*.ts`, `web/app/admin`, `web/app/api/gallery`, `web/scripts` | `markdowns/memory_gallery.md` |
 | Enclosure | `aura_c3_compact_enclosure.scad`, `aura_enclosure.scad` | `markdowns/c3_compact_cad_spec.md` |
+| Rechargeable companion CAD | `companion/Aura_R1_Main_Assembly.step`, `companion/tools/build_companion.py`, `companion/parts` | `markdowns/companion_mechanical_design.md` |
+| Companion wiring / charging | `companion/research/wiring.json`, `companion/tools/build_wiring.py`, `companion/Aura_R1_Wiring_Diagram.pdf` | `markdowns/companion_wiring.md` |
 | Pages deployment | `.github/workflows/pages.yml`, `web/scripts/build-pages.cjs` | `markdowns/memory_gallery.md` |
 
 ## Shared workspace protocol

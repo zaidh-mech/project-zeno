@@ -1,0 +1,272 @@
+{
+  "all_parts_valid": true,
+  "printable_parts_single_solid": true,
+  "unexpected_interferences": [],
+  "intentional_heatset_interferences": [
+    {
+      "a": "P01_Upper_shell",
+      "b": "H30_Deck_insert_1",
+      "volume_mm3": 17.7186,
+      "bounds_mm": [
+        -38.503,
+        -19.5,
+        39.697,
+        -33.497,
+        -14.5,
+        43.703
+      ],
+      "reason": "Heat-set installation: OD5 insert into trial diameter4.4 printed pilot"
+    },
+    {
+      "a": "P01_Upper_shell",
+      "b": "H30_Deck_insert_2",
+      "volume_mm3": 17.7186,
+      "bounds_mm": [
+        32.497,
+        -19.5,
+        39.697,
+        37.503,
+        -14.5,
+        43.703
+      ],
+      "reason": "Heat-set installation: OD5 insert into trial diameter4.4 printed pilot"
+    },
+    {
+      "a": "P01_Upper_shell",
+      "b": "H30_Deck_insert_3",
+      "volume_mm3": 17.7186,
+      "bounds_mm": [
+        2.497,
+        19.5,
+        39.697,
+        7.503,
+        24.5,
+        43.703
+      ],
+      "reason": "Heat-set installation: OD5 insert into trial diameter4.4 printed pilot"
+    },
+    {
+      "a": "P01_Upper_shell",
+      "b": "H50_Display_insert_1",
+      "volume_mm3": 17.7186,
+      "bounds_mm": [
+        -29.5,
+        -33.703,
+        31.997,
+        -24.5,
+        -29.697,
+        37.003
+      ],
+      "reason": "Heat-set interference"
+    },
+    {
+      "a": "P01_Upper_shell",
+      "b": "H50_Display_insert_2",
+      "volume_mm3": 17.7186,
+      "bounds_mm": [
+        -29.5,
+        -33.703,
+        55.997,
+        -24.5,
+        -29.697,
+        61.003
+      ],
+      "reason": "Heat-set interference"
+    },
+    {
+      "a": "P01_Upper_shell",
+      "b": "H50_Display_insert_3",
+      "volume_mm3": 17.7186,
+      "bounds_mm": [
+        24.5,
+        -33.703,
+        31.997,
+        29.5,
+        -29.697,
+        37.003
+      ],
+      "reason": "Heat-set interference"
+    },
+    {
+      "a": "P01_Upper_shell",
+      "b": "H50_Display_insert_4",
+      "volume_mm3": 17.7186,
+      "bounds_mm": [
+        24.5,
+        -33.703,
+        55.997,
+        29.5,
+        -29.697,
+        61.003
+      ],
+      "reason": "Heat-set interference"
+    },
+    {
+      "a": "P01_Upper_shell",
+      "b": "H70_Speaker_insert_1",
+      "volume_mm3": 17.7186,
+      "bounds_mm": [
+        -21.5,
+        28.997,
+        61.497,
+        -16.5,
+        33.003,
+        66.503
+      ],
+      "reason": "Heat-set interference"
+    },
+    {
+      "a": "P01_Upper_shell",
+      "b": "H70_Speaker_insert_2",
+      "volume_mm3": 17.7186,
+      "bounds_mm": [
+        16.5,
+        28.997,
+        61.497,
+        21.5,
+        33.003,
+        66.503
+      ],
+      "reason": "Heat-set interference"
+    },
+    {
+      "a": "P01_Upper_shell",
+      "b": "H70_Speaker_insert_3",
+      "volume_mm3": 17.7186,
+      "bounds_mm": [
+        -21.5,
+        28.997,
+        45.497,
+        -16.5,
+        33.003,
+        50.503
+      ],
+      "reason": "Heat-set interference"
+    },
+    {
+      "a": "P01_Upper_shell",
+      "b": "H90_Touch_insert_1",
+      "volume_mm3": 17.7186,
+      "bounds_mm": [
+        -22.503,
+        -5.5,
+        68.597,
+        -17.497,
+        -0.5,
+        72.603
+      ],
+      "reason": "Heat-set installation: OD5 insert into trial diameter4.4 printed pilot"
+    },
+    {
+      "a": "P01_Upper_shell",
+      "b": "H90_Touch_insert_2",
+      "volume_mm3": 17.7186,
+      "bounds_mm": [
+        17.497,
+        -5.5,
+        68.597,
+        22.503,
+        -0.5,
+        72.603
+      ],
+      "reason": "Heat-set installation: OD5 insert into trial diameter4.4 printed pilot"
+    },
+    {
+      "a": "P01_Upper_shell",
+      "b": "H92_USB_insert_1",
+      "volume_mm3": 17.7186,
+      "bounds_mm": [
+        -34.503,
+        10.0,
+        30.797,
+        -29.497,
+        15.0,
+        34.803
+      ],
+      "reason": "Heat-set installation: OD5 insert into trial diameter4.4 printed pilot"
+    },
+    {
+      "a": "P01_Upper_shell",
+      "b": "H92_USB_insert_2",
+      "volume_mm3": 17.7186,
+      "bounds_mm": [
+        -18.503,
+        10.0,
+        30.797,
+        -13.497,
+        15.0,
+        34.803
+      ],
+      "reason": "Heat-set installation: OD5 insert into trial diameter4.4 printed pilot"
+    },
+    {
+      "a": "P02_Snap_base",
+      "b": "H10_Base_insert_1",
+      "volume_mm3": 17.7186,
+      "bounds_mm": [
+        -36.503,
+        -31.0,
+        2.997,
+        -31.497,
+        -26.0,
+        7.003
+      ],
+      "reason": "Heat-set installation: OD5 insert into trial diameter4.4 printed pilot"
+    },
+    {
+      "a": "P02_Snap_base",
+      "b": "H10_Base_insert_2",
+      "volume_mm3": 17.7186,
+      "bounds_mm": [
+        31.497,
+        -31.0,
+        2.997,
+        36.503,
+        -26.0,
+        7.003
+      ],
+      "reason": "Heat-set installation: OD5 insert into trial diameter4.4 printed pilot"
+    },
+    {
+      "a": "P02_Snap_base",
+      "b": "H10_Base_insert_3",
+      "volume_mm3": 17.7186,
+      "bounds_mm": [
+        -35.503,
+        3.5,
+        2.997,
+        -30.497,
+        8.5,
+        7.003
+      ],
+      "reason": "Heat-set installation: OD5 insert into trial diameter4.4 printed pilot"
+    },
+    {
+      "a": "P02_Snap_base",
+      "b": "H10_Base_insert_4",
+      "volume_mm3": 17.7186,
+      "bounds_mm": [
+        30.497,
+        3.5,
+        2.997,
+        35.503,
+        8.5,
+        7.003
+      ],
+      "reason": "Heat-set installation: OD5 insert into trial diameter4.4 printed pilot"
+    }
+  ],
+  "snap_nominal": {
+    "beam_nominal_free_length_mm": 16.5,
+    "conservative_length_after_root_radius_mm": 16.1,
+    "root_radius_mm": 0.4,
+    "thickness_mm": 1.2,
+    "width_mm": 6,
+    "nominal_required_deflection_mm": 0.35,
+    "design_deflection_with_tolerance_mm": 0.7,
+    "strain_estimate_percent": 0.486,
+    "note": "Elastic beam estimate only, excludes root/local/layer effects; print coupon required"
+  },
+  "physical_validation": "NOT PERFORMED. No hardware measurements, charging, thermal, radio or printed latch tests.",
+  "revision": "R1 engineering prototype; measurement-dependent supplier envelopes remain provisional"
+}

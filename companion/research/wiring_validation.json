@@ -1,0 +1,33 @@
+{
+  "result": "PASS",
+  "firmware_pin_values": {
+    "TFT_SCLK": 4,
+    "TFT_MOSI": 6,
+    "TFT_CS": 7,
+    "TFT_DC": 5,
+    "TFT_RST": 3,
+    "PIN_TOUCH": 20,
+    "PIN_I2S_BCLK": 0,
+    "PIN_I2S_LRC": 1,
+    "PIN_I2S_DIN": 10
+  },
+  "unique_signal_gpio_count": 9,
+  "nets": 22,
+  "switch_states": {
+    "RUN": {
+      "boost_to_system": true,
+      "usb_to_charger": false,
+      "usb_and_boost_positive_rails_joined": false,
+      "external_protection_bypass": false
+    },
+    "CHARGE": {
+      "boost_to_system": false,
+      "usb_to_charger": true,
+      "usb_and_boost_positive_rails_joined": false,
+      "external_protection_bypass": false
+    }
+  },
+  "limits": "Static wiring-intent audit only. Semiconductor paths, USB service-port backfeed, switch transitions, actual board topology and hardware operation require physical checks.",
+  "pdf_pages": 4,
+  "rendered_from_final_pdf": true
+}

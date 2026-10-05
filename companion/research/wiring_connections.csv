@@ -1,0 +1,47 @@
+﻿Net,From,To,Note
+CELL_POS,CELL.+,CHARGER.B+,
+CELL_NEG,CELL.-,CHARGER.B-,Cell negative / TP4056 B- only; never join directly to PGND
+PROTECTED_BAT_POS,CHARGER.OUT+,BOOST.VIN+,
+PGND,CHARGER.OUT-,CHARGER.IN-,Protected ground at TP4056 OUT-/IN-; all system and external USB grounds
+PGND,CHARGER.OUT-,BOOST.VIN-,Protected ground at TP4056 OUT-/IN-; all system and external USB grounds
+PGND,CHARGER.OUT-,BOOST.VOUT-,Protected ground at TP4056 OUT-/IN-; all system and external USB grounds
+PGND,CHARGER.OUT-,USB.GND1,Protected ground at TP4056 OUT-/IN-; all system and external USB grounds
+PGND,CHARGER.OUT-,USB.GND2,Protected ground at TP4056 OUT-/IN-; all system and external USB grounds
+PGND,CHARGER.OUT-,C3.GND,Protected ground at TP4056 OUT-/IN-; all system and external USB grounds
+PGND,CHARGER.OUT-,LCD.GND,Protected ground at TP4056 OUT-/IN-; all system and external USB grounds
+PGND,CHARGER.OUT-,TOUCH.GND,Protected ground at TP4056 OUT-/IN-; all system and external USB grounds
+PGND,CHARGER.OUT-,AMP.GND,Protected ground at TP4056 OUT-/IN-; all system and external USB grounds
+PGND,CHARGER.OUT-,R_CC1.2,Protected ground at TP4056 OUT-/IN-; all system and external USB grounds
+PGND,CHARGER.OUT-,R_CC2.2,Protected ground at TP4056 OUT-/IN-; all system and external USB grounds
+BOOST_5V,BOOST.VOUT+,SW.A_RUN,"MT3608 VOUT+ set to 5.0V, before pole A"
+SYS_5V,SW.A_COMMON,C3.5V,Switched MT3608 output; connects only to C3 5V and amplifier Vin
+SYS_5V,SW.A_COMMON,AMP.Vin,Switched MT3608 output; connects only to C3 5V and amplifier Vin
+V3V3,C3.3V3,LCD.VCC,"C3 regulated 3V3 output; display VCC, touch VCC, amplifier SD"
+V3V3,C3.3V3,TOUCH.VCC,"C3 regulated 3V3 output; display VCC, touch VCC, amplifier SD"
+V3V3,C3.3V3,AMP.SD,"C3 regulated 3V3 output; display VCC, touch VCC, amplifier SD"
+USB_CHARGE_5V,USB.VCC1,USB.VCC2,"Both HW-139 VCC pads, before pole B"
+USB_CHARGE_5V,USB.VCC1,SW.B_CHARGE,"Both HW-139 VCC pads, before pole B"
+CHARGER_INPUT_POS,SW.B_COMMON,CHARGER.IN+,
+USB_CC1,USB.CC1,R_CC1.1,
+USB_CC2,USB.CC2,R_CC2.1,
+LCD_SCLK,C3.GPIO4,LCD.SCL,
+LCD_MOSI,C3.GPIO6,LCD.SDA,
+LCD_CS,C3.GPIO7,LCD.CS,
+LCD_DC,C3.GPIO5,LCD.DC,
+LCD_RST,C3.GPIO3,LCD.RST,
+TOUCH_SIG,TOUCH.SIG,C3.GPIO20,
+AUDIO_BCLK,C3.GPIO0,AMP.BCLK,
+AUDIO_LRC,C3.GPIO1,AMP.LRC,
+AUDIO_DIN,C3.GPIO10,AMP.DIN,
+SPEAKER_POS,AMP.SPK+,SPEAKER.+,
+SPEAKER_NEG,AMP.SPK-,SPEAKER.-,
+CONFIG,TP4056 IC pin2 PROG,3.0k resistor to IC pin3 GND,Replace existing resistor; verify actual footprint/pads
+OPEN,AMP.GAIN,NO CONNECTION,Insulate unused switch lugs; GAIN remains open for9dB
+OPEN,SW.A_UNUSED,NO CONNECTION,Insulate unused switch lugs; GAIN remains open for9dB
+OPEN,SW.B_UNUSED,NO CONNECTION,Insulate unused switch lugs; GAIN remains open for9dB
+OPEN,USB.DP1,NO CONNECTION,Insulate unused switch lugs; GAIN remains open for9dB
+OPEN,USB.DN1,NO CONNECTION,Insulate unused switch lugs; GAIN remains open for9dB
+OPEN,USB.DP2,NO CONNECTION,Insulate unused switch lugs; GAIN remains open for9dB
+OPEN,USB.DN2,NO CONNECTION,Insulate unused switch lugs; GAIN remains open for9dB
+OPEN,USB.SBU1,NO CONNECTION,Insulate unused switch lugs; GAIN remains open for9dB
+OPEN,USB.SBU2,NO CONNECTION,Insulate unused switch lugs; GAIN remains open for9dB

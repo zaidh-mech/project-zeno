@@ -1,0 +1,1970 @@
+{
+  "units": "mm",
+  "axes": {
+    "front": "-Y",
+    "up": "+Z"
+  },
+  "parts": [
+    {
+      "id": "P01_Upper_shell",
+      "category": "printed",
+      "file": "parts/printed/P01_Upper_shell.step",
+      "material": "PETG",
+      "description": "Rounded head; LCD bosses, touch pocket, speaker grille, high rear vents, charge inlet and recessed run/charge toggle",
+      "color": "#E4E2D9",
+      "bounds_mm": [
+        -45.0,
+        -39.0,
+        24.35,
+        45.0,
+        39.1,
+        74.0
+      ],
+      "volume_mm3": 51494.479,
+      "solid_count": 1,
+      "valid": true,
+      "features": [
+        "90x78x74 outside datum",
+        "2.4 wall;1.4 tap skin",
+        "33.4 optical aperture via bezel",
+        "four latch receivers",
+        "four display insert bosses",
+        "three deck insert bosses",
+        "three speaker insert bosses",
+        "two touch insert bosses",
+        "two USB carrier insert bosses",
+        "four rear7.6x1.4 exhaust slots"
+      ]
+    },
+    {
+      "id": "P02_Snap_base",
+      "category": "printed",
+      "file": "parts/printed/P02_Snap_base.step",
+      "material": "PETG",
+      "description": "Lower tub with four releasable cantilever latches, battery and power mounting bosses",
+      "color": "#426966",
+      "bounds_mm": [
+        -45.0,
+        -39.0,
+        -0.0,
+        45.0,
+        39.0,
+        40.0
+      ],
+      "volume_mm3": 37356.59,
+      "solid_count": 1,
+      "valid": true,
+      "features": [
+        "2.8 floor",
+        "0.35 seam gap",
+        "0.35 tongue radial clearance",
+        "four20x6x1.2 snap stems",
+        "0.35 nominal hook engagement",
+        "four insert bores",
+        "rubber foot recesses"
+      ]
+    },
+    {
+      "id": "H00_Seam_anti_rattle_foam",
+      "category": "hardware",
+      "file": "parts/hardware/H00_Seam_anti_rattle_foam.step",
+      "material": "closed-cell foam",
+      "description": "0.5mm sheet cut to wall perimeter; modelled compressed to0.35mm; tune on coupon",
+      "color": "#485E58",
+      "bounds_mm": [
+        -44.7,
+        -38.7,
+        24.0,
+        44.7,
+        38.7,
+        24.35
+      ],
+      "volume_mm3": 189.624,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    },
+    {
+      "id": "P03_Face_bezel",
+      "category": "printed",
+      "file": "parts/printed/P03_Face_bezel.step",
+      "material": "PETG",
+      "description": "Adhesive seated rim,44OD/33.4ID; never load the display glass",
+      "color": "#253F41",
+      "bounds_mm": [
+        -22.0,
+        -40.6,
+        24.5,
+        22.0,
+        -39.2,
+        68.5
+      ],
+      "volume_mm3": 895.598,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    },
+    {
+      "id": "H01_Bezel_adhesive",
+      "category": "hardware",
+      "file": "parts/hardware/H01_Bezel_adhesive.step",
+      "material": "acrylic adhesive",
+      "description": "0.2mm annular adhesive, removable service item",
+      "color": "#444444",
+      "bounds_mm": [
+        -21.8,
+        -39.2,
+        24.7,
+        21.8,
+        -39.0,
+        68.3
+      ],
+      "volume_mm3": 103.974,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    },
+    {
+      "id": "H04_LCD_edge_pad_-18_26.5",
+      "category": "hardware",
+      "file": "parts/hardware/H04_LCD_edge_pad_-18_26.5.step",
+      "material": "silicone foam",
+      "description": "0.3mm compliantPCB edge pad",
+      "color": "#545C59",
+      "bounds_mm": [
+        -19.0,
+        -32.3,
+        24.5,
+        -17.0,
+        -32.0,
+        28.5
+      ],
+      "volume_mm3": 2.4,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    },
+    {
+      "id": "H04_LCD_edge_pad_-18_66.5",
+      "category": "hardware",
+      "file": "parts/hardware/H04_LCD_edge_pad_-18_66.5.step",
+      "material": "silicone foam",
+      "description": "0.3mm compliantPCB edge pad",
+      "color": "#545C59",
+      "bounds_mm": [
+        -19.0,
+        -32.3,
+        64.5,
+        -17.0,
+        -32.0,
+        68.5
+      ],
+      "volume_mm3": 2.4,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    },
+    {
+      "id": "H04_LCD_edge_pad_18_26.5",
+      "category": "hardware",
+      "file": "parts/hardware/H04_LCD_edge_pad_18_26.5.step",
+      "material": "silicone foam",
+      "description": "0.3mm compliantPCB edge pad",
+      "color": "#545C59",
+      "bounds_mm": [
+        17.0,
+        -32.3,
+        24.5,
+        19.0,
+        -32.0,
+        28.5
+      ],
+      "volume_mm3": 2.4,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    },
+    {
+      "id": "H04_LCD_edge_pad_18_66.5",
+      "category": "hardware",
+      "file": "parts/hardware/H04_LCD_edge_pad_18_66.5.step",
+      "material": "silicone foam",
+      "description": "0.3mm compliantPCB edge pad",
+      "color": "#545C59",
+      "bounds_mm": [
+        17.0,
+        -32.3,
+        64.5,
+        19.0,
+        -32.0,
+        68.5
+      ],
+      "volume_mm3": 2.4,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    },
+    {
+      "id": "P04_Adjustable_display_carrier",
+      "category": "printed",
+      "file": "parts/printed/P04_Adjustable_display_carrier.step",
+      "material": "PETG",
+      "description": "Slotted M3 carrier and0.3mm edge pads; provisional38x45.5 PCB; free header slot",
+      "color": "#567F7B",
+      "bounds_mm": [
+        -30.84,
+        -34.0,
+        23.0,
+        30.84,
+        -27.3,
+        70.15
+      ],
+      "volume_mm3": 2400.881,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    },
+    {
+      "id": "H05_LCD_perimeter_gasket",
+      "category": "hardware",
+      "file": "parts/hardware/H05_LCD_perimeter_gasket.step",
+      "material": "silicone foam",
+      "description": "Light compliant peripheral support outside active pixels; do not overtighten glass",
+      "color": "#454D4A",
+      "bounds_mm": [
+        -18.9,
+        -36.6,
+        27.6,
+        18.9,
+        -35.5,
+        65.4
+      ],
+      "volume_mm3": 212.079,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    },
+    {
+      "id": "P05_Electronics_deck",
+      "category": "printed",
+      "file": "parts/printed/P05_Electronics_deck.step",
+      "material": "PETG",
+      "description": "Three-point removable deck; raised C3 antenna; PCB edge rails and snap-cap receivers",
+      "color": "#A0BBB5",
+      "bounds_mm": [
+        -40.6,
+        -21.6,
+        44.0,
+        39.6,
+        26.6,
+        47.8
+      ],
+      "volume_mm3": 4688.669,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    },
+    {
+      "id": "P06_C3_snap_cap",
+      "category": "printed",
+      "file": "parts/printed/P06_C3_snap_cap.step",
+      "material": "PETG",
+      "description": "Removable PCB-edge cap withfour integral latches; print flat frame down",
+      "color": "#456A66",
+      "bounds_mm": [
+        -36.05,
+        -12.25,
+        43.0,
+        -13.95,
+        12.25,
+        50.8
+      ],
+      "volume_mm3": 298.196,
+      "solid_count": 1,
+      "valid": true,
+      "features": [
+        "0.2mm pad clearance",
+        "6.6mm flexible arms",
+        "0.8mm arm thickness",
+        "0.3mm hook catch"
+      ]
+    },
+    {
+      "id": "H07_P06_C3_snap_cap_pad_-1",
+      "category": "hardware",
+      "file": "parts/hardware/H07_P06_C3_snap_cap_pad_-1.step",
+      "material": "silicone foam",
+      "description": "0.2mmPCB edge pad",
+      "color": "#545C59",
+      "bounds_mm": [
+        -34.0,
+        -9.75,
+        49.4,
+        -33.0,
+        9.75,
+        49.6
+      ],
+      "volume_mm3": 3.9,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    },
+    {
+      "id": "H07_P06_C3_snap_cap_pad_1",
+      "category": "hardware",
+      "file": "parts/hardware/H07_P06_C3_snap_cap_pad_1.step",
+      "material": "silicone foam",
+      "description": "0.2mmPCB edge pad",
+      "color": "#545C59",
+      "bounds_mm": [
+        -17.0,
+        -9.75,
+        49.4,
+        -16.0,
+        9.75,
+        49.6
+      ],
+      "volume_mm3": 3.9,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    },
+    {
+      "id": "P07_Amplifier_snap_cap",
+      "category": "printed",
+      "file": "parts/printed/P07_Amplifier_snap_cap.step",
+      "material": "PETG",
+      "description": "Removable PCB-edge cap withfour integral latches; print flat frame down",
+      "color": "#456A66",
+      "bounds_mm": [
+        10.95,
+        -14.5,
+        43.0,
+        33.05,
+        6.5,
+        50.8
+      ],
+      "volume_mm3": 275.876,
+      "solid_count": 1,
+      "valid": true,
+      "features": [
+        "0.2mm pad clearance",
+        "6.6mm flexible arms",
+        "0.8mm arm thickness",
+        "0.3mm hook catch"
+      ]
+    },
+    {
+      "id": "H07_P07_Amplifier_snap_cap_pad_-1",
+      "category": "hardware",
+      "file": "parts/hardware/H07_P07_Amplifier_snap_cap_pad_-1.step",
+      "material": "silicone foam",
+      "description": "0.2mmPCB edge pad",
+      "color": "#545C59",
+      "bounds_mm": [
+        13.0,
+        -12.0,
+        49.4,
+        14.0,
+        4.0,
+        49.6
+      ],
+      "volume_mm3": 3.2,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    },
+    {
+      "id": "H07_P07_Amplifier_snap_cap_pad_1",
+      "category": "hardware",
+      "file": "parts/hardware/H07_P07_Amplifier_snap_cap_pad_1.step",
+      "material": "silicone foam",
+      "description": "0.2mmPCB edge pad",
+      "color": "#545C59",
+      "bounds_mm": [
+        30.0,
+        -12.0,
+        49.4,
+        31.0,
+        4.0,
+        49.6
+      ],
+      "volume_mm3": 3.2,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    },
+    {
+      "id": "P08_Power_board_retainer",
+      "category": "printed",
+      "file": "parts/printed/P08_Power_board_retainer.step",
+      "material": "PETG",
+      "description": "M3 bridge restrains charger and boost PCB edges;0.4mm compliant edge pads",
+      "color": "#A0BBB5",
+      "bounds_mm": [
+        -38.2,
+        -34.4,
+        7.2,
+        38.2,
+        6.0,
+        9.0
+      ],
+      "volume_mm3": 1326.934,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    },
+    {
+      "id": "H08_Power_pad_-20_-1",
+      "category": "hardware",
+      "file": "parts/hardware/H08_Power_pad_-20_-1.step",
+      "material": "silicone foam",
+      "description": "0.4mmPCB edge pad",
+      "color": "#545C59",
+      "bounds_mm": [
+        -28.5,
+        -30.0,
+        6.8,
+        -27.5,
+        -8.0,
+        7.2
+      ],
+      "volume_mm3": 8.8,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    },
+    {
+      "id": "H08_Power_pad_-20_1",
+      "category": "hardware",
+      "file": "parts/hardware/H08_Power_pad_-20_1.step",
+      "material": "silicone foam",
+      "description": "0.4mmPCB edge pad",
+      "color": "#545C59",
+      "bounds_mm": [
+        -12.5,
+        -30.0,
+        6.8,
+        -11.5,
+        -8.0,
+        7.2
+      ],
+      "volume_mm3": 8.8,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    },
+    {
+      "id": "H08_Power_pad_19_-1",
+      "category": "hardware",
+      "file": "parts/hardware/H08_Power_pad_19_-1.step",
+      "material": "silicone foam",
+      "description": "0.4mmPCB edge pad",
+      "color": "#545C59",
+      "bounds_mm": [
+        10.5,
+        -30.0,
+        6.8,
+        11.5,
+        2.0,
+        7.2
+      ],
+      "volume_mm3": 12.8,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    },
+    {
+      "id": "H08_Power_pad_19_1",
+      "category": "hardware",
+      "file": "parts/hardware/H08_Power_pad_19_1.step",
+      "material": "silicone foam",
+      "description": "0.4mmPCB edge pad",
+      "color": "#545C59",
+      "bounds_mm": [
+        26.5,
+        -30.0,
+        6.8,
+        27.5,
+        2.0,
+        7.2
+      ],
+      "volume_mm3": 12.8,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    },
+    {
+      "id": "P09_Battery_cradle",
+      "category": "printed",
+      "file": "parts/printed/P09_Battery_cradle.step",
+      "material": "PETG",
+      "description": "Replaceable77.8x21.8 holder seat with8mm strap slots andM3 internal mounting",
+      "color": "#567F7B",
+      "bounds_mm": [
+        -39.8,
+        1.8,
+        4.7,
+        39.8,
+        33.2,
+        13.5
+      ],
+      "volume_mm3": 3796.94,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    },
+    {
+      "id": "H09_Battery_retaining_strap",
+      "category": "hardware",
+      "file": "parts/hardware/H09_Battery_retaining_strap.step",
+      "material": "hook-and-loop fabric",
+      "description": "8mm x0.8 nominal strap routed below removable cradle; adjust tension to actual holder",
+      "color": "#4C5B60",
+      "bounds_mm": [
+        -4.0,
+        7.75,
+        3.6,
+        4.0,
+        34.25,
+        30.8
+      ],
+      "volume_mm3": 649.3,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    },
+    {
+      "id": "P10_Touch_retaining_frame",
+      "category": "printed",
+      "file": "parts/printed/P10_Touch_retaining_frame.step",
+      "material": "PETG",
+      "description": "24x24 provisional TTP223 board against1.4mm tap roof, backed atPCB edges",
+      "color": "#567F7B",
+      "bounds_mm": [
+        -24.2,
+        -17.5,
+        66.8,
+        24.2,
+        11.5,
+        71.0
+      ],
+      "volume_mm3": 785.559,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    },
+    {
+      "id": "P11_Speaker_retainer",
+      "category": "printed",
+      "file": "parts/printed/P11_Speaker_retainer.step",
+      "material": "PETG",
+      "description": "30x20x7 speaker cage, peripheral pads only; no diaphragm compression",
+      "color": "#567F7B",
+      "bounds_mm": [
+        -21.98,
+        26.8,
+        44.0,
+        21.98,
+        28.6,
+        68.0
+      ],
+      "volume_mm3": 817.882,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    },
+    {
+      "id": "H02_Speaker_gasket",
+      "category": "hardware",
+      "file": "parts/hardware/H02_Speaker_gasket.step",
+      "material": "closed-cell foam",
+      "description": "0.8mm perimeter gasket",
+      "color": "#373E41",
+      "bounds_mm": [
+        -15.0,
+        35.8,
+        46.0,
+        15.0,
+        36.6,
+        66.0
+      ],
+      "volume_mm3": 146.685,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    },
+    {
+      "id": "P12_USB_inlet_carrier",
+      "category": "printed",
+      "file": "parts/printed/P12_USB_inlet_carrier.step",
+      "material": "PETG",
+      "description": "Replaceable USB-C breakout tray; provision22x18 PCB, external16x9 cable opening",
+      "color": "#567F7B",
+      "bounds_mm": [
+        -36.5,
+        8.6,
+        35.0,
+        -11.5,
+        35.5,
+        38.2
+      ],
+      "volume_mm3": 641.638,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    },
+    {
+      "id": "P13_USB_capture_cap",
+      "category": "printed",
+      "file": "parts/printed/P13_USB_capture_cap.step",
+      "material": "PETG",
+      "description": "Positive cable-insertion restraint; sharedM3x8 screws and0.2mmPCB edge pads",
+      "color": "#A0BBB5",
+      "bounds_mm": [
+        -36.5,
+        9.0,
+        36.6,
+        -11.5,
+        35.5,
+        39.6
+      ],
+      "volume_mm3": 381.177,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    },
+    {
+      "id": "H06_USB_edge_pad_-34.5",
+      "category": "hardware",
+      "file": "parts/hardware/H06_USB_edge_pad_-34.5.step",
+      "material": "silicone foam",
+      "description": "0.2mm compliantUSBPCB edge pad",
+      "color": "#545C59",
+      "bounds_mm": [
+        -35.0,
+        19.5,
+        38.2,
+        -34.0,
+        32.5,
+        38.4
+      ],
+      "volume_mm3": 2.6,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    },
+    {
+      "id": "H06_USB_edge_pad_-13.5",
+      "category": "hardware",
+      "file": "parts/hardware/H06_USB_edge_pad_-13.5.step",
+      "material": "silicone foam",
+      "description": "0.2mm compliantUSBPCB edge pad",
+      "color": "#545C59",
+      "bounds_mm": [
+        -14.0,
+        19.5,
+        38.2,
+        -13.0,
+        32.5,
+        38.4
+      ],
+      "volume_mm3": 2.6,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    },
+    {
+      "id": "E01_GC9A01_breakout_provisional",
+      "category": "electronics",
+      "file": "parts/electronics/E01_GC9A01_breakout_provisional.step",
+      "material": "FR4/components",
+      "description": "Tronic DM0049: provisional38x45.5x1.6 breakout; board identity must be measured",
+      "color": "#21589C",
+      "bounds_mm": [
+        -19.0,
+        -33.9,
+        23.75,
+        19.0,
+        -28.3,
+        69.25
+      ],
+      "volume_mm3": 6350.4,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    },
+    {
+      "id": "E02_LCD_panel_reference",
+      "category": "electronics",
+      "file": "parts/electronics/E02_LCD_panel_reference.step",
+      "material": "glass",
+      "description": "Elecrow panel35.6x38.1x1.5 reference; active32.4 diameter",
+      "color": "#1D2528",
+      "bounds_mm": [
+        -17.8,
+        -35.5,
+        26.2,
+        17.8,
+        -34.0,
+        64.3
+      ],
+      "volume_mm3": 1587.435,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    },
+    {
+      "id": "V01_Display_active_area",
+      "category": "visual",
+      "file": "parts/visual/V01_Display_active_area.step",
+      "material": "pixels",
+      "description": "32.4mm active display, visual representation only",
+      "color": "#102328",
+      "bounds_mm": [
+        -16.2,
+        -35.58,
+        30.3,
+        16.2,
+        -35.5,
+        62.7
+      ],
+      "volume_mm3": 65.958,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    },
+    {
+      "id": "V02_Eye_pixels",
+      "category": "visual",
+      "file": "parts/visual/V02_Eye_pixels.step",
+      "material": "pixels",
+      "description": "Illustrative firmware expression, not a manufactured part",
+      "color": "#9DF1E0",
+      "bounds_mm": [
+        -8.6,
+        -35.65,
+        43.4,
+        -4.2,
+        -35.6,
+        51.6
+      ],
+      "volume_mm3": 1.598,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    },
+    {
+      "id": "V03_Eye_pixels",
+      "category": "visual",
+      "file": "parts/visual/V03_Eye_pixels.step",
+      "material": "pixels",
+      "description": "Illustrative firmware expression, not a manufactured part",
+      "color": "#9DF1E0",
+      "bounds_mm": [
+        4.2,
+        -35.65,
+        43.4,
+        8.6,
+        -35.6,
+        51.6
+      ],
+      "volume_mm3": 1.598,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    },
+    {
+      "id": "E03_ESP32C3_SuperMini_A33",
+      "category": "electronics",
+      "file": "parts/electronics/E03_ESP32C3_SuperMini_A33.step",
+      "material": "FR4/components",
+      "description": "Alphatronic A33;22.5x18 PCB, other heights provisional; antenna towards+Y",
+      "color": "#2D3336",
+      "bounds_mm": [
+        -34.0,
+        -12.75,
+        47.8,
+        -16.0,
+        11.25,
+        52.6
+      ],
+      "volume_mm3": 1074.32,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    },
+    {
+      "id": "E04_MAX98357_MD0860",
+      "category": "electronics",
+      "file": "parts/electronics/E04_MAX98357_MD0860.step",
+      "material": "FR4/components",
+      "description": "Tronic18x19 PCB; terminal block height provisional",
+      "color": "#21589C",
+      "bounds_mm": [
+        13.0,
+        -13.5,
+        47.8,
+        31.0,
+        5.5,
+        57.8
+      ],
+      "volume_mm3": 1213.6,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    },
+    {
+      "id": "E05_TTP223_MD0206_provisional",
+      "category": "electronics",
+      "file": "parts/electronics/E05_TTP223_MD0206_provisional.step",
+      "material": "FR4/components",
+      "description": "Provisional24x24x7 module; sensing face atZ72.6",
+      "color": "#225590",
+      "bounds_mm": [
+        -12.0,
+        -15.0,
+        65.6,
+        12.0,
+        9.0,
+        72.6
+      ],
+      "volume_mm3": 1828.8,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    },
+    {
+      "id": "E06_3020_speaker_PAL36",
+      "category": "electronics",
+      "file": "parts/electronics/E06_3020_speaker_PAL36.step",
+      "material": "speaker",
+      "description": "Alphatronic PAL36; seller30x20x7,4ohm3W",
+      "color": "#30343A",
+      "bounds_mm": [
+        -15.0,
+        28.8,
+        46.0,
+        15.0,
+        35.8,
+        66.0
+      ],
+      "volume_mm3": 4193.991,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    },
+    {
+      "id": "E07_TP4056_MD0744",
+      "category": "electronics",
+      "file": "parts/electronics/E07_TP4056_MD0744.step",
+      "material": "FR4/components",
+      "description": "Tronic26x17 charger/protection PCB; populated height reserved6mm",
+      "color": "#245A9A",
+      "bounds_mm": [
+        -28.5,
+        -32.0,
+        5.2,
+        -11.5,
+        -6.0,
+        10.0
+      ],
+      "volume_mm3": 1184.16,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    },
+    {
+      "id": "E08_MT3608_ML2060",
+      "category": "electronics",
+      "file": "parts/electronics/E08_MT3608_ML2060.step",
+      "material": "FR4/components",
+      "description": "Duino36x17x14 module envelope; output must be set5V before connection",
+      "color": "#235899",
+      "bounds_mm": [
+        10.5,
+        -32.0,
+        5.2,
+        27.5,
+        4.0,
+        19.2
+      ],
+      "volume_mm3": 2819.2,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    },
+    {
+      "id": "E09_18650_holder_BA0039_provisional",
+      "category": "electronics",
+      "file": "parts/electronics/E09_18650_holder_BA0039_provisional.step",
+      "material": "battery holder",
+      "description": "Provision77x21x23; seller omits actual dimensions",
+      "color": "#282D33",
+      "bounds_mm": [
+        -38.5,
+        10.5,
+        6.3,
+        38.5,
+        31.5,
+        29.3
+      ],
+      "volume_mm3": 10526.18,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    },
+    {
+      "id": "E10_18650_cell_BA0199_provisional",
+      "category": "electronics",
+      "file": "parts/electronics/E10_18650_cell_BA0199_provisional.step",
+      "material": "Li-ion cell",
+      "description": "Fit allowance diameter18.6x65.2; seller18x65 nominal, exact Samsung model unknown",
+      "color": "#537D65",
+      "bounds_mm": [
+        -32.6,
+        11.7,
+        7.7,
+        32.6,
+        30.3,
+        26.3
+      ],
+      "volume_mm3": 17715.906,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    },
+    {
+      "id": "H03_Cell_contact_L",
+      "category": "hardware",
+      "file": "parts/hardware/H03_Cell_contact_L.step",
+      "material": "spring steel",
+      "description": "Holder contact envelope; spring detail not modelled",
+      "color": "#C4C8CE",
+      "bounds_mm": [
+        -34.0,
+        16.5,
+        12.5,
+        -33.55,
+        25.5,
+        21.5
+      ],
+      "volume_mm3": 28.628,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    },
+    {
+      "id": "H03_Cell_contact_R",
+      "category": "hardware",
+      "file": "parts/hardware/H03_Cell_contact_R.step",
+      "material": "spring steel",
+      "description": "Holder contact envelope; spring detail not modelled",
+      "color": "#C4C8CE",
+      "bounds_mm": [
+        34.0,
+        16.5,
+        12.5,
+        34.45,
+        25.5,
+        21.5
+      ],
+      "volume_mm3": 28.628,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    },
+    {
+      "id": "E11_USBC_MD0840_provisional",
+      "category": "electronics",
+      "file": "parts/electronics/E11_USBC_MD0840_provisional.step",
+      "material": "FR4/components",
+      "description": "Provision22x18 board; add separate5.1k Rd onCC1 andCC2 after checking board",
+      "color": "#30373C",
+      "bounds_mm": [
+        -35.0,
+        17.0,
+        36.6,
+        -13.0,
+        35.0,
+        38.2
+      ],
+      "volume_mm3": 633.6,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    },
+    {
+      "id": "E13_USBC_socket_provisional",
+      "category": "electronics",
+      "file": "parts/electronics/E13_USBC_socket_provisional.step",
+      "material": "metal connector",
+      "description": "Socket is part ofMD0840; its8.9x7.5x3.3 envelope is provisional, not separately purchased",
+      "color": "#A3ACB1",
+      "bounds_mm": [
+        -28.45,
+        29.05,
+        38.2,
+        -19.55,
+        36.55,
+        41.5
+      ],
+      "volume_mm3": 191.36,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    },
+    {
+      "id": "E12_MTS202_BU0014_provisional",
+      "category": "electronics",
+      "file": "parts/electronics/E12_MTS202_BU0014_provisional.step",
+      "material": "switch",
+      "description": "Approximate13x12x31; bushing/lever geometry andDC rating need received-part verification",
+      "color": "#636B73",
+      "bounds_mm": [
+        19.5,
+        8.6,
+        33.0,
+        32.5,
+        39.6,
+        45.0
+      ],
+      "volume_mm3": 2125.071,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    },
+    {
+      "id": "H95_Toggle_washer_provisional",
+      "category": "hardware",
+      "file": "parts/hardware/H95_Toggle_washer_provisional.step",
+      "material": "steel",
+      "description": "Provisional switch washer; measure supplied hardware",
+      "color": "#BFC7CB",
+      "bounds_mm": [
+        21.4,
+        25.7,
+        34.4,
+        30.6,
+        26.2,
+        43.6
+      ],
+      "volume_mm3": 17.153,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    },
+    {
+      "id": "H96_Toggle_nut_provisional",
+      "category": "hardware",
+      "file": "parts/hardware/H96_Toggle_nut_provisional.step",
+      "material": "steel",
+      "description": "Provisional6mm-bushing nut,8mm across flats,2mm thick; use supplied switch nut",
+      "color": "#BFC7CB",
+      "bounds_mm": [
+        21.3812,
+        26.2,
+        35.0,
+        30.6188,
+        28.2,
+        43.0
+      ],
+      "volume_mm3": 50.47,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    },
+    {
+      "id": "H10_Base_insert_1",
+      "category": "hardware",
+      "file": "parts/hardware/H10_Base_insert_1.step",
+      "material": "brass",
+      "description": "M3 x 4 x 5 heat-set insert; interference with printed pilot is intentional",
+      "color": "#B58B43",
+      "bounds_mm": [
+        -36.5,
+        -31.0,
+        3.0,
+        -31.5,
+        -26.0,
+        7.0
+      ],
+      "volume_mm3": 48.349,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    },
+    {
+      "id": "H20_Base_screw_1",
+      "category": "hardware",
+      "file": "parts/hardware/H20_Base_screw_1.step",
+      "material": "steel",
+      "description": "M3 x 6 pan-head screw, simplified thread",
+      "color": "#606870",
+      "bounds_mm": [
+        -37.0,
+        -31.5,
+        3.0,
+        -31.0,
+        -25.5,
+        11.4
+      ],
+      "volume_mm3": 105.178,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    },
+    {
+      "id": "H10_Base_insert_2",
+      "category": "hardware",
+      "file": "parts/hardware/H10_Base_insert_2.step",
+      "material": "brass",
+      "description": "M3 x 4 x 5 heat-set insert; interference with printed pilot is intentional",
+      "color": "#B58B43",
+      "bounds_mm": [
+        31.5,
+        -31.0,
+        3.0,
+        36.5,
+        -26.0,
+        7.0
+      ],
+      "volume_mm3": 48.349,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    },
+    {
+      "id": "H20_Base_screw_2",
+      "category": "hardware",
+      "file": "parts/hardware/H20_Base_screw_2.step",
+      "material": "steel",
+      "description": "M3 x 6 pan-head screw, simplified thread",
+      "color": "#606870",
+      "bounds_mm": [
+        31.0,
+        -31.5,
+        3.0,
+        37.0,
+        -25.5,
+        11.4
+      ],
+      "volume_mm3": 105.178,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    },
+    {
+      "id": "H10_Base_insert_3",
+      "category": "hardware",
+      "file": "parts/hardware/H10_Base_insert_3.step",
+      "material": "brass",
+      "description": "M3 x 4 x 5 heat-set insert; interference with printed pilot is intentional",
+      "color": "#B58B43",
+      "bounds_mm": [
+        -35.5,
+        3.5,
+        3.0,
+        -30.5,
+        8.5,
+        7.0
+      ],
+      "volume_mm3": 48.349,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    },
+    {
+      "id": "H20_Base_screw_3",
+      "category": "hardware",
+      "file": "parts/hardware/H20_Base_screw_3.step",
+      "material": "steel",
+      "description": "M3 x 6 pan-head screw, simplified thread",
+      "color": "#606870",
+      "bounds_mm": [
+        -36.0,
+        3.0,
+        3.0,
+        -30.0,
+        9.0,
+        11.4
+      ],
+      "volume_mm3": 105.178,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    },
+    {
+      "id": "H10_Base_insert_4",
+      "category": "hardware",
+      "file": "parts/hardware/H10_Base_insert_4.step",
+      "material": "brass",
+      "description": "M3 x 4 x 5 heat-set insert; interference with printed pilot is intentional",
+      "color": "#B58B43",
+      "bounds_mm": [
+        30.5,
+        3.5,
+        3.0,
+        35.5,
+        8.5,
+        7.0
+      ],
+      "volume_mm3": 48.349,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    },
+    {
+      "id": "H20_Base_screw_4",
+      "category": "hardware",
+      "file": "parts/hardware/H20_Base_screw_4.step",
+      "material": "steel",
+      "description": "M3 x 6 pan-head screw, simplified thread",
+      "color": "#606870",
+      "bounds_mm": [
+        30.0,
+        3.0,
+        3.0,
+        36.0,
+        9.0,
+        11.4
+      ],
+      "volume_mm3": 105.178,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    },
+    {
+      "id": "H30_Deck_insert_1",
+      "category": "hardware",
+      "file": "parts/hardware/H30_Deck_insert_1.step",
+      "material": "brass",
+      "description": "M3 x 4 x 5 heat-set insert; interference with printed pilot is intentional",
+      "color": "#B58B43",
+      "bounds_mm": [
+        -38.5,
+        -19.5,
+        39.7,
+        -33.5,
+        -14.5,
+        43.7
+      ],
+      "volume_mm3": 48.349,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    },
+    {
+      "id": "H40_Deck_screw_1",
+      "category": "hardware",
+      "file": "parts/hardware/H40_Deck_screw_1.step",
+      "material": "steel",
+      "description": "M3 x 6 pan-head screw, simplified thread",
+      "color": "#606870",
+      "bounds_mm": [
+        -39.0,
+        -20.0,
+        40.0,
+        -33.0,
+        -14.0,
+        48.4
+      ],
+      "volume_mm3": 105.178,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    },
+    {
+      "id": "H30_Deck_insert_2",
+      "category": "hardware",
+      "file": "parts/hardware/H30_Deck_insert_2.step",
+      "material": "brass",
+      "description": "M3 x 4 x 5 heat-set insert; interference with printed pilot is intentional",
+      "color": "#B58B43",
+      "bounds_mm": [
+        32.5,
+        -19.5,
+        39.7,
+        37.5,
+        -14.5,
+        43.7
+      ],
+      "volume_mm3": 48.349,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    },
+    {
+      "id": "H40_Deck_screw_2",
+      "category": "hardware",
+      "file": "parts/hardware/H40_Deck_screw_2.step",
+      "material": "steel",
+      "description": "M3 x 6 pan-head screw, simplified thread",
+      "color": "#606870",
+      "bounds_mm": [
+        32.0,
+        -20.0,
+        40.0,
+        38.0,
+        -14.0,
+        48.4
+      ],
+      "volume_mm3": 105.178,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    },
+    {
+      "id": "H30_Deck_insert_3",
+      "category": "hardware",
+      "file": "parts/hardware/H30_Deck_insert_3.step",
+      "material": "brass",
+      "description": "M3 x 4 x 5 heat-set insert; interference with printed pilot is intentional",
+      "color": "#B58B43",
+      "bounds_mm": [
+        2.5,
+        19.5,
+        39.7,
+        7.5,
+        24.5,
+        43.7
+      ],
+      "volume_mm3": 48.349,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    },
+    {
+      "id": "H40_Deck_screw_3",
+      "category": "hardware",
+      "file": "parts/hardware/H40_Deck_screw_3.step",
+      "material": "steel",
+      "description": "M3 x 6 pan-head screw, simplified thread",
+      "color": "#606870",
+      "bounds_mm": [
+        2.0,
+        19.0,
+        40.0,
+        8.0,
+        25.0,
+        48.4
+      ],
+      "volume_mm3": 105.178,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    },
+    {
+      "id": "H50_Display_insert_1",
+      "category": "hardware",
+      "file": "parts/hardware/H50_Display_insert_1.step",
+      "material": "brass",
+      "description": "M3x4x5 insert, axis+Y",
+      "color": "#B58B43",
+      "bounds_mm": [
+        -29.5,
+        -33.7,
+        32.0,
+        -24.5,
+        -29.7,
+        37.0
+      ],
+      "volume_mm3": 48.349,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    },
+    {
+      "id": "H60_Display_screw_1",
+      "category": "hardware",
+      "file": "parts/hardware/H60_Display_screw_1.step",
+      "material": "steel",
+      "description": "M3x6; use shim pads and centre LCD before tightening",
+      "color": "#616A71",
+      "bounds_mm": [
+        -30.0,
+        -33.3,
+        31.5,
+        -24.0,
+        -24.9,
+        37.5
+      ],
+      "volume_mm3": 109.146,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    },
+    {
+      "id": "H50_Display_insert_2",
+      "category": "hardware",
+      "file": "parts/hardware/H50_Display_insert_2.step",
+      "material": "brass",
+      "description": "M3x4x5 insert, axis+Y",
+      "color": "#B58B43",
+      "bounds_mm": [
+        -29.5,
+        -33.7,
+        56.0,
+        -24.5,
+        -29.7,
+        61.0
+      ],
+      "volume_mm3": 48.349,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    },
+    {
+      "id": "H60_Display_screw_2",
+      "category": "hardware",
+      "file": "parts/hardware/H60_Display_screw_2.step",
+      "material": "steel",
+      "description": "M3x6; use shim pads and centre LCD before tightening",
+      "color": "#616A71",
+      "bounds_mm": [
+        -30.0,
+        -33.3,
+        55.5,
+        -24.0,
+        -24.9,
+        61.5
+      ],
+      "volume_mm3": 109.146,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    },
+    {
+      "id": "H50_Display_insert_3",
+      "category": "hardware",
+      "file": "parts/hardware/H50_Display_insert_3.step",
+      "material": "brass",
+      "description": "M3x4x5 insert, axis+Y",
+      "color": "#B58B43",
+      "bounds_mm": [
+        24.5,
+        -33.7,
+        32.0,
+        29.5,
+        -29.7,
+        37.0
+      ],
+      "volume_mm3": 48.349,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    },
+    {
+      "id": "H60_Display_screw_3",
+      "category": "hardware",
+      "file": "parts/hardware/H60_Display_screw_3.step",
+      "material": "steel",
+      "description": "M3x6; use shim pads and centre LCD before tightening",
+      "color": "#616A71",
+      "bounds_mm": [
+        24.0,
+        -33.3,
+        31.5,
+        30.0,
+        -24.9,
+        37.5
+      ],
+      "volume_mm3": 109.146,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    },
+    {
+      "id": "H50_Display_insert_4",
+      "category": "hardware",
+      "file": "parts/hardware/H50_Display_insert_4.step",
+      "material": "brass",
+      "description": "M3x4x5 insert, axis+Y",
+      "color": "#B58B43",
+      "bounds_mm": [
+        24.5,
+        -33.7,
+        56.0,
+        29.5,
+        -29.7,
+        61.0
+      ],
+      "volume_mm3": 48.349,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    },
+    {
+      "id": "H60_Display_screw_4",
+      "category": "hardware",
+      "file": "parts/hardware/H60_Display_screw_4.step",
+      "material": "steel",
+      "description": "M3x6; use shim pads and centre LCD before tightening",
+      "color": "#616A71",
+      "bounds_mm": [
+        24.0,
+        -33.3,
+        55.5,
+        30.0,
+        -24.9,
+        61.5
+      ],
+      "volume_mm3": 109.146,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    },
+    {
+      "id": "H70_Speaker_insert_1",
+      "category": "hardware",
+      "file": "parts/hardware/H70_Speaker_insert_1.step",
+      "material": "brass",
+      "description": "M3x4x5 insert, axis+Y",
+      "color": "#B58B43",
+      "bounds_mm": [
+        -21.5,
+        29.0,
+        61.5,
+        -16.5,
+        33.0,
+        66.5
+      ],
+      "volume_mm3": 48.349,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    },
+    {
+      "id": "H80_Speaker_screw_1",
+      "category": "hardware",
+      "file": "parts/hardware/H80_Speaker_screw_1.step",
+      "material": "steel",
+      "description": "M3x6 simplified",
+      "color": "#616A71",
+      "bounds_mm": [
+        -22.0,
+        24.4,
+        61.0,
+        -16.0,
+        32.8,
+        67.0
+      ],
+      "volume_mm3": 109.146,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    },
+    {
+      "id": "H70_Speaker_insert_2",
+      "category": "hardware",
+      "file": "parts/hardware/H70_Speaker_insert_2.step",
+      "material": "brass",
+      "description": "M3x4x5 insert, axis+Y",
+      "color": "#B58B43",
+      "bounds_mm": [
+        16.5,
+        29.0,
+        61.5,
+        21.5,
+        33.0,
+        66.5
+      ],
+      "volume_mm3": 48.349,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    },
+    {
+      "id": "H80_Speaker_screw_2",
+      "category": "hardware",
+      "file": "parts/hardware/H80_Speaker_screw_2.step",
+      "material": "steel",
+      "description": "M3x6 simplified",
+      "color": "#616A71",
+      "bounds_mm": [
+        16.0,
+        24.4,
+        61.0,
+        22.0,
+        32.8,
+        67.0
+      ],
+      "volume_mm3": 109.146,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    },
+    {
+      "id": "H70_Speaker_insert_3",
+      "category": "hardware",
+      "file": "parts/hardware/H70_Speaker_insert_3.step",
+      "material": "brass",
+      "description": "M3x4x5 insert, axis+Y",
+      "color": "#B58B43",
+      "bounds_mm": [
+        -21.5,
+        29.0,
+        45.5,
+        -16.5,
+        33.0,
+        50.5
+      ],
+      "volume_mm3": 48.349,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    },
+    {
+      "id": "H80_Speaker_screw_3",
+      "category": "hardware",
+      "file": "parts/hardware/H80_Speaker_screw_3.step",
+      "material": "steel",
+      "description": "M3x6 simplified",
+      "color": "#616A71",
+      "bounds_mm": [
+        -22.0,
+        24.4,
+        45.0,
+        -16.0,
+        32.8,
+        51.0
+      ],
+      "volume_mm3": 109.146,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    },
+    {
+      "id": "H90_Touch_insert_1",
+      "category": "hardware",
+      "file": "parts/hardware/H90_Touch_insert_1.step",
+      "material": "brass",
+      "description": "M3 x 4 x 5 heat-set insert; interference with printed pilot is intentional",
+      "color": "#B58B43",
+      "bounds_mm": [
+        -22.5,
+        -5.5,
+        68.6,
+        -17.5,
+        -0.5,
+        72.6
+      ],
+      "volume_mm3": 48.349,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    },
+    {
+      "id": "H91_Touch_screw_1",
+      "category": "hardware",
+      "file": "parts/hardware/H91_Touch_screw_1.step",
+      "material": "steel",
+      "description": "M3x6 upward into top bosses",
+      "color": "#616A71",
+      "bounds_mm": [
+        -23.0,
+        -6.0,
+        64.4,
+        -17.0,
+        0.0,
+        72.8
+      ],
+      "volume_mm3": 109.146,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    },
+    {
+      "id": "H90_Touch_insert_2",
+      "category": "hardware",
+      "file": "parts/hardware/H90_Touch_insert_2.step",
+      "material": "brass",
+      "description": "M3 x 4 x 5 heat-set insert; interference with printed pilot is intentional",
+      "color": "#B58B43",
+      "bounds_mm": [
+        17.5,
+        -5.5,
+        68.6,
+        22.5,
+        -0.5,
+        72.6
+      ],
+      "volume_mm3": 48.349,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    },
+    {
+      "id": "H91_Touch_screw_2",
+      "category": "hardware",
+      "file": "parts/hardware/H91_Touch_screw_2.step",
+      "material": "steel",
+      "description": "M3x6 upward into top bosses",
+      "color": "#616A71",
+      "bounds_mm": [
+        17.0,
+        -6.0,
+        64.4,
+        23.0,
+        0.0,
+        72.8
+      ],
+      "volume_mm3": 109.146,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    },
+    {
+      "id": "H92_USB_insert_1",
+      "category": "hardware",
+      "file": "parts/hardware/H92_USB_insert_1.step",
+      "material": "brass",
+      "description": "M3 x 4 x 5 heat-set insert; interference with printed pilot is intentional",
+      "color": "#B58B43",
+      "bounds_mm": [
+        -34.5,
+        10.0,
+        30.8,
+        -29.5,
+        15.0,
+        34.8
+      ],
+      "volume_mm3": 48.349,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    },
+    {
+      "id": "H93_USB_screw_1",
+      "category": "hardware",
+      "file": "parts/hardware/H93_USB_screw_1.step",
+      "material": "steel",
+      "description": "M3 x 8 pan-head screw, simplified thread",
+      "color": "#606870",
+      "bounds_mm": [
+        -35.0,
+        9.5,
+        31.6,
+        -29.0,
+        15.5,
+        42.0
+      ],
+      "volume_mm3": 118.941,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    },
+    {
+      "id": "H92_USB_insert_2",
+      "category": "hardware",
+      "file": "parts/hardware/H92_USB_insert_2.step",
+      "material": "brass",
+      "description": "M3 x 4 x 5 heat-set insert; interference with printed pilot is intentional",
+      "color": "#B58B43",
+      "bounds_mm": [
+        -18.5,
+        10.0,
+        30.8,
+        -13.5,
+        15.0,
+        34.8
+      ],
+      "volume_mm3": 48.349,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    },
+    {
+      "id": "H93_USB_screw_2",
+      "category": "hardware",
+      "file": "parts/hardware/H93_USB_screw_2.step",
+      "material": "steel",
+      "description": "M3 x 8 pan-head screw, simplified thread",
+      "color": "#606870",
+      "bounds_mm": [
+        -19.0,
+        9.5,
+        31.6,
+        -13.0,
+        15.5,
+        42.0
+      ],
+      "volume_mm3": 118.941,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    },
+    {
+      "id": "H94_Rubber_foot_1",
+      "category": "hardware",
+      "file": "parts/hardware/H94_Rubber_foot_1.step",
+      "material": "silicone rubber",
+      "description": "Adhesive diameter9x1.3 foot,0.6 recess",
+      "color": "#3E4A4B",
+      "bounds_mm": [
+        -33.5,
+        -27.5,
+        -0.7,
+        -24.5,
+        -18.5,
+        0.6
+      ],
+      "volume_mm3": 82.702,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    },
+    {
+      "id": "H94_Rubber_foot_2",
+      "category": "hardware",
+      "file": "parts/hardware/H94_Rubber_foot_2.step",
+      "material": "silicone rubber",
+      "description": "Adhesive diameter9x1.3 foot,0.6 recess",
+      "color": "#3E4A4B",
+      "bounds_mm": [
+        -33.5,
+        18.5,
+        -0.7,
+        -24.5,
+        27.5,
+        0.6
+      ],
+      "volume_mm3": 82.702,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    },
+    {
+      "id": "H94_Rubber_foot_3",
+      "category": "hardware",
+      "file": "parts/hardware/H94_Rubber_foot_3.step",
+      "material": "silicone rubber",
+      "description": "Adhesive diameter9x1.3 foot,0.6 recess",
+      "color": "#3E4A4B",
+      "bounds_mm": [
+        24.5,
+        -27.5,
+        -0.7,
+        33.5,
+        -18.5,
+        0.6
+      ],
+      "volume_mm3": 82.702,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    },
+    {
+      "id": "H94_Rubber_foot_4",
+      "category": "hardware",
+      "file": "parts/hardware/H94_Rubber_foot_4.step",
+      "material": "silicone rubber",
+      "description": "Adhesive diameter9x1.3 foot,0.6 recess",
+      "color": "#3E4A4B",
+      "bounds_mm": [
+        24.5,
+        18.5,
+        -0.7,
+        33.5,
+        27.5,
+        0.6
+      ],
+      "volume_mm3": 82.702,
+      "solid_count": 1,
+      "valid": true,
+      "features": []
+    }
+  ],
+  "intentional_interference": [
+    [
+      "H10_Base_insert_1",
+      "P02_Snap_base",
+      "Heat-set installation: OD5 insert into trial diameter4.4 printed pilot"
+    ],
+    [
+      "H10_Base_insert_2",
+      "P02_Snap_base",
+      "Heat-set installation: OD5 insert into trial diameter4.4 printed pilot"
+    ],
+    [
+      "H10_Base_insert_3",
+      "P02_Snap_base",
+      "Heat-set installation: OD5 insert into trial diameter4.4 printed pilot"
+    ],
+    [
+      "H10_Base_insert_4",
+      "P02_Snap_base",
+      "Heat-set installation: OD5 insert into trial diameter4.4 printed pilot"
+    ],
+    [
+      "H30_Deck_insert_1",
+      "P01_Upper_shell",
+      "Heat-set installation: OD5 insert into trial diameter4.4 printed pilot"
+    ],
+    [
+      "H30_Deck_insert_2",
+      "P01_Upper_shell",
+      "Heat-set installation: OD5 insert into trial diameter4.4 printed pilot"
+    ],
+    [
+      "H30_Deck_insert_3",
+      "P01_Upper_shell",
+      "Heat-set installation: OD5 insert into trial diameter4.4 printed pilot"
+    ],
+    [
+      "H50_Display_insert_1",
+      "P01_Upper_shell",
+      "Heat-set interference"
+    ],
+    [
+      "H50_Display_insert_2",
+      "P01_Upper_shell",
+      "Heat-set interference"
+    ],
+    [
+      "H50_Display_insert_3",
+      "P01_Upper_shell",
+      "Heat-set interference"
+    ],
+    [
+      "H50_Display_insert_4",
+      "P01_Upper_shell",
+      "Heat-set interference"
+    ],
+    [
+      "H70_Speaker_insert_1",
+      "P01_Upper_shell",
+      "Heat-set interference"
+    ],
+    [
+      "H70_Speaker_insert_2",
+      "P01_Upper_shell",
+      "Heat-set interference"
+    ],
+    [
+      "H70_Speaker_insert_3",
+      "P01_Upper_shell",
+      "Heat-set interference"
+    ],
+    [
+      "H90_Touch_insert_1",
+      "P01_Upper_shell",
+      "Heat-set installation: OD5 insert into trial diameter4.4 printed pilot"
+    ],
+    [
+      "H90_Touch_insert_2",
+      "P01_Upper_shell",
+      "Heat-set installation: OD5 insert into trial diameter4.4 printed pilot"
+    ],
+    [
+      "H92_USB_insert_1",
+      "P01_Upper_shell",
+      "Heat-set installation: OD5 insert into trial diameter4.4 printed pilot"
+    ],
+    [
+      "H92_USB_insert_2",
+      "P01_Upper_shell",
+      "Heat-set installation: OD5 insert into trial diameter4.4 printed pilot"
+    ]
+  ]
+}

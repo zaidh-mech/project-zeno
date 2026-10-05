@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="986.4pt" height="627.543687pt" viewBox="0 0 986.4 627.543687" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-10-01T14:41:20.769872</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.6, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 627.543687 
+L 986.4 627.543687 
+L 986.4 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 20.16 239.2704 
+L 162.72 239.2704 
+Q 170.496 239.2704 170.496 232.704 
+L 170.496 156.096 
+Q 170.496 149.5296 162.72 149.5296 
+L 20.16 149.5296 
+Q 12.384 149.5296 12.384 156.096 
+L 12.384 232.704 
+Q 12.384 239.2704 20.16 239.2704 
+z
+" clip-path="url(#pdddd9318a1)" style="fill: #edf3ed; stroke: #608479; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 221.04 239.2704 
+L 383.04 239.2704 
+Q 390.816 239.2704 390.816 232.704 
+L 390.816 156.096 
+Q 390.816 149.5296 383.04 149.5296 
+L 221.04 149.5296 
+Q 213.264 149.5296 213.264 156.096 
+L 213.264 232.704 
+Q 213.264 239.2704 221.04 239.2704 
+z
+" clip-path="url(#pdddd9318a1)" style="fill: #edf3ed; stroke: #608479; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 447.84 250.2144 
+L 622.8 250.2144 
+Q 630.576 250.2144 630.576 243.648 
+L 630.576 145.152 
+Q 630.576 138.5856 622.8 138.5856 
+L 447.84 138.5856 
+Q 440.064 138.5856 440.064 145.152 
+L 440.064 243.648 
+Q 440.064 250.2144 447.84 250.2144 
+z
+" clip-path="url(#pdddd9318a1)" style="fill: #edf3ed; stroke: #608479; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 447.84 414.3744 
+L 622.8 414.3744 
+Q 630.576 414.3744 630.576 407.808 
+L 630.576 342.144 
+Q 630.576 335.5776 622.8 335.5776 
+L 447.84 335.5776 
+Q 440.064 335.5776 440.064 342.144 
+L 440.064 407.808 
+Q 440.064 414.3744 447.84 414.3744 
+z
+" clip-path="url(#pdddd9318a1)" style="fill: #edf3ed; stroke: #608479; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 700.56 250.2144 
+L 933.84 250.2144 
+Q 941.616 250.2144 941.616 243.648 
+L 941.616 145.152 
+Q 941.616 138.5856 933.84 138.5856 
+L 700.56 138.5856 
+Q 692.784 138.5856 692.784 145.152 
+L 692.784 243.648 
+Q 692.784 250.2144 700.56 250.2144 
+z
+" clip-path="url(#pdddd9318a1)" style="fill: #edf3ed; stroke: #608479; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 700.56 414.3744 
+L 933.84 414.3744 
+Q 941.616 414.3744 941.616 407.808 
+L 941.616 342.144 
+Q 941.616 335.5776 933.84 335.5776 
+L 700.56 335.5776 
+Q 692.784 335.5776 692.784 342.144 
+L 692.784 407.808 
+Q 692.784 414.3744 700.56 414.3744 
+z
+" clip-path="url(#pdddd9318a1)" style="fill: #edf3ed; stroke: #608479; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 700.56 551.1744 
+L 933.84 551.1744 
+Q 941.616 551.1744 941.616 544.608 
+L 941.616 484.416 
+Q 941.616 477.8496 933.84 477.8496 
+L 700.56 477.8496 
+Q 692.784 477.8496 692.784 484.416 
+L 692.784 544.608 
+Q 692.784 551.1744 700.56 551.1744 
+z
+" clip-path="url(#pdddd9318a1)" style="fill: #edf3ed; stroke: #608479; stroke-linejoin: miter"/>
+   </g>
+   <g id="line2d_1">
+    <path d="M 302.04 240.912 
+L 302.04 314.784 
+L 677.88 314.784 
+L 677.88 374.976 
+L 690.84 374.976 
+" clip-path="url(#pdddd9318a1)" style="fill: none; stroke-dasharray: 4.44,1.92; stroke-dashoffset: 0; stroke: #b58339; stroke-width: 1.2"/>
+   </g>
+   <g id="text_1">
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; fill: #254441" transform="translate(63.307969 184.441875)">USB-C inlet</text>
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; fill: #254441" transform="translate(71.08375 197.159375)">5 V only</text>
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; fill: #254441" transform="translate(32.662656 209.876875)">CC1 / CC2: separate Rd</text>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; fill: #254441" transform="translate(270.963437 184.441875)">DPDT pole B</text>
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; fill: #254441" transform="translate(246.299375 197.159375)">CHARGE: VBUS to IN+</text>
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; fill: #254441" transform="translate(275.413437 209.876875)">RUN: open</text>
+   </g>
+   <g id="text_3">
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; fill: #254441" transform="translate(491.010625 178.083125)">Protected TP4056</text>
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; fill: #254441" transform="translate(500.920781 190.800625)">RPROG ~3.0k</text>
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; fill: #254441" transform="translate(487.487969 203.518125)">Target 367-400 mA</text>
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; fill: #254441" transform="translate(480.725469 216.235625)">Verify actual topology</text>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; fill: #254441" transform="translate(497.450469 371.376625)">One 18650 cell</text>
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; fill: #254441" transform="translate(505.437188 384.094125)">B+ / B- only</text>
+   </g>
+   <g id="text_5">
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; fill: #254441" transform="translate(781.660156 178.083125)">MT3608 boost</text>
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; fill: #254441" transform="translate(760.761719 190.800625)">IN from protected OUT</text>
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; fill: #254441" transform="translate(769.053125 203.518125)">Adjust to 5.0 V first</text>
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; fill: #254441" transform="translate(743.679688 216.235625)">Remains powered in CHARGE</text>
+   </g>
+   <g id="text_6">
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; fill: #254441" transform="translate(786.133594 365.017875)">DPDT pole A</text>
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; fill: #254441" transform="translate(748.564844 377.735375)">RUN: boost OUT+ to SYS5V</text>
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; fill: #254441" transform="translate(780.267969 390.452875)">CHARGE: open</text>
+   </g>
+   <g id="text_7">
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; fill: #254441" transform="translate(776.825781 504.553875)">Switched SYS5V</text>
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; fill: #254441" transform="translate(763.476562 517.271375)">ESP32-C3 + amplifier</text>
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; fill: #254441" transform="translate(759.46875 529.988875)">LCD / touch via C3 3V3</text>
+   </g>
+   <g id="patch_9">
+    <path d="M 174.438105 194.4 
+Q 191.877317 194.4 207.639477 194.4 
+" style="fill: none; stroke: #254441; stroke-width: 1.5; stroke-linecap: round"/>
+    <path d="M 203.639477 192.4 
+L 207.639477 194.4 
+L 203.639477 196.4 
+" style="fill: none; stroke: #254441; stroke-width: 1.5; stroke-linecap: round"/>
+   </g>
+   <g id="text_8">
+    <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #254441" x="191.88" y="177.984" transform="rotate(-0 191.88 177.984)">VBUS</text>
+   </g>
+   <g id="patch_10">
+    <path d="M 394.761665 194.4 
+Q 415.441823 194.4 434.44493 194.4 
+" style="fill: none; stroke: #254441; stroke-width: 1.5; stroke-linecap: round"/>
+    <path d="M 430.44493 192.4 
+L 434.44493 194.4 
+L 430.44493 196.4 
+" style="fill: none; stroke: #254441; stroke-width: 1.5; stroke-linecap: round"/>
+   </g>
+   <g id="text_9">
+    <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #254441" x="415.44" y="177.984" transform="rotate(-0 415.44 177.984)">IN+</text>
+   </g>
+   <g id="patch_11">
+    <path d="M 634.516919 194.4 
+Q 661.679811 194.4 687.165652 194.4 
+" style="fill: none; stroke: #254441; stroke-width: 1.5; stroke-linecap: round"/>
+    <path d="M 683.165652 192.4 
+L 687.165652 194.4 
+L 683.165652 196.4 
+" style="fill: none; stroke: #254441; stroke-width: 1.5; stroke-linecap: round"/>
+   </g>
+   <g id="text_10">
+    <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #254441" x="661.68" y="175.248" transform="rotate(-0 661.68 175.248)">OUT +/-</text>
+   </g>
+   <g id="patch_12">
+    <path d="M 535.32 331.934599 
+Q 535.32 292.894816 535.32 255.532083 
+" style="fill: none; stroke: #254441; stroke-width: 1.5; stroke-linecap: round"/>
+    <path d="M 533.32 259.532083 
+L 535.32 255.532083 
+L 537.32 259.532083 
+" style="fill: none; stroke: #254441; stroke-width: 1.5; stroke-linecap: round"/>
+   </g>
+   <g id="text_11">
+    <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #254441" x="574.2" y="301.104" transform="rotate(-0 574.2 301.104)">B +/-</text>
+   </g>
+   <g id="patch_13">
+    <path d="M 817.2 253.857401 
+Q 817.2 292.897184 817.2 330.259917 
+" style="fill: none; stroke: #254441; stroke-width: 1.5; stroke-linecap: round"/>
+    <path d="M 819.2 326.259917 
+L 817.2 330.259917 
+L 815.2 326.259917 
+" style="fill: none; stroke: #254441; stroke-width: 1.5; stroke-linecap: round"/>
+   </g>
+   <g id="text_12">
+    <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #254441" x="849.6" y="298.368" transform="rotate(-0 849.6 298.368)">5 V</text>
+   </g>
+   <g id="patch_14">
+    <path d="M 817.2 418.018236 
+Q 817.2 446.113337 817.2 472.531386 
+" style="fill: none; stroke: #254441; stroke-width: 1.5; stroke-linecap: round"/>
+    <path d="M 819.2 468.531386 
+L 817.2 472.531386 
+L 815.2 468.531386 
+" style="fill: none; stroke: #254441; stroke-width: 1.5; stroke-linecap: round"/>
+   </g>
+   <g id="text_13">
+    <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #254441" x="862.56" y="448.848" transform="rotate(-0 862.56 448.848)">SYS5V</text>
+   </g>
+   <g id="text_14">
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; fill: #254441" transform="translate(20.16 303.586187)">One mechanically</text>
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; fill: #254441" transform="translate(20.16 314.784)">linked DPDT switch</text>
+   </g>
+   <g id="text_15">
+    <text style="font-size: 9.5px; font-family: 'DejaVu Sans'; fill: #254441" transform="translate(20.16 428.706516)">COMMON RETURN: USB GND + system GND + boost GND -&gt; OUT-/IN-.</text>
+    <text style="font-size: 9.5px; font-family: 'DejaVu Sans'; fill: #254441" transform="translate(20.16 442.953695)">Only cell negative connects to B-. Do not bypass the protection FETs.</text>
+    <text style="font-size: 9.5px; font-family: 'DejaVu Sans'; fill: #254441" transform="translate(20.16 457.200875)">Unused throws remain open and insulated. Identify pins by continuity.</text>
+    <text style="font-size: 9.5px; font-family: 'DejaVu Sans'; fill: #254441" transform="translate(20.16 471.448055)">5.1k from each CC pin to GND only if not already fitted on the inlet.</text>
+    <text style="font-size: 9.5px; font-family: 'DejaVu Sans'; fill: #254441" transform="translate(20.16 485.695234)"/>
+    <text style="font-size: 9.5px; font-family: 'DejaVu Sans'; fill: #254441" transform="translate(20.16 499.942414)">Internal C3 programming USB: set CHARGE before connection;</text>
+    <text style="font-size: 9.5px; font-family: 'DejaVu Sans'; fill: #254441" transform="translate(20.16 514.189594)">unplug it before RUN to avoid paralleling PC VBUS and boosted 5 V.</text>
+    <text style="font-size: 9.5px; font-family: 'DejaVu Sans'; fill: #254441" transform="translate(20.16 528.436773)">Verify idle drain, charge termination, contact rating and temperatures.</text>
+   </g>
+  </g>
+  <g id="text_16">
+   <text style="font-weight: 700; font-size: 22px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #254441" x="12.6" y="23.916562" transform="rotate(-0 12.6 23.916562)">AURA R1  /  BATTERY &amp; CHARGING</text>
+  </g>
+  <g id="text_17">
+   <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #254441" x="12.6" y="55.8" transform="rotate(-0 12.6 55.8)">Connection diagram | one cell | 5 V USB charging | settled RUN / CHARGE states</text>
+  </g>
+  <g id="text_18">
+   <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #254441" x="12.6" y="618.264" transform="rotate(-0 12.6 618.264)">AURA / R1 / EL-01     Not charge-and-play. Switch transition timing and received module topology require bench verification.</text>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pdddd9318a1">
+   <rect x="7.2" y="84.96" width="972" height="492.48"/>
+  </clipPath>
+ </defs>
+</svg>

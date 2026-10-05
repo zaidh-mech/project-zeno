@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="964.8pt" height="502.659687pt" viewBox="0 0 964.8 502.659687" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-10-01T14:41:20.584184</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.6, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 502.659687 
+L 964.8 502.659687 
+L 964.8 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 122.5117 322.4557 
+L 237.9351 322.4557 
+L 237.9351 235.88815 
+L 122.5117 235.88815 
+z
+" clip-path="url(#pbaad246d96)" style="fill: #edf3ed; stroke: #254441; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 148.481965 308.027775 
+L 211.964835 308.027775 
+L 211.964835 235.88815 
+L 148.481965 235.88815 
+z
+" clip-path="url(#pbaad246d96)" style="fill: #ffffff; stroke-dasharray: 3.7,1.6; stroke-dashoffset: 0; stroke: #608479; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 144.153588 293.59985 
+L 157.860116 293.59985 
+L 157.860116 235.88815 
+L 144.153588 235.88815 
+z
+" clip-path="url(#pbaad246d96)" style="fill: #b58339; opacity: 0.85; stroke: #254441; stroke-width: 0.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 202.586684 293.59985 
+L 216.293213 293.59985 
+L 216.293213 235.88815 
+L 202.586684 235.88815 
+z
+" clip-path="url(#pbaad246d96)" style="fill: #b58339; opacity: 0.85; stroke: #254441; stroke-width: 0.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="line2d_1">
+    <path d="M 144.153588 235.88815 
+L 144.153588 207.0323 
+" clip-path="url(#pbaad246d96)" style="fill: none; stroke: #608479; stroke-width: 0.6; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_2">
+    <path d="M 216.293213 235.88815 
+L 216.293213 207.0323 
+" clip-path="url(#pbaad246d96)" style="fill: none; stroke: #608479; stroke-width: 0.6; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_3">
+    <path d="M 237.9351 293.59985 
+L 266.79095 293.59985 
+" clip-path="url(#pbaad246d96)" style="fill: none; stroke: #608479; stroke-width: 0.6; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_4">
+    <path d="M 237.9351 235.88815 
+L 266.79095 235.88815 
+" clip-path="url(#pbaad246d96)" style="fill: none; stroke: #608479; stroke-width: 0.6; stroke-linecap: square"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 213.395396 207.0323 
+Q 180.221267 207.0323 147.047137 207.0323 
+" style="fill: none; stroke: #254441; stroke-width: 0.8; stroke-linecap: round"/>
+    <path d="M 209.395396 205.0323 
+L 213.395396 207.0323 
+L 209.395396 209.0323 
+" style="fill: none; stroke: #254441; stroke-width: 0.8; stroke-linecap: round"/>
+    <path d="M 151.047137 209.0323 
+L 147.047137 207.0323 
+L 151.047137 205.0323 
+" style="fill: none; stroke: #254441; stroke-width: 0.8; stroke-linecap: round"/>
+   </g>
+   <g id="text_1">
+    <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #254441" x="180.2234" y="176.304731" transform="rotate(-0 180.2234 176.304731)">Insert OD 5</text>
+   </g>
+   <g id="patch_7">
+    <path d="M 266.79095 238.779802 
+Q 266.79095 264.741153 266.79095 290.702504 
+" style="fill: none; stroke: #254441; stroke-width: 0.8; stroke-linecap: round"/>
+    <path d="M 264.79095 242.779802 
+L 266.79095 238.779802 
+L 268.79095 242.779802 
+" style="fill: none; stroke: #254441; stroke-width: 0.8; stroke-linecap: round"/>
+    <path d="M 268.79095 286.702504 
+L 266.79095 290.702504 
+L 264.79095 286.702504 
+" style="fill: none; stroke: #254441; stroke-width: 0.8; stroke-linecap: round"/>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 9px; font-family: 'DejaVu Sans'; fill: #254441" transform="translate(236.063381 278.749547) rotate(-90)">4 long</text>
+   </g>
+   <g id="text_3">
+    <text style="font-size: 9px; font-family: 'DejaVu Sans'; fill: #254441" transform="translate(124.159728 350.936181)">M3 thread / trial pilot 4.4</text>
+    <text style="font-size: 9px; font-family: 'DejaVu Sans'; fill: #254441" transform="translate(101.597853 361.014213)">Heat-set interference is intentional</text>
+   </g>
+   <g id="text_4">
+    <text style="font-weight: 700; font-size: 13px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #254441" x="64.8" y="151.748525" transform="rotate(-0 64.8 151.748525)">A  INSERT SECTION</text>
+   </g>
+  </g>
+  <g id="axes_2">
+   <g id="patch_8">
+    <path d="M 510.1488 359.352 
+L 522.7632 359.352 
+L 522.7632 170.136 
+L 510.1488 170.136 
+z
+" clip-path="url(#pff5e4ef8d3)" style="fill: #608479; stroke: #254441; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 510.1488 185.904 
+L 533.2752 185.904 
+L 533.2752 178.5456 
+L 522.7632 159.624 
+L 510.1488 159.624 
+z
+" clip-path="url(#pff5e4ef8d3)" style="fill: #608479; stroke: #254441; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 501.2136 390.888 
+L 532.7496 390.888 
+L 532.7496 359.352 
+L 501.2136 359.352 
+z
+" clip-path="url(#pff5e4ef8d3)" style="fill: #608479; stroke: #254441; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_11">
+    <path d="M 529.596 324.1368 
+L 554.8248 324.1368 
+L 554.8248 189.5832 
+L 529.596 189.5832 
+z
+" clip-path="url(#pff5e4ef8d3)" style="fill: #edf3ed; stroke: #254441; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_12">
+    <path d="M 545.364 189.5832 
+L 554.8248 189.5832 
+L 554.8248 155.9448 
+L 545.364 155.9448 
+z
+" clip-path="url(#pff5e4ef8d3)" style="fill: #edf3ed; stroke: #254441; stroke-linejoin: miter"/>
+   </g>
+   <g id="line2d_5">
+    <path d="M 510.1488 359.352 
+L 468.1008 359.352 
+" clip-path="url(#pff5e4ef8d3)" style="fill: none; stroke: #608479; stroke-width: 0.6; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_6">
+    <path d="M 510.1488 185.904 
+L 468.1008 185.904 
+" clip-path="url(#pff5e4ef8d3)" style="fill: none; stroke: #608479; stroke-width: 0.6; stroke-linecap: square"/>
+   </g>
+   <g id="patch_13">
+    <path d="M 468.1008 188.796615 
+Q 468.1008 272.626429 468.1008 356.456244 
+" style="fill: none; stroke: #254441; stroke-width: 0.8; stroke-linecap: round"/>
+    <path d="M 466.1008 192.796615 
+L 468.1008 188.796615 
+L 470.1008 192.796615 
+" style="fill: none; stroke: #254441; stroke-width: 0.8; stroke-linecap: round"/>
+    <path d="M 470.1008 352.456244 
+L 468.1008 356.456244 
+L 466.1008 352.456244 
+" style="fill: none; stroke: #254441; stroke-width: 0.8; stroke-linecap: round"/>
+   </g>
+   <g id="text_5">
+    <text style="font-size: 9px; font-family: 'DejaVu Sans'; fill: #254441" transform="translate(445.205081 328.250812) rotate(-90)">16.5 nominal free length</text>
+   </g>
+   <g id="text_6">
+    <text style="font-size: 9px; font-family: 'DejaVu Sans'; fill: #254441" transform="translate(453.384 128.521969)">Root R0.4 / width 6</text>
+    <text style="font-size: 9px; font-family: 'DejaVu Sans'; fill: #254441" transform="translate(453.384 138.6)">Beam thickness 1.2</text>
+   </g>
+   <g id="patch_14">
+    <path d="M 553.108326 207.225958 
+Q 542.602979 197.253414 532.097632 187.28087 
+" style="fill: none; stroke: #254441; stroke-linecap: round"/>
+   </g>
+   <g id="text_7">
+    <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #254441" x="537.48" y="217.44" transform="rotate(-0 537.48 217.44)">0.35 catch</text>
+   </g>
+   <g id="text_8">
+    <text style="font-size: 9px; font-family: 'DejaVu Sans'; fill: #254441" transform="translate(453.384 401.833969)">Insertion bends inward (left)</text>
+    <text style="font-size: 9px; font-family: 'DejaVu Sans'; fill: #254441" transform="translate(453.384 411.912)">Four release windows: 5.6 x 1.8</text>
+   </g>
+   <g id="text_9">
+    <text style="font-weight: 700; font-size: 13px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #254441" x="432.36" y="95.064" transform="rotate(-0 432.36 95.064)">B  LATCH SECTION</text>
+   </g>
+  </g>
+  <g id="axes_3">
+   <g id="text_10">
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; fill: #254441" transform="translate(712.325275 124.123237)">C01: insert trials 4.3 / 4.4 / 4.5 / 4.6</text>
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; fill: #254441" transform="translate(712.325275 138.740347)">Left to right along +X; raised labels omitted.</text>
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; fill: #254441" transform="translate(712.325275 153.357456)">C02 + C03: latch and mating receiver</text>
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; fill: #254441" transform="translate(712.325275 167.974566)">C04: 16 x 9 USB cable opening</text>
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; fill: #254441" transform="translate(712.325275 182.591675)"/>
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; fill: #254441" transform="translate(712.325275 197.208784)">Tongue radial clearance: 0.35</text>
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; fill: #254441" transform="translate(712.325275 211.825894)">Shell seam gap: 0.35</text>
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; fill: #254441" transform="translate(712.325275 226.443003)">Foam: 0.5 nominal, compressed to 0.35</text>
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; fill: #254441" transform="translate(712.325275 241.060112)"/>
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; fill: #254441" transform="translate(712.325275 255.677222)">Estimated snap strain: 0.486%</text>
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; fill: #254441" transform="translate(712.325275 270.294331)">(0.7 deflection / 16.1 effective length)</text>
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; fill: #254441" transform="translate(712.325275 284.911441)">Elastic beam estimate only; test PETG.</text>
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; fill: #254441" transform="translate(712.325275 299.52855)"/>
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; fill: #254441" transform="translate(712.325275 314.145659)">Check insertion and repeated release,</text>
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; fill: #254441" transform="translate(712.325275 328.762769)">root cracks, layer adhesion and rattle.</text>
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; fill: #254441" transform="translate(712.325275 343.379878)">Verify tool access before final assembly.</text>
+   </g>
+   <g id="text_11">
+    <text style="font-weight: 700; font-size: 13px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #254441" x="712.325275" y="95.064" transform="rotate(-0 712.325275 95.064)">C  COUPONS / ACCEPTANCE</text>
+   </g>
+  </g>
+  <g id="text_12">
+   <text style="font-weight: 700; font-size: 22px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #254441" x="7.2" y="23.916562" transform="rotate(-0 7.2 23.916562)">AURA R1  /  INSERTS, LATCHES &amp; FIT</text>
+  </g>
+  <g id="text_13">
+   <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #254441" x="7.2" y="62.388" transform="rotate(-0 7.2 62.388)">Detail dimensions in mm | these are starting prototype fits, subject to coupon verification</text>
+  </g>
+  <g id="text_14">
+   <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #254441" x="7.2" y="493.38" transform="rotate(-0 7.2 493.38)">AURA / R1 / DT-01     STEP geometry governs. Install inserts before electronics. No fatigue life or printer tolerance is certified.</text>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pbaad246d96">
+   <rect x="64.8" y="163.748525" width="245.274725" height="201.99095"/>
+  </clipPath>
+  <clipPath id="pff5e4ef8d3">
+   <rect x="432.36" y="107.064" width="157.68" height="315.36"/>
+  </clipPath>
+ </defs>
+</svg>

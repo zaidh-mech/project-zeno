@@ -1,0 +1,216 @@
+{
+  "result": "PASS",
+  "named_step_groups": [
+    "AURA_R1_MAIN_ASSEMBLY",
+    "01_Printable_parts",
+    "02_Purchased_modules",
+    "03_Inserts_fasteners_pads",
+    "04_Display_state_visual_only"
+  ],
+  "assembly_step_valid": true,
+  "assembly_solids": 92,
+  "assembly_bounds_mm": [
+    -45.0,
+    -40.6,
+    -0.7,
+    45.0,
+    39.6,
+    74.0
+  ],
+  "complete_size_mm": [
+    90.0,
+    80.2,
+    74.7
+  ],
+  "unexpected_interferences": 0,
+  "intersection_reporting_threshold_mm3": 0.025,
+  "printed_parts": [
+    {
+      "id": "P01_Upper_shell",
+      "step_valid": true,
+      "single_solid": true,
+      "mesh": {
+        "file": "parts/printed/P01_Upper_shell.stl",
+        "triangles": 65672,
+        "boundary_or_nonmanifold_edges": 0,
+        "connected_regions": 1,
+        "minimum_z_mm": 0.0
+      }
+    },
+    {
+      "id": "P02_Snap_base",
+      "step_valid": true,
+      "single_solid": true,
+      "mesh": {
+        "file": "parts/printed/P02_Snap_base.stl",
+        "triangles": 40364,
+        "boundary_or_nonmanifold_edges": 0,
+        "connected_regions": 1,
+        "minimum_z_mm": 0.0
+      }
+    },
+    {
+      "id": "P03_Face_bezel",
+      "step_valid": true,
+      "single_solid": true,
+      "mesh": {
+        "file": "parts/printed/P03_Face_bezel.stl",
+        "triangles": 51824,
+        "boundary_or_nonmanifold_edges": 0,
+        "connected_regions": 1,
+        "minimum_z_mm": 0.0
+      }
+    },
+    {
+      "id": "P04_Adjustable_display_carrier",
+      "step_valid": true,
+      "single_solid": true,
+      "mesh": {
+        "file": "parts/printed/P04_Adjustable_display_carrier.stl",
+        "triangles": 5412,
+        "boundary_or_nonmanifold_edges": 0,
+        "connected_regions": 1,
+        "minimum_z_mm": -0.0
+      }
+    },
+    {
+      "id": "P05_Electronics_deck",
+      "step_valid": true,
+      "single_solid": true,
+      "mesh": {
+        "file": "parts/printed/P05_Electronics_deck.stl",
+        "triangles": 5080,
+        "boundary_or_nonmanifold_edges": 0,
+        "connected_regions": 1,
+        "minimum_z_mm": 0.0
+      }
+    },
+    {
+      "id": "P06_C3_snap_cap",
+      "step_valid": true,
+      "single_solid": true,
+      "mesh": {
+        "file": "parts/printed/P06_C3_snap_cap.stl",
+        "triangles": 828,
+        "boundary_or_nonmanifold_edges": 0,
+        "connected_regions": 1,
+        "minimum_z_mm": -0.0
+      }
+    },
+    {
+      "id": "P07_Amplifier_snap_cap",
+      "step_valid": true,
+      "single_solid": true,
+      "mesh": {
+        "file": "parts/printed/P07_Amplifier_snap_cap.stl",
+        "triangles": 812,
+        "boundary_or_nonmanifold_edges": 0,
+        "connected_regions": 1,
+        "minimum_z_mm": -0.0
+      }
+    },
+    {
+      "id": "P08_Power_board_retainer",
+      "step_valid": true,
+      "single_solid": true,
+      "mesh": {
+        "file": "parts/printed/P08_Power_board_retainer.stl",
+        "triangles": 2732,
+        "boundary_or_nonmanifold_edges": 0,
+        "connected_regions": 1,
+        "minimum_z_mm": 0.0
+      }
+    },
+    {
+      "id": "P09_Battery_cradle",
+      "step_valid": true,
+      "single_solid": true,
+      "mesh": {
+        "file": "parts/printed/P09_Battery_cradle.stl",
+        "triangles": 3084,
+        "boundary_or_nonmanifold_edges": 0,
+        "connected_regions": 1,
+        "minimum_z_mm": 0.0
+      }
+    },
+    {
+      "id": "P10_Touch_retaining_frame",
+      "step_valid": true,
+      "single_solid": true,
+      "mesh": {
+        "file": "parts/printed/P10_Touch_retaining_frame.stl",
+        "triangles": 2944,
+        "boundary_or_nonmanifold_edges": 0,
+        "connected_regions": 1,
+        "minimum_z_mm": 0.0
+      }
+    },
+    {
+      "id": "P11_Speaker_retainer",
+      "step_valid": true,
+      "single_solid": true,
+      "mesh": {
+        "file": "parts/printed/P11_Speaker_retainer.stl",
+        "triangles": 3836,
+        "boundary_or_nonmanifold_edges": 0,
+        "connected_regions": 1,
+        "minimum_z_mm": -0.0
+      }
+    },
+    {
+      "id": "P12_USB_inlet_carrier",
+      "step_valid": true,
+      "single_solid": true,
+      "mesh": {
+        "file": "parts/printed/P12_USB_inlet_carrier.stl",
+        "triangles": 2820,
+        "boundary_or_nonmanifold_edges": 0,
+        "connected_regions": 1,
+        "minimum_z_mm": 0.0
+      }
+    },
+    {
+      "id": "P13_USB_capture_cap",
+      "step_valid": true,
+      "single_solid": true,
+      "mesh": {
+        "file": "parts/printed/P13_USB_capture_cap.stl",
+        "triangles": 3136,
+        "boundary_or_nonmanifold_edges": 0,
+        "connected_regions": 1,
+        "minimum_z_mm": 0.0
+      }
+    }
+  ],
+  "coupons": [
+    {
+      "file": "parts/coupons/C01_Insert_bores_4p3_4p4_4p5_4p6.stl",
+      "triangles": 3180,
+      "boundary_or_nonmanifold_edges": 0,
+      "connected_regions": 1,
+      "minimum_z_mm": 0.0
+    },
+    {
+      "file": "parts/coupons/C02_Snap_latch.stl",
+      "triangles": 376,
+      "boundary_or_nonmanifold_edges": 0,
+      "connected_regions": 1,
+      "minimum_z_mm": 0.0
+    },
+    {
+      "file": "parts/coupons/C03_Snap_receiver.stl",
+      "triangles": 48,
+      "boundary_or_nonmanifold_edges": 0,
+      "connected_regions": 1,
+      "minimum_z_mm": 0.0
+    },
+    {
+      "file": "parts/coupons/C04_USB_clearance.stl",
+      "triangles": 672,
+      "boundary_or_nonmanifold_edges": 0,
+      "connected_regions": 1,
+      "minimum_z_mm": 0.0
+    }
+  ],
+  "limits": "Static model/import/mesh checks only. Supplier envelopes remain provisional; no physical fit, electrical, thermal, radio or fatigue validation."
+}

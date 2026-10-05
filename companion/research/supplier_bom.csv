@@ -1,0 +1,17 @@
+﻿ID,Item,Supplier_SKU,Qty,Unit_LKR,Stock_checked_2026-10-01,Source,Dimension_status,Model_dimensions
+C3,ESP32-C3 SuperMini,Alphatronic A33,1,840,In stock,https://alphatronic.lk/product/esp32-c3-supermini/,seller nominal / partial,22.5 x 18 PCB; 1.6 PCB and component heights provisional
+LCD,1.28 inch GC9A01 round TFT,Tronic DM0049,1,1450,In stock,https://tronic.lk/product/1-28-inch-240x240-round-tft-lcd-display-module-rgb-3-3v,panel drawing verified; local breakout unverified,Panel 35.6 x 38.1 x 1.5; breakout 38 x 45.5 x 1.6 PROVISIONAL
+TOUCH,TTP223 touch module,Tronic MD0206,1,60,In stock,https://tronic.lk/product/ttp223-1-channel-digital-capacitive-touch-sensor-module,provisional envelope,24 x 24 x 7 PROVISIONAL
+AMP,MAX98357 I2S amplifier,Tronic MD0860,1,480,In stock,https://tronic.lk/product/max98357-i2s-3w-class-d-amplifier-breakout-interface-da,seller nominal / partial,18 x 19 PCB; populated 10mm envelope
+SPEAKER,"3020 enclosed speaker,4ohm3W",Alphatronic PAL36,1,320,In stock,https://alphatronic.lk/product/3020-enclosed-mini-audio-speaker-4-ohms-3w/,seller nominal,30 x 20 x 7
+CELL,"Samsung-labelled flat-top 18650,3500mAh",Tronic BA0199,1,950,In stock,https://tronic.lk/product/samsung-18650-flat-top-3-7v-3500ma-li-ion-rechargeable-,seller nominal; cell identity unverified,Diameter 18.6 x 65.2 FIT ALLOWANCE
+HOLDER,Single 18650 holder with leads,Tronic BA0039,1,40,In stock,https://tronic.lk/product/battery-holder-case-for-1x18650,provisional envelope,77 x 21 x 23 PROVISIONAL
+CHARGER,TP4056 USB-C charger with protection,Tronic MD0744,1,120,In stock,https://tronic.lk/product/tp4056-5v-1a-type-c-18650-lithium-battery-charging-modu,seller conflicting nominal dimensions / topology requires verification,26 x 17; populated 6mm clearance provisional
+BOOST,MT3608 step-up converter,Duino ML2060,1,190,In stock,https://www.duino.lk/product/mt3608-dc-dc-step-up-converter-28v-2a/,seller nominal,36 x 17 x 14
+SWITCH,MTS-202 DPDT ON/ON toggle,Tronic BU0014,1,65,In stock,https://tronic.lk/product/dpdt-toggle-switch-6-pin-125vac-6a,seller approximate,13 x 12 x 31 envelope; diameter 6 bushing and hardware provisional
+USB,USB-C6 x 2 breakout inlet,Tronic MD0840,1,100,In stock,https://tronic.lk/product/usb-type-c-female-to-dip-adapter-breakout-board-6x2pin-,provisional envelope,22 x 18 x 1.6 PCB plus 8.9 x 7.5 x 3.3 socket PROVISIONAL
+INSERT,M3 x 4 x 5 heat-set insert,Alphatronic variation13085,18,10,In-stock variation checked,https://alphatronic.lk/product/brass-threaded-insert-knurled-m3/,seller nominal,5ODx4; thread simplified
+SCREW6,M3 x 6 Phillips pan-head screw,Alphatronic M3x6,16,,Listed local size; confirm variation at order,https://alphatronic.lk/product/m3-phillips-head-bolts-with-nuts/,head provisional,Thread 2.96 simplified; head 6ODx2.4 envelope
+SCREW8,M3 x 8 Phillips pan-head screw,Alphatronic M3x8,2,,Listed local size; confirm variation at order,https://alphatronic.lk/product/m3-phillips-head-bolts-with-nuts/,head provisional,Thread 2.96 simplified; head 6ODx2.4 envelope
+RPROG,3.0k charge-current resistor,"Tronic RU0054,0805 pack",1,,In stock; sold as pack,https://tronic.lk/product/3k-18w-resistor-pack-smd-0805-1-approx-40pcs,electrical selection,Not modelled individually
+RD,5.1k USB-C Rd resistor,"Tronic RU0060,0805 pack",2,,In stock; sold as pack,https://tronic.lk/product/5-1k-18w-resistor-pack-smd-0805-1-approx-40pcs,electrical selection,Not modelled individually

@@ -1,0 +1,7 @@
+AURA R1 ENGINEERING PROTOTYPE — units mm
+13 printable parts and 4 coupons. Open START_HERE.html in the full CAD folder.
+Read markdowns/companion_mechanical_design.md in the project before assembly.
+Supplier envelopes remain provisional; verify the received modules first.
+Use PETG as a starting material. Print fit coupons before the enclosure.
+STLs are bed-positioned; inspect support requirements in the slicer.
+No physical fit, charging, temperature or latch-cycle test is claimed.

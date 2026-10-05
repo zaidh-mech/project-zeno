@@ -1,0 +1,49 @@
+AURA R1 — HEATSINKS AND COOLING
+
+No add-on heatsink is specified in the current BOM or CAD. A particular sink
+size cannot be qualified until the received modules and temperatures are known.
+
+TP4056 CHARGER — first priority during charging.
+At 5 V input, 3 V cell voltage and 0.4 A, calculated chip dissipation is about
+0.8 W. Its exposed underside pad must transfer heat into PCB copper. Keep the
+board surfaces clear; a small adhesive sink on top is not a validated solution.
+Reduce charge current if needed, then recheck charge termination and cell
+temperature. Do not use thermal foldback as the normal operating condition.
+
+MT3608 BOOST CONVERTER — first priority during operation.
+At 5 V / 0.5 A, estimated whole-module loss is 0.28–0.63 W if efficiency is
+90–80%; actual efficiency is unmeasured. Check the IC, diode AND inductor.
+Use PCB heat spreading and ventilation first. If temperatures are excessive,
+reduce the load or redesign with a measured, electrically isolated metal
+spreader and a heat path out of the case. Added metal requires a CAD fit check.
+
+MAX98357A AMPLIFIER — no external heatsink expected initially at verified
+9 dB gain and the 45% PCM cap. Confirm the breakout's gain strap; GAIN_SLOT
+unconnected selects 9 dB. Higher gain can exceed the assumed power budget.
+Use its PCB ground plane for cooling and test at the permitted audio load.
+
+ESP32-C3 — no external heatsink selected. Check MCU and onboard regulator
+temperatures during sustained Wi-Fi. Keep future metal away from the antenna.
+LCD, touch sensor and speaker — no additional sink selected.
+18650 CELL — do not attach a hot module or heatsink to it; preserve separation.
+
+ENCLOSURE
+Three low front slots (4 x 1.4 mm) and four high rear outlets (7.6 x 1.4 mm)
+provide a passive air route separate from the sealed speaker grille. Keep
+wires and foam clear of these openings. Cooling performance is unvalidated.
+Test the closed PETG case at intended ambient temperature during a full charge
+cycle and sustained Wi-Fi/audio, including near-depleted battery operation.
+Compare results with the authentic cell, component and filament limits.
+
+Heat-set inserts are different from heatsinks: this design uses 18 brass
+M3 x 4 x 5 inserts. Their positions are in research/insert_locations.csv.
+
+Primary references:
+TP4056 manufacturer, p16:
+https://www.toppwr.com/uploadfile/file/20241228/676f612b9f2dd.pdf
+Aerosemi MT3608, p6 (manufacturer-authored distributor-hosted PDF):
+https://cdn.ozdisan.com/public/product/assets/MT3608-Rev3.1.pdf
+Analog Devices MAX98357A/B, pp15 and 28:
+https://www.analog.com/media/en/technical-documentation/data-sheets/MAX98357A-MAX98357B.pdf
+Espressif ESP32-C3 hardware layout guidance:
+https://docs.espressif.com/projects/esp-hardware-design-guidelines/en/latest/esp32c3/pcb-layout-design.html

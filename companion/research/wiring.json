@@ -1,0 +1,89 @@
+{
+  "revision": "Aura R1 wiring / W1",
+  "checked_date": "2026-10-01",
+  "firmware": "aura_esp32c3_phone",
+  "status": "Firmware and supplier-photo pin labels checked; received-board continuity, charge current and hardware operation require bench testing.",
+  "rails": {
+    "SYS_5V": "Switched MT3608 output; connects only to C3 5V and amplifier Vin",
+    "V3V3": "C3 regulated 3V3 output; display VCC, touch VCC, amplifier SD",
+    "PGND": "Protected ground at TP4056 OUT-/IN-; all system and external USB grounds",
+    "CELL_NEG": "Cell negative / TP4056 B- only; never join directly to PGND",
+    "BOOST_5V": "MT3608 VOUT+ set to 5.0V, before pole A",
+    "USB_CHARGE_5V": "Both HW-139 VCC pads, before pole B"
+  },
+  "signals": [
+    {"id":"S01","mcu":"GPIO4","module":"LCD","pin":"SCL","role":"SPI clock; not I2C","net":"LCD_SCLK"},
+    {"id":"S02","mcu":"GPIO6","module":"LCD","pin":"SDA","role":"SPI MOSI; not I2C","net":"LCD_MOSI"},
+    {"id":"S03","mcu":"GPIO7","module":"LCD","pin":"CS","role":"SPI chip select","net":"LCD_CS"},
+    {"id":"S04","mcu":"GPIO5","module":"LCD","pin":"DC","role":"Data / command","net":"LCD_DC"},
+    {"id":"S05","mcu":"GPIO3","module":"LCD","pin":"RST","role":"Display reset","net":"LCD_RST"},
+    {"id":"S06","mcu":"GPIO20","module":"TOUCH","pin":"SIG","role":"Active-high momentary touch output","net":"TOUCH_SIG"},
+    {"id":"S07","mcu":"GPIO0","module":"AMP","pin":"BCLK","role":"I2S bit clock","net":"AUDIO_BCLK"},
+    {"id":"S08","mcu":"GPIO1","module":"AMP","pin":"LRC","role":"I2S word select / LRCLK","net":"AUDIO_LRC"},
+    {"id":"S09","mcu":"GPIO10","module":"AMP","pin":"DIN","role":"I2S data from C3","net":"AUDIO_DIN"}
+  ],
+  "nets": {
+    "CELL_POS": ["CELL.+", "CHARGER.B+"],
+    "CELL_NEG": ["CELL.-", "CHARGER.B-"],
+    "PROTECTED_BAT_POS": ["CHARGER.OUT+", "BOOST.VIN+"],
+    "PGND": ["CHARGER.OUT-", "CHARGER.IN-", "BOOST.VIN-", "BOOST.VOUT-", "USB.GND1", "USB.GND2", "C3.GND", "LCD.GND", "TOUCH.GND", "AMP.GND", "R_CC1.2", "R_CC2.2"],
+    "BOOST_5V": ["BOOST.VOUT+", "SW.A_RUN"],
+    "SYS_5V": ["SW.A_COMMON", "C3.5V", "AMP.Vin"],
+    "V3V3": ["C3.3V3", "LCD.VCC", "TOUCH.VCC", "AMP.SD"],
+    "USB_CHARGE_5V": ["USB.VCC1", "USB.VCC2", "SW.B_CHARGE"],
+    "CHARGER_INPUT_POS": ["SW.B_COMMON", "CHARGER.IN+"],
+    "USB_CC1": ["USB.CC1", "R_CC1.1"],
+    "USB_CC2": ["USB.CC2", "R_CC2.1"],
+    "LCD_SCLK": ["C3.GPIO4", "LCD.SCL"],
+    "LCD_MOSI": ["C3.GPIO6", "LCD.SDA"],
+    "LCD_CS": ["C3.GPIO7", "LCD.CS"],
+    "LCD_DC": ["C3.GPIO5", "LCD.DC"],
+    "LCD_RST": ["C3.GPIO3", "LCD.RST"],
+    "TOUCH_SIG": ["TOUCH.SIG", "C3.GPIO20"],
+    "AUDIO_BCLK": ["C3.GPIO0", "AMP.BCLK"],
+    "AUDIO_LRC": ["C3.GPIO1", "AMP.LRC"],
+    "AUDIO_DIN": ["C3.GPIO10", "AMP.DIN"],
+    "SPEAKER_POS": ["AMP.SPK+", "SPEAKER.+"],
+    "SPEAKER_NEG": ["AMP.SPK-", "SPEAKER.-"]
+  },
+  "switch_states": {
+    "RUN": [["SW.A_COMMON", "SW.A_RUN"], ["SW.B_COMMON", "SW.B_UNUSED"]],
+    "CHARGE": [["SW.A_COMMON", "SW.A_UNUSED"], ["SW.B_COMMON", "SW.B_CHARGE"]]
+  },
+  "resistors": [
+    {"id":"R_CC1", "ohms":5100, "note":"Exactly one total Rd from CC1 to PGND; fit only if absent"},
+    {"id":"R_CC2", "ohms":5100, "note":"Exactly one total Rd from CC2 to PGND; fit only if absent"},
+    {"id":"R_PROG", "ohms":3000, "note":"Replace existing module resistor between IC pin2 PROG and pin3 GND; do not parallel; verify footprint"}
+  ],
+  "open_terminals": ["AMP.GAIN", "SW.A_UNUSED", "SW.B_UNUSED", "USB.DP1", "USB.DN1", "USB.DP2", "USB.DN2", "USB.SBU1", "USB.SBU2"],
+  "header_reference": {
+    "C3": {"view":"Component face, USB at top; Nologo reference layout, confirm A33 silkscreen", "left_top_to_bottom":["GPIO5","GPIO6","GPIO7","GPIO8","GPIO9","GPIO10","GPIO20","GPIO21"], "right_top_to_bottom":["5V","GND","3V3","GPIO4","GPIO3","GPIO2","GPIO1","GPIO0"], "source":"https://wiki.nologo.tech/assets/img/esp32/esp32c3supermini/esp32c3foot1.png", "power_reference_only":"https://wiki.nologo.tech/assets/img/esp32/esp32c3supermini/esp32c3schematicdiagram.png"},
+    "LCD": {"view":"Back / component face, header at bottom", "left_to_right":["VCC","GND","SCL","SDA","DC","CS","RST"], "source":"https://tronic.lk/assets/uploads/6a4e1de1b85ce38f614cf53b78e938cb.jpg"},
+    "AMP": {"view":"Component face, header at bottom, speaker connector at top", "left_to_right":["LRC","BCLK","DIN","GAIN","SD","GND","Vin"], "speaker_top_left_to_right":["SPK-","SPK+"], "source":"https://tronic.lk/assets/uploads/e8f2ef16254cc5b22516550c68265817.jpg", "rear_source":"https://tronic.lk/assets/uploads/7f536fb3fe4361ff3b8116001ba2f6a0.jpg"},
+    "TOUCH": {"view":"Component face, three-pin header at top", "left_to_right":["SIG","VCC","GND"], "source":"https://tronic.lk/assets/uploads/ae7e3f170516ab13ffc41c7b9ccb7764.jpg"},
+    "CHARGER": {"view":"Component face, USB-C socket pointing left", "right_edge_top_to_bottom":["OUT+","B+","B-","OUT-"], "left_edge_top_to_bottom":["IN+ (printed +)","IN- (printed -)"], "source":"https://tronic.lk/assets/uploads/cf3567a41545268ed7099b5718adbd45.jpg"},
+    "BOOST": {"view":"Follow silk; VIN at inductor / IC end, VOUT at blue potentiometer end", "pins":["VIN+","VIN-","VOUT+","VOUT-"], "source":"https://www.duino.lk/wp-content/uploads/2022/01/MT3608-DC-DC-Step-Up-28V-2A-2.jpg"},
+    "USB": {"view":"HW-139 module pads; map by silk / continuity, not connector contact position", "pins":["VCC1","VCC2","GND1","GND2","CC1","CC2","DP1","DN1","DP2","DN2","SBU1","SBU2"], "source":"https://tronic.lk/assets/uploads/854388f2e0b19d3163bfce8514a7bbe0.jpg"},
+    "SW": {"view":"Six unnumbered lugs; assign logical pole/common/throw names by continuity before soldering", "source":"https://tronic.lk/assets/uploads/cae45a15fd50b097d9f4750b7fc7846f.jpg"}
+  },
+  "bench_checks": [
+    "Before power: received header names match the shown supplier orientation; IN-/OUT- and boost negatives share the expected protected ground; B- has no external bypass jumper to PGND.",
+    "Bare switch: identify each common and its two throws; poles isolated. RUN closes A_COMMON-A_RUN only; CHARGE closes B_COMMON-B_CHARGE only. Unused throws open/insulated.",
+    "USB inlet alone, disconnected: each CC-to-GND about5.1k ohms; CC1-to-CC2 about10.2k through the two resistors. Verify both VCC pads connect VBUS and both GND pads connect return.",
+    "Before the C3 or amp is attached: calibrate boost VOUT to5.0V under dummy load and check combined peak-load regulation; do not leave it at a factory unknown voltage.",
+    "After RPROG replacement: measure charge current; expected367-400mA, initial limit500mA or the authentic cell limit if lower; check full termination with booster idle load attached.",
+    "CHARGE with external USB only: charger IN+ near5V; SYS_5V and C3 3V3 fall tooff. RUN with external USB only and no programming cable: charger IN+ disconnected; system powered byboost/battery.",
+    "Programming: select CHARGE before plugging the C3's own USB. Unplug that cable before RUN. The TP4056 native USB port stays unused because it bypasses the interlock.",
+    "Closed-case charge and maximum permitted Wi-Fi/audio: measure cell, charger, boost, regulator and contact temperatures; check protection and stable restart near cutoff. No physical tests are claimed."
+  ],
+  "sources": {
+    "firmware": ["src/c3_main.cpp", "platformio.ini"],
+    "amplifier_datasheet":"https://www.analog.com/media/en/technical-documentation/data-sheets/MAX98357A-MAX98357B.pdf",
+    "charger_datasheet":"https://www.toppwr.com/uploadfile/file/20241228/676f612b9f2dd.pdf",
+    "protected_board_reference_only":"https://www.handsontec.com/dataspecs/module/18650-Lithium%20charger.pdf",
+    "usb_c_reference":"https://www.ti.com/lit/ug/tiduem6/tiduem6.pdf",
+    "gpio_reference":"https://docs.espressif.com/projects/esp-idf/en/v5.4/esp32c3/api-reference/peripherals/gpio.html",
+    "lcd_panel_only":"https://www.elecrow.com/download/1.28_inch_round_LCD_datasheet.pdf",
+    "touch_datasheet":"https://www.tontek.com.tw/uploads/product/245/TTP223-HA6_V1.1_EN.pdf"
+  }
+}

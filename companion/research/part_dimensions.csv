@@ -1,0 +1,93 @@
+﻿Part,Category,SizeX_mm,SizeY_mm,SizeZ_mm,Material,Description
+P01_Upper_shell,printed,90,78.1,49.65,PETG,"Rounded head; LCD bosses, touch pocket, speaker grille, high rear vents, charge inlet and recessed run/charge toggle"
+P02_Snap_base,printed,90,78,40,PETG,"Lower tub with four releasable cantilever latches, battery and power mounting bosses"
+H00_Seam_anti_rattle_foam,hardware,89.4,77.4,0.35,closed-cell foam,0.5mm sheet cut to wall perimeter; modelled compressed to0.35mm; tune on coupon
+P03_Face_bezel,printed,44,1.4,44,PETG,"Adhesive seated rim,44OD/33.4ID; never load the display glass"
+H01_Bezel_adhesive,hardware,43.6,0.2,43.6,acrylic adhesive,"0.2mm annular adhesive, removable service item"
+H04_LCD_edge_pad_-18_26.5,hardware,2,0.3,4,silicone foam,0.3mm compliantPCB edge pad
+H04_LCD_edge_pad_-18_66.5,hardware,2,0.3,4,silicone foam,0.3mm compliantPCB edge pad
+H04_LCD_edge_pad_18_26.5,hardware,2,0.3,4,silicone foam,0.3mm compliantPCB edge pad
+H04_LCD_edge_pad_18_66.5,hardware,2,0.3,4,silicone foam,0.3mm compliantPCB edge pad
+P04_Adjustable_display_carrier,printed,61.68,6.7,47.15,PETG,Slotted M3 carrier and0.3mm edge pads; provisional38x45.5 PCB; free header slot
+H05_LCD_perimeter_gasket,hardware,37.8,1.1,37.8,silicone foam,Light compliant peripheral support outside active pixels; do not overtighten glass
+P05_Electronics_deck,printed,80.2,48.2,3.8,PETG,Three-point removable deck; raised C3 antenna; PCB edge rails and snap-cap receivers
+P06_C3_snap_cap,printed,22.1,24.5,7.8,PETG,Removable PCB-edge cap withfour integral latches; print flat frame down
+H07_P06_C3_snap_cap_pad_-1,hardware,1,19.5,0.2,silicone foam,0.2mmPCB edge pad
+H07_P06_C3_snap_cap_pad_1,hardware,1,19.5,0.2,silicone foam,0.2mmPCB edge pad
+P07_Amplifier_snap_cap,printed,22.1,21,7.8,PETG,Removable PCB-edge cap withfour integral latches; print flat frame down
+H07_P07_Amplifier_snap_cap_pad_-1,hardware,1,16,0.2,silicone foam,0.2mmPCB edge pad
+H07_P07_Amplifier_snap_cap_pad_1,hardware,1,16,0.2,silicone foam,0.2mmPCB edge pad
+P08_Power_board_retainer,printed,76.4,40.4,1.8,PETG,M3 bridge restrains charger and boost PCB edges;0.4mm compliant edge pads
+H08_Power_pad_-20_-1,hardware,1,22,0.4,silicone foam,0.4mmPCB edge pad
+H08_Power_pad_-20_1,hardware,1,22,0.4,silicone foam,0.4mmPCB edge pad
+H08_Power_pad_19_-1,hardware,1,32,0.4,silicone foam,0.4mmPCB edge pad
+H08_Power_pad_19_1,hardware,1,32,0.4,silicone foam,0.4mmPCB edge pad
+P09_Battery_cradle,printed,79.6,31.4,8.8,PETG,Replaceable77.8x21.8 holder seat with8mm strap slots andM3 internal mounting
+H09_Battery_retaining_strap,hardware,8,26.5,27.2,hook-and-loop fabric,8mm x0.8 nominal strap routed below removable cradle; adjust tension to actual holder
+P10_Touch_retaining_frame,printed,48.4,29,4.2,PETG,"24x24 provisional TTP223 board against1.4mm tap roof, backed atPCB edges"
+P11_Speaker_retainer,printed,43.96,1.8,24,PETG,"30x20x7 speaker cage, peripheral pads only; no diaphragm compression"
+H02_Speaker_gasket,hardware,30,0.8,20,closed-cell foam,0.8mm perimeter gasket
+P12_USB_inlet_carrier,printed,25,26.9,3.2,PETG,"Replaceable USB-C breakout tray; provision22x18 PCB, external16x9 cable opening"
+P13_USB_capture_cap,printed,25,26.5,3,PETG,Positive cable-insertion restraint; sharedM3x8 screws and0.2mmPCB edge pads
+H06_USB_edge_pad_-34.5,hardware,1,13,0.2,silicone foam,0.2mm compliantUSBPCB edge pad
+H06_USB_edge_pad_-13.5,hardware,1,13,0.2,silicone foam,0.2mm compliantUSBPCB edge pad
+E01_GC9A01_breakout_provisional,electronics,38,5.6,45.5,FR4/components,Tronic DM0049: provisional38x45.5x1.6 breakout; board identity must be measured
+E02_LCD_panel_reference,electronics,35.6,1.5,38.1,glass,Elecrow panel35.6x38.1x1.5 reference; active32.4 diameter
+V01_Display_active_area,visual,32.4,0.08,32.4,pixels,"32.4mm active display, visual representation only"
+V02_Eye_pixels,visual,4.4,0.05,8.2,pixels,"Illustrative firmware expression, not a manufactured part"
+V03_Eye_pixels,visual,4.4,0.05,8.2,pixels,"Illustrative firmware expression, not a manufactured part"
+E03_ESP32C3_SuperMini_A33,electronics,18,24,4.8,FR4/components,"Alphatronic A33;22.5x18 PCB, other heights provisional; antenna towards+Y"
+E04_MAX98357_MD0860,electronics,18,19,10,FR4/components,Tronic18x19 PCB; terminal block height provisional
+E05_TTP223_MD0206_provisional,electronics,24,24,7,FR4/components,Provisional24x24x7 module; sensing face atZ72.6
+E06_3020_speaker_PAL36,electronics,30,7,20,speaker,"Alphatronic PAL36; seller30x20x7,4ohm3W"
+E07_TP4056_MD0744,electronics,17,26,4.8,FR4/components,Tronic26x17 charger/protection PCB; populated height reserved6mm
+E08_MT3608_ML2060,electronics,17,36,14,FR4/components,Duino36x17x14 module envelope; output must be set5V before connection
+E09_18650_holder_BA0039_provisional,electronics,77,21,23,battery holder,Provision77x21x23; seller omits actual dimensions
+E10_18650_cell_BA0199_provisional,electronics,65.2,18.6,18.6,Li-ion cell,"Fit allowance diameter18.6x65.2; seller18x65 nominal, exact Samsung model unknown"
+H03_Cell_contact_L,hardware,0.45,9,9,spring steel,Holder contact envelope; spring detail not modelled
+H03_Cell_contact_R,hardware,0.45,9,9,spring steel,Holder contact envelope; spring detail not modelled
+E11_USBC_MD0840_provisional,electronics,22,18,1.6,FR4/components,Provision22x18 board; add separate5.1k Rd onCC1 andCC2 after checking board
+E13_USBC_socket_provisional,electronics,8.9,7.5,3.3,metal connector,"Socket is part ofMD0840; its8.9x7.5x3.3 envelope is provisional, not separately purchased"
+E12_MTS202_BU0014_provisional,electronics,13,31,12,switch,Approximate13x12x31; bushing/lever geometry andDC rating need received-part verification
+H95_Toggle_washer_provisional,hardware,9.2,0.5,9.2,steel,Provisional switch washer; measure supplied hardware
+H96_Toggle_nut_provisional,hardware,9.238,2,8,steel,"Provisional6mm-bushing nut,8mm across flats,2mm thick; use supplied switch nut"
+H10_Base_insert_1,hardware,5,5,4,brass,M3 x 4 x 5 heat-set insert; interference with printed pilot is intentional
+H20_Base_screw_1,hardware,6,6,8.4,steel,"M3 x 6 pan-head screw, simplified thread"
+H10_Base_insert_2,hardware,5,5,4,brass,M3 x 4 x 5 heat-set insert; interference with printed pilot is intentional
+H20_Base_screw_2,hardware,6,6,8.4,steel,"M3 x 6 pan-head screw, simplified thread"
+H10_Base_insert_3,hardware,5,5,4,brass,M3 x 4 x 5 heat-set insert; interference with printed pilot is intentional
+H20_Base_screw_3,hardware,6,6,8.4,steel,"M3 x 6 pan-head screw, simplified thread"
+H10_Base_insert_4,hardware,5,5,4,brass,M3 x 4 x 5 heat-set insert; interference with printed pilot is intentional
+H20_Base_screw_4,hardware,6,6,8.4,steel,"M3 x 6 pan-head screw, simplified thread"
+H30_Deck_insert_1,hardware,5,5,4,brass,M3 x 4 x 5 heat-set insert; interference with printed pilot is intentional
+H40_Deck_screw_1,hardware,6,6,8.4,steel,"M3 x 6 pan-head screw, simplified thread"
+H30_Deck_insert_2,hardware,5,5,4,brass,M3 x 4 x 5 heat-set insert; interference with printed pilot is intentional
+H40_Deck_screw_2,hardware,6,6,8.4,steel,"M3 x 6 pan-head screw, simplified thread"
+H30_Deck_insert_3,hardware,5,5,4,brass,M3 x 4 x 5 heat-set insert; interference with printed pilot is intentional
+H40_Deck_screw_3,hardware,6,6,8.4,steel,"M3 x 6 pan-head screw, simplified thread"
+H50_Display_insert_1,hardware,5,4,5,brass,"M3x4x5 insert, axis+Y"
+H60_Display_screw_1,hardware,6,8.4,6,steel,M3x6; use shim pads and centre LCD before tightening
+H50_Display_insert_2,hardware,5,4,5,brass,"M3x4x5 insert, axis+Y"
+H60_Display_screw_2,hardware,6,8.4,6,steel,M3x6; use shim pads and centre LCD before tightening
+H50_Display_insert_3,hardware,5,4,5,brass,"M3x4x5 insert, axis+Y"
+H60_Display_screw_3,hardware,6,8.4,6,steel,M3x6; use shim pads and centre LCD before tightening
+H50_Display_insert_4,hardware,5,4,5,brass,"M3x4x5 insert, axis+Y"
+H60_Display_screw_4,hardware,6,8.4,6,steel,M3x6; use shim pads and centre LCD before tightening
+H70_Speaker_insert_1,hardware,5,4,5,brass,"M3x4x5 insert, axis+Y"
+H80_Speaker_screw_1,hardware,6,8.4,6,steel,M3x6 simplified
+H70_Speaker_insert_2,hardware,5,4,5,brass,"M3x4x5 insert, axis+Y"
+H80_Speaker_screw_2,hardware,6,8.4,6,steel,M3x6 simplified
+H70_Speaker_insert_3,hardware,5,4,5,brass,"M3x4x5 insert, axis+Y"
+H80_Speaker_screw_3,hardware,6,8.4,6,steel,M3x6 simplified
+H90_Touch_insert_1,hardware,5,5,4,brass,M3 x 4 x 5 heat-set insert; interference with printed pilot is intentional
+H91_Touch_screw_1,hardware,6,6,8.4,steel,M3x6 upward into top bosses
+H90_Touch_insert_2,hardware,5,5,4,brass,M3 x 4 x 5 heat-set insert; interference with printed pilot is intentional
+H91_Touch_screw_2,hardware,6,6,8.4,steel,M3x6 upward into top bosses
+H92_USB_insert_1,hardware,5,5,4,brass,M3 x 4 x 5 heat-set insert; interference with printed pilot is intentional
+H93_USB_screw_1,hardware,6,6,10.4,steel,"M3 x 8 pan-head screw, simplified thread"
+H92_USB_insert_2,hardware,5,5,4,brass,M3 x 4 x 5 heat-set insert; interference with printed pilot is intentional
+H93_USB_screw_2,hardware,6,6,10.4,steel,"M3 x 8 pan-head screw, simplified thread"
+H94_Rubber_foot_1,hardware,9,9,1.3,silicone rubber,"Adhesive diameter9x1.3 foot,0.6 recess"
+H94_Rubber_foot_2,hardware,9,9,1.3,silicone rubber,"Adhesive diameter9x1.3 foot,0.6 recess"
+H94_Rubber_foot_3,hardware,9,9,1.3,silicone rubber,"Adhesive diameter9x1.3 foot,0.6 recess"
+H94_Rubber_foot_4,hardware,9,9,1.3,silicone rubber,"Adhesive diameter9x1.3 foot,0.6 recess"
