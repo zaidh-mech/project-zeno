@@ -180,27 +180,59 @@
   pointer-events: none;
 }
 
-/* 3D Envelope Component */
-.envelope {
+/* Ambient Floating Wrapper for Envelope */
+.envelopeFloatWrap {
   position: absolute;
   left: 0;
-  top: 40px;
+  top: 36px;
   width: 60%;
   height: 290px;
+  pointer-events: auto;
+  animation: floatEnvelope 5.8s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite alternate;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+@keyframes floatEnvelope {
+  0% {
+    transform: translateY(0px) rotate(-9.5deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(-8deg);
+  }
+  100% {
+    transform: translateY(-16px) rotate(-8.8deg);
+  }
+}
+
+.envelopeFloatWrap.unsealingWrap {
+  animation-play-state: paused;
+}
+
+/* 3D Envelope Component */
+.envelope {
+  position: relative;
+  width: 100%;
+  height: 100%;
   border: 0;
   background: transparent;
   padding: 0;
   text-align: left;
   cursor: pointer;
   transform-style: preserve-3d;
-  transform: rotate(calc(-9deg + (var(--tilt-x, 0) * 4deg))) translateY(calc(var(--tilt-y, 0) * -8px));
-  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.4, 1);
+  transform: rotate(calc(var(--tilt-x, 0) * 4deg)) translateY(calc(var(--tilt-y, 0) * -6px));
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
 }
 
 .envelope:hover,
 .envelope:focus-visible {
-  transform: rotate(-5deg) translateY(-10px) scale(1.02);
-  z-index: 4;
+  transform: rotate(calc(var(--tilt-x, 0) * 4deg + 2.5deg)) translateY(calc(var(--tilt-y, 0) * -6px - 10px)) scale(1.035);
+  z-index: 10;
+}
+
+.envelope:active {
+  transform: rotate(calc(var(--tilt-x, 0) * 4deg + 1deg)) translateY(calc(var(--tilt-y, 0) * -6px - 4px)) scale(0.99);
 }
 
 .envelopeBack {
@@ -209,6 +241,12 @@
   background: linear-gradient(145deg, #f2d8e2 0%, #deb8c6 100%);
   border-radius: 6px;
   box-shadow: 0 16px 38px rgba(8, 7, 26, 0.45);
+  transition: box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.envelope:hover .envelopeBack,
+.envelope:focus-visible .envelopeBack {
+  box-shadow: 0 24px 50px rgba(8, 7, 26, 0.6);
 }
 
 /* Paper Inside */
@@ -224,6 +262,13 @@
   transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.65s;
   z-index: 2;
   overflow: hidden;
+  will-change: transform;
+}
+
+.envelope:hover .paper,
+.envelope:focus-visible .paper {
+  transform: translateY(-16px);
+  box-shadow: 0 14px 32px rgba(8, 8, 22, 0.38);
 }
 
 .paperHeader {
@@ -318,7 +363,7 @@
   box-shadow: 0 4px 14px rgba(125, 38, 59, 0.5), inset 0 2px 3px rgba(255, 255, 255, 0.45), inset 0 -3px 4px rgba(0, 0, 0, 0.35);
   display: grid;
   place-items: center;
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s;
 }
 
 .waxHeart {
@@ -328,9 +373,10 @@
   text-shadow: 0 1px 2px rgba(80, 15, 30, 0.6);
 }
 
-.envelope:hover .waxSeal {
-  transform: scale(1.08);
-  box-shadow: 0 0 20px rgba(245, 182, 198, 0.7), 0 4px 16px rgba(125, 38, 59, 0.6);
+.envelope:hover .waxSeal,
+.envelope:focus-visible .waxSeal {
+  transform: scale(1.12);
+  box-shadow: 0 0 24px rgba(245, 182, 198, 0.85), 0 5px 16px rgba(125, 38, 59, 0.65);
 }
 
 /* Unsealed Animated State */
@@ -350,27 +396,50 @@
   box-shadow: 0 0 26px rgba(245, 182, 198, 0.9), 0 4px 18px rgba(125, 38, 59, 0.7);
 }
 
-/* Polaroid Memory Component */
-.polaroid {
+/* Ambient Floating Wrapper for Polaroid */
+.polaroidFloatWrap {
   position: absolute;
   right: 0;
-  top: 120px;
+  top: 115px;
   width: 50%;
+  animation: floatPolaroid 6.6s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite alternate;
+  animation-delay: -3.3s;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+@keyframes floatPolaroid {
+  0% {
+    transform: translateY(0px) rotate(9.2deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(8.1deg);
+  }
+  100% {
+    transform: translateY(-14px) rotate(8.6deg);
+  }
+}
+
+/* Polaroid Memory Component */
+.polaroid {
+  display: block;
+  width: 100%;
   padding: 12px 12px 18px;
   background: #fcf7f0;
   color: #563e53;
   text-align: center;
   text-decoration: none;
   box-shadow: 0 16px 42px rgba(7, 7, 26, 0.55);
-  transform: rotate(calc(9deg + (var(--tilt-x, 0) * 3deg))) translateY(calc(var(--tilt-y, 0) * -6px));
-  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.4, 1), box-shadow 0.35s;
+  transform: rotate(calc(var(--tilt-x, 0) * 3deg)) translateY(calc(var(--tilt-y, 0) * -5px));
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.45s;
+  will-change: transform;
 }
 
 .polaroid:hover,
 .polaroid:focus-visible {
-  transform: rotate(4deg) translateY(-10px) scale(1.03);
-  box-shadow: 0 22px 50px rgba(7, 7, 26, 0.68);
-  z-index: 3;
+  transform: rotate(calc(var(--tilt-x, 0) * 3deg - 2.5deg)) translateY(calc(var(--tilt-y, 0) * -5px - 10px)) scale(1.03);
+  box-shadow: 0 24px 55px rgba(7, 7, 26, 0.7);
+  z-index: 5;
 }
 
 .tape {
@@ -504,9 +573,9 @@
     margin: 14px auto 0;
     height: 380px;
   }
-  .envelope {
+  .envelopeFloatWrap {
     height: 255px;
-    top: 30px;
+    top: 28px;
   }
   .pocket {
     inset: 125px 0 0;
@@ -517,7 +586,7 @@
   .paper strong {
     font-size: 22px;
   }
-  .polaroid {
+  .polaroidFloatWrap {
     top: 95px;
   }
   .scribble {
@@ -535,6 +604,10 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .envelopeFloatWrap,
+  .polaroidFloatWrap {
+    animation: none !important;
+  }
   .openLettersBtn,
   .albumLink,
   .envelope,
