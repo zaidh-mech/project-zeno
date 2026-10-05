@@ -86,7 +86,7 @@ export default function KeepsakeIntro({ onOpen, buttonRef, isOpen = false }: Kee
     // Smooth cinematic unsealing before opening the letter deck
     const timer = setTimeout(() => {
       onOpen();
-    }, 550);
+    }, 800);
     return () => clearTimeout(timer);
   };
 
