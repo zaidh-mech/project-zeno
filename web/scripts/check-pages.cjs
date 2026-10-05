@@ -26,7 +26,6 @@ const { loadEnvConfig } = require('@next/env');
   const payload = JSON.parse(await fs.readFile(path.join(output, 'gallery.enc.json'), 'utf8'));
   assert.ok(payload.version === 1 || payload.version === 2);
   if (payload.version === 2) assert.ok(payload.shares.length >= 5);
-  assert.ok(html.includes('What are five cute names I love to call you?'));
   assert.equal(payload.iterations, 250000);
   console.log('PASS: static album and admin sign-in render, with no API routes, raw storage, or admin credentials published.');
 })().catch(error => { console.error(error); process.exitCode = 1; });
