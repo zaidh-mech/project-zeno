@@ -2,8 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import type { FormEvent } from "react";
-import { openGithubNicknameAlbum, publishGithubNicknameAlbum, publishGithubAlbum, readGithubSettings, publishGithubSettings } from "@/lib/gallery-github";
-import { nicknameList } from "@/lib/gallery-names";
+import { openGithubAlbum, publishGithubAlbum, readGithubSettings, publishGithubSettings } from "@/lib/gallery-github";
 import type { GalleryMemory } from "@/lib/gallery-reader";
 import styles from "./MemoryGallery.module.css";
 import online from "./OnlineGalleryAdmin.module.css";
@@ -12,12 +11,8 @@ const photoTypes = ["image/jpeg", "image/png", "image/webp", "image/gif"];
 
 export default function OnlineGalleryAdmin() {
   const [tokenInput, setTokenInput] = useState("");
+  useEffect(() => { setTokenInput(localStorage.getItem("github-token") || ""); }, []);
   const [pinInput, setPinInput] = useState("");
-  const [namesInput, setNamesInput] = useState("");
-  const [namesDraft, setNamesDraft] = useState("");
-  const [configuredNames, setConfiguredNames] = useState<string[]>([]);
-  const names = useRef<string[]>([]);
-  const namesChanged = JSON.stringify(nicknameList(namesDraft)) !== JSON.stringify(configuredNames);
   const [signedIn, setSignedIn] = useState(false);
   const [companionEnabled, setCompanionEnabled] = useState(false);
   const settingsSha = useRef("");
@@ -33,23 +28,23 @@ export default function OnlineGalleryAdmin() {
 
   useEffect(() => { if (deleting) confirmation.current?.showModal(); }, [deleting]);
   useEffect(() => {
-    if (!dirty && !namesChanged) return;
+    if (!dirty) return;
     const warn = (event: BeforeUnloadEvent) => event.preventDefault();
     window.addEventListener("beforeunload", warn);
     return () => window.removeEventListener("beforeunload", warn);
-  }, [dirty, namesChanged]);
+  }, [dirty]);
 
   async function signIn(event: FormEvent) {
     event.preventDefault();
     if (busy) return;
     setBusy(true); setStatus("");
     try {
-      const album = await openGithubNicknameAlbum(tokenInput.trim(), nicknameList(namesInput), pinInput);
+      const album = await openGithubAlbum(tokenInput.trim(), pinInput);
       const settings = await readGithubSettings(tokenInput.trim());
       settingsSha.current = settings.sha; setCompanionEnabled(settings.enabled);
       token.current = tokenInput.trim(); pin.current = pinInput; sha.current = album.sha;
-      names.current = album.names; setConfiguredNames(album.names); setNamesDraft((album.names.length ? album.names : nicknameList(namesInput)).join("\n")); setNamesInput("");
-      setMemories(album.memories); setTokenInput(""); setPinInput(""); setSignedIn(true);
+      localStorage.setItem("github-token", token.current);
+      setMemories(album.memories); setPinInput(""); setSignedIn(true);
       setStatus("Signed in. Changes you publish here will update the visitor site automatically.");
     } catch (error) { setStatus(error instanceof Error ? error.message : "Couldn’t open the album."); }
     finally { setBusy(false); }
@@ -59,7 +54,7 @@ export default function OnlineGalleryAdmin() {
     if (busy) return false;
     setBusy(true); setStatus("Encrypting and publishing your album…");
     try {
-      sha.current = names.current.length >= 5 ? await publishGithubNicknameAlbum(token.current, names.current, sha.current, next) : await publishGithubAlbum(token.current, pin.current, sha.current, next);
+      sha.current = await publishGithubAlbum(token.current, pin.current, sha.current, next);
       setMemories(next); setDirty(false);
       setStatus(`${message} GitHub Pages is updating the visitor site now; it usually takes about a minute.`);
       return true;
@@ -79,18 +74,7 @@ export default function OnlineGalleryAdmin() {
     finally { setBusy(false); }
   }
 
-  async function saveNames() {
-    if (busy) return false;
-    const nextNames = nicknameList(namesDraft);
-    if (nextNames.length < 5 || nextNames.length > 50) { setStatus("Enter 5 to 50 different cute names, one per line. Repeating a name only counts once."); return false; }
-    setBusy(true); setStatus("Saving the names and protecting your album…");
-    try {
-      sha.current = await publishGithubNicknameAlbum(token.current, nextNames, sha.current, memories);
-      names.current = nextNames; setConfiguredNames(nextNames); setNamesDraft(nextNames.join("\n")); setDirty(false); pin.current = "";
-      setStatus("Names saved. Any five different names will open the album after Pages deploys, usually in about a minute."); return true;
-    } catch (error) { setStatus(error instanceof Error ? error.message : "Could not save names."); return false; }
-    finally { setBusy(false); }
-  }
+
 
   function update(id: string, patch: Partial<GalleryMemory>) {
     setMemories(previous => previous.map(memory => memory.id === id ? { ...memory, ...patch } : memory));
@@ -114,11 +98,9 @@ export default function OnlineGalleryAdmin() {
   }
 
   async function signOut() {
-    if (namesChanged && !(await saveNames())) return;
     if (dirty && !(await publish(memories, "Writing saved."))) return;
     token.current = ""; pin.current = ""; sha.current = "";
     setMemories([]); setSignedIn(false); setStatus("");
-    names.current = []; setConfiguredNames([]); setNamesDraft("");
   }
 
   return <section className={styles.gallery} aria-labelledby="admin-heading">
@@ -132,15 +114,13 @@ export default function OnlineGalleryAdmin() {
         <h2>Your private album studio.</h2>
         <label htmlFor="github-token">GitHub access token</label>
         <input className={styles.adminPassword} id="github-token" type="password" autoComplete="off" required value={tokenInput} onChange={event => setTokenInput(event.target.value)} placeholder="Paste your GitHub token" />
-        <label htmlFor="admin-names">Cute names for her</label>
-        <textarea className={online.namesInput} id="admin-names" rows={5} autoComplete="off" value={namesInput} onChange={event => setNamesInput(event.target.value)} placeholder={"Enter at least five names you have saved\nOne cute name per line"} />
-        <details className={online.legacy}><summary>First-time setup: my album still uses a PIN</summary><label htmlFor="admin-pin">Current album PIN (one-time conversion)</label><input id="admin-pin" type="password" inputMode="numeric" autoComplete="off" pattern="[0-9]{4}" maxLength={4} value={pinInput} onChange={event => setPinInput(event.target.value.replace(/\D/g, ""))} placeholder="Current PIN" /><p>Open with the existing PIN, then enter all her names in the editor and choose Save names.</p></details>
-        <p className={online.help}>Use a fine-grained token for <strong>project-zeno</strong> with <strong>Contents: read and write</strong>. It stays only in this tab until you sign out or close it.</p>
+        <label htmlFor="admin-pin">Admin PIN</label>
+        <input className={styles.adminPassword} id="admin-pin" type="password" inputMode="numeric" autoComplete="off" pattern="[0-9]{4}" maxLength={4} required value={pinInput} onChange={event => setPinInput(event.target.value.replace(/\D/g, ""))} placeholder="Current PIN" />
+        <p className={online.help}>Use a fine-grained token for <strong>project-zeno</strong> with <strong>Contents: read and write</strong>. It will be saved in your browser.</p>
         <p role="status" className={styles.error}>{status}</p>
-        <button className={styles.primary} disabled={busy || !tokenInput.trim() || (nicknameList(namesInput).length < 5 && pinInput.length !== 4)}>{busy ? "Checking access…" : "Open admin studio"}</button>
+        <button className={styles.primary} disabled={busy || !tokenInput.trim() || pinInput.length !== 4}>{busy ? "Checking access…" : "Open admin studio"}</button>
       </form>
     </div> : <>
-      <div className={online.setting}><div><h2>The names only we know.</h2><p>Add every cute name you love to call her. She can answer any five different names, in any order, to open the album.</p><label htmlFor="album-names">Cute names for her (one per line)</label><textarea id="album-names" className={online.namesInput} rows={7} disabled={busy} value={namesDraft} onChange={event => setNamesDraft(event.target.value)} placeholder={"Add a cute name here\nThen another name\nKeep going — at least five different names"} /><small>{nicknameList(namesDraft).length} different names. Capital letters and extra spaces do not matter.</small><p>{configuredNames.length ? "Nickname unlock is active." : "Set up these names to activate the new album unlock. Your photos are kept."}</p></div><button disabled={busy || !namesChanged} onClick={() => { void saveNames(); }}>Save names</button></div>
       <div className={online.setting}>
         <div><h2>Keep the surprise safe.</h2><p>Reveal the companion only when you are ready. When hidden, its artwork, links and controls disappear from the visitor site.</p><small>Changes publish automatically. Allow about a minute for deployment.</small></div>
         <button type="button" role="switch" aria-checked={companionEnabled} aria-label="Show companion on visitor site" disabled={busy} onClick={() => { void toggleCompanion(); }}>{companionEnabled ? "On — visible" : "Off — hidden"}</button>
