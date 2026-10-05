@@ -11,6 +11,7 @@ import TouchSky from "@/components/TouchSky";
 import PlayCorner from "@/components/PlayCorner";
 import KeepsakeIntro from "@/components/KeepsakeIntro";
 import TogetherCards from "@/components/TogetherCards";
+import SectionNav from "@/components/SectionNav";
 
 const AuraScene = dynamic(() => import("@/components/AuraScene"), { ssr: false });
 const CompanionPet = dynamic(() => import("@/components/CompanionPet"), { ssr: false });
@@ -93,11 +94,12 @@ export default function Home() {
   return (
     <main className="universe">
       <TouchSky />
+      <SectionNav />
       <div className="starfield" aria-hidden="true">
         {stars.map((star, i) => <span className="star" key={i} style={{ left: star.left, top: star.top, animationDelay: star.delay }} />)}
       </div>
       <div className="portal">
-        <div className="first-screen">
+        <div id="hero" className="first-screen">
         <header className="topline">
           <span className="brand">{companionEnabled ? "Aura" : "Just for you"}</span>
           {companionEnabled && <Link className="topline-note" href="/control">Connect your desk buddy →</Link>}
@@ -107,8 +109,10 @@ export default function Home() {
         </div>
         <MemoryGallery />
         <TogetherCards />
-        <PlayCorner />
-        <footer className="footer">Made with love, from {content.sender}</footer>
+        <div className="fourth-screen">
+          <PlayCorner />
+          <footer className="footer">Made with love, from {content.sender}</footer>
+        </div>
       </div>
       <AnimatePresence>
         {open && (
