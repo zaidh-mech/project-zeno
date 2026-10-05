@@ -1,40 +1,550 @@
-.hero { flex: 1; width: 100%; display: grid; grid-template-columns: 1fr 1fr; align-content: center; align-items: center; gap: 24px; padding: 50px 0 28px; }
-.copy { text-align: left; position: relative; z-index: 2; }
-.dedication { color: #edc5d4; font: italic 19px/1.5 Georgia, serif; margin: 0 0 20px; }
-.copy h1 { font: 400 clamp(48px, 6.5vw, 83px)/1.02 Georgia, serif; letter-spacing: -.055em; margin: 0 0 25px; overflow-wrap: anywhere; }
-.intro { font: 16px/1.9 Arial, sans-serif; color: #d7cfe3; margin: 0 0 26px; }
-.actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
-.actions button, .actions a { min-height: 48px; border: 1px solid #c8a6c4; border-radius: 30px; padding: 14px 20px; font: 600 14px/1.4 Arial, sans-serif; text-decoration: none; }
-.actions button { background: #f5c6d5; color: #302139; box-shadow: 0 8px 35px #db9abb25; }
-.actions a { color: #f1dbe9; background: #ffffff08; }
-.actions span { margin-left: 9px; }
-.signature { color: #bca6c7; font: italic 16px/1.5 Georgia, serif; margin-top: 24px; }
-.keepsakes { height: 435px; position: relative; isolation: isolate; min-width: 0; }
-.orbit { position: absolute; width: 95%; aspect-ratio: 1; left: 0; top: 10px; border: 1px solid #c3a1bf26; border-radius: 50%; transform: rotate(-22deg) scaleY(.9); background: radial-gradient(ellipse, #b58cad18, transparent 65%); }
-.scribble { position: absolute; right: 10px; top: 0; color: #cbb7d5; font: italic 18px/1.5 Georgia, serif; transform: rotate(5deg); }
-.envelope { position: absolute; left: 0; top: 48px; width: 58%; height: 285px; transform: rotate(-9deg); border: 0; background: transparent; padding: 0; transition: transform .3s; text-align: left; }
-.paper { display: block; position: absolute; inset: 0 10px 0; padding: 22px; background: #f7f0e8; color: #5b3e58; box-shadow: 0 12px 35px #05071944; border-radius: 3px; transition: translate .3s; }
-.paper small { font: 11px/1.4 Arial, sans-serif; color: #936578; }
-.paper strong { display: block; font: italic 27px/1.2 Georgia, serif; margin-top: 15px; }
-.inkLines { display: block; height: 30px; margin-top: 17px; background: repeating-linear-gradient(transparent 0 9px, #d5bec9 9px 10px); }
-.pocket { position: absolute; inset: 155px 0 0; background: #dbb1bf; border-radius: 3px 3px 9px 9px; box-shadow: 0 12px 28px #09071c44; border-top: 1px solid #f8dbe4; }
-.pocket::before { content: ''; position: absolute; inset: 0; background: #eac3cf; clip-path: polygon(0 0,50% 50%,100% 0,100% 100%,0 100%); }
-.pocket > span { position: absolute; bottom: 23px; left: 18px; font: italic 14px Georgia, serif; color: #694351; }
-.pocket i { position: absolute; top: 22px; left: calc(50% - 20px); display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: #ac607c; border: 3px double #dd9ab0; color: #ffdfeb; font: 25px Georgia, serif; }
-.envelope:hover, .envelope:focus-visible { transform: rotate(-5deg) translateY(-8px); z-index: 3; }
-.envelope:hover .paper, .envelope:focus-visible .paper { translate: 0 -12px; }
-.polaroid { position: absolute; right: 0; top: 130px; width: 48%; padding: 12px 12px 18px; transform: rotate(9deg); background: #fbf5ee; color: #563e53; text-align: center; text-decoration: none; box-shadow: 0 14px 40px #07071c66; transition: transform .3s; }
-.polaroid:hover, .polaroid:focus-visible { transform: rotate(4deg) translateY(-8px); }
-.tape { position: absolute; width: 72px; height: 24px; top: -10px; left: calc(50% - 36px); transform: rotate(-5deg); background: #d4bfdacc; z-index: 1; }
-.picture { position: relative; display: block; aspect-ratio: 1; overflow: hidden; }
-.picture svg { width: 100%; height: 100%; object-fit: cover; }
-.picture > span { position: absolute; left: 0; right: 0; bottom: 14px; color: #fff5ed; font: italic 25px Georgia, serif; }
-.polaroid strong { display: block; font: italic 19px/1.4 Georgia, serif; margin-top: 14px; }
-.polaroid small { display: block; font: 10px/1.5 Arial, sans-serif; margin-top: 5px; }
-.caption { position: absolute; bottom: 0; left: 12px; font: italic 14px/1.5 Georgia, serif; color: #c2afcb; }
-.trail { grid-column: 1/-1; display: flex; align-items: center; justify-content: center; gap: 20px; padding-top: 24px; }
-.trail a { color: #d0bdd8; font: 13px/1.5 Arial, sans-serif; padding: 10px 0; text-decoration: none; }
-.trail a:hover { color: #ffd4e4; text-decoration: underline; text-underline-offset: 5px; }
-.trail span { color: #b58baf; }
-@media(max-width: 760px) { .hero { grid-template-columns: 1fr; padding-top: 32px; gap: 12px; } .copy { text-align: center; } .copy h1 { font-size: clamp(44px, 10vw, 68px); } .dedication { margin-bottom: 12px; } .intro { font-size: 14px; line-height: 1.7; margin-bottom: 20px; } .actions { justify-content: center; } .signature { margin: 16px 0 0; } .keepsakes { width: min(100%, 410px); margin: 10px auto 0; height: 365px; } .envelope { height: 245px; top: 35px; } .paper { padding: 16px; } .paper strong { font-size: 23px; } .pocket { top: 125px; } .polaroid { top: 95px; } .scribble { font-size: 15px; } .trail { gap: 12px; padding-top: 10px; flex-wrap: wrap; } .trail a { font-size: 12px; } }
-@media(prefers-reduced-motion: reduce) { .envelope, .paper, .polaroid { transition: none; } }
+.hero {
+  flex: 1;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  align-content: center;
+  align-items: center;
+  gap: 36px;
+  padding: 50px 0 28px;
+}
+
+.copy {
+  text-align: left;
+  position: relative;
+  z-index: 2;
+}
+
+.dedicationBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px 6px 12px;
+  margin-bottom: 20px;
+  background: rgba(245, 182, 198, 0.08);
+  border: 1px solid rgba(245, 182, 198, 0.22);
+  border-radius: 99px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.dedicationSparkle {
+  color: #f5b6c6;
+  font-size: 11px;
+  animation: pulseSparkle 3s ease-in-out infinite alternate;
+}
+
+.dedication {
+  color: #edc5d4;
+  font: italic 14px/1.3 Georgia, Cambria, serif;
+  letter-spacing: 0.03em;
+  margin: 0;
+}
+
+@keyframes pulseSparkle {
+  0% { opacity: 0.5; transform: scale(0.9); }
+  100% { opacity: 1; transform: scale(1.15); filter: drop-shadow(0 0 6px #f5b6c6); }
+}
+
+.copy h1 {
+  font: 400 clamp(48px, 6.2vw, 84px)/1.02 Georgia, "Cormorant Garamond", Cambria, serif;
+  letter-spacing: -0.055em;
+  margin: 0 0 24px;
+  overflow-wrap: anywhere;
+  text-wrap: balance;
+}
+
+.petNameHighlight {
+  color: #f5b6c6;
+  font-style: italic;
+  text-shadow: 0 0 40px rgba(245, 182, 198, 0.3);
+}
+
+.intro {
+  font: 16px/1.85 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  color: #d7cfe3;
+  margin: 0 0 28px;
+  max-width: 38ch;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+}
+
+.openLettersBtn,
+.albumLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 50px;
+  padding: 14px 24px;
+  border-radius: 99px;
+  font: 600 14px/1.2 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.22s cubic-bezier(0.2, 0.8, 0.4, 1), box-shadow 0.22s, background 0.22s, border-color 0.22s;
+}
+
+.openLettersBtn {
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  background: linear-gradient(135deg, #f7d0dc 0%, #f3b4c5 100%);
+  color: #26162a;
+  box-shadow: 0 8px 30px rgba(243, 180, 197, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.8);
+}
+
+.openLettersBtn:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 12px 36px rgba(243, 180, 197, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.9);
+}
+
+.openLettersBtn:active {
+  transform: translateY(1px) scale(0.98);
+}
+
+.btnHeart {
+  font-size: 16px;
+  color: #8c3b58;
+  transition: transform 0.2s;
+}
+
+.openLettersBtn:hover .btnHeart {
+  transform: scale(1.25);
+}
+
+.albumLink {
+  border: 1px solid rgba(200, 166, 196, 0.45);
+  background: rgba(255, 255, 255, 0.06);
+  color: #f1dbe9;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.albumLink:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(245, 182, 198, 0.6);
+  transform: translateY(-2px);
+  color: #fff;
+}
+
+.btnArrow {
+  font-size: 15px;
+  color: #f5b6c6;
+  transition: transform 0.2s;
+}
+
+.albumLink:hover .btnArrow {
+  transform: translateX(4px);
+}
+
+.signature {
+  color: #bca6c7;
+  font: italic 16px/1.5 Georgia, Cambria, serif;
+  margin-top: 26px;
+}
+
+/* Keepsakes Stage */
+.keepsakes {
+  height: 440px;
+  position: relative;
+  isolation: isolate;
+  min-width: 0;
+  perspective: 1000px;
+}
+
+.orbit {
+  position: absolute;
+  width: 96%;
+  aspect-ratio: 1;
+  left: 0;
+  top: 10px;
+  border: 1px solid rgba(195, 161, 191, 0.16);
+  border-radius: 50%;
+  transform: rotate(-22deg) scaleY(0.9);
+  background: radial-gradient(ellipse, rgba(181, 140, 173, 0.08), transparent 65%);
+  pointer-events: none;
+}
+
+.scribble {
+  position: absolute;
+  right: 14px;
+  top: -4px;
+  color: #cbb7d5;
+  font: italic 17px/1.4 Georgia, Cambria, serif;
+  transform: rotate(5deg);
+  opacity: 0.88;
+  pointer-events: none;
+}
+
+/* 3D Envelope Component */
+.envelope {
+  position: absolute;
+  left: 0;
+  top: 40px;
+  width: 60%;
+  height: 290px;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  text-align: left;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transform: rotate(calc(-9deg + (var(--tilt-x, 0) * 4deg))) translateY(calc(var(--tilt-y, 0) * -8px));
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.4, 1);
+}
+
+.envelope:hover,
+.envelope:focus-visible {
+  transform: rotate(-5deg) translateY(-10px) scale(1.02);
+  z-index: 4;
+}
+
+.envelopeBack {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(145deg, #f2d8e2 0%, #deb8c6 100%);
+  border-radius: 6px;
+  box-shadow: 0 16px 38px rgba(8, 7, 26, 0.45);
+}
+
+/* Paper Inside */
+.paper {
+  display: block;
+  position: absolute;
+  inset: 8px 12px 12px;
+  padding: 22px 20px;
+  background: #faf6f0;
+  color: #493347;
+  border-radius: 4px;
+  box-shadow: 0 8px 24px rgba(8, 8, 22, 0.28);
+  transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.65s;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.paperHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.paper small {
+  font: 11px/1.4 system-ui, -apple-system, sans-serif;
+  color: #936578;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.paperMiniSeal {
+  color: #c25977;
+  font-size: 13px;
+}
+
+.paper strong {
+  display: block;
+  font: italic 26px/1.2 Georgia, Cambria, serif;
+  margin-top: 14px;
+  color: #3b2639;
+}
+
+.inkLines {
+  display: block;
+  height: 28px;
+  margin-top: 18px;
+  background: repeating-linear-gradient(transparent 0 8px, rgba(213, 190, 201, 0.65) 8px 9px);
+}
+
+/* Envelope Front Pocket */
+.pocket {
+  position: absolute;
+  inset: 145px 0 0;
+  background: linear-gradient(180deg, #d8adbc 0%, #c99caa 100%);
+  border-radius: 0 0 6px 6px;
+  box-shadow: 0 10px 24px rgba(8, 6, 22, 0.35);
+  border-top: 1px solid rgba(255, 255, 255, 0.45);
+  z-index: 3;
+}
+
+.pocket::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #deb5c3;
+  clip-path: polygon(0 0, 50% 46%, 100% 0, 100% 100%, 0 100%);
+}
+
+.pocketTag {
+  position: absolute;
+  bottom: 20px;
+  left: 18px;
+  font: italic 14px/1.2 Georgia, Cambria, serif;
+  color: #61394a;
+  letter-spacing: 0.02em;
+}
+
+/* Triangular Top Flap & Wax Seal */
+.flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 145px;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  background: linear-gradient(180deg, #edd2dd 0%, #dbb2c2 100%);
+  transform-origin: top center;
+  transition: transform 0.65s cubic-bezier(0.34, 1.25, 0.64, 1), z-index 0.65s, filter 0.65s;
+  transform-style: preserve-3d;
+  z-index: 4;
+}
+
+.flapFoil {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 25%, rgba(255, 243, 219, 0.3), transparent 70%);
+}
+
+.waxSeal {
+  position: absolute;
+  bottom: 10px;
+  left: calc(50% - 21px);
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #db5e7b 0%, #ad3d57 60%, #7d263b 100%);
+  box-shadow: 0 4px 14px rgba(125, 38, 59, 0.5), inset 0 2px 3px rgba(255, 255, 255, 0.45), inset 0 -3px 4px rgba(0, 0, 0, 0.35);
+  display: grid;
+  place-items: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.waxHeart {
+  color: #ffe6f0;
+  font-size: 20px;
+  line-height: 1;
+  text-shadow: 0 1px 2px rgba(80, 15, 30, 0.6);
+}
+
+.envelope:hover .waxSeal {
+  transform: scale(1.08);
+  box-shadow: 0 0 20px rgba(245, 182, 198, 0.7), 0 4px 16px rgba(125, 38, 59, 0.6);
+}
+
+/* Unsealed Animated State */
+.envelope.unsealed .flap {
+  transform: rotateX(175deg);
+  z-index: 1;
+  filter: brightness(0.9);
+}
+
+.envelope.unsealed .paper {
+  transform: translateY(-90px) rotate(1.2deg) scale(1.02);
+  z-index: 6;
+  box-shadow: 0 22px 50px rgba(8, 7, 26, 0.55);
+}
+
+.envelope.unsealed .waxSeal {
+  box-shadow: 0 0 26px rgba(245, 182, 198, 0.9), 0 4px 18px rgba(125, 38, 59, 0.7);
+}
+
+/* Polaroid Memory Component */
+.polaroid {
+  position: absolute;
+  right: 0;
+  top: 120px;
+  width: 50%;
+  padding: 12px 12px 18px;
+  background: #fcf7f0;
+  color: #563e53;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 0 16px 42px rgba(7, 7, 26, 0.55);
+  transform: rotate(calc(9deg + (var(--tilt-x, 0) * 3deg))) translateY(calc(var(--tilt-y, 0) * -6px));
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.4, 1), box-shadow 0.35s;
+}
+
+.polaroid:hover,
+.polaroid:focus-visible {
+  transform: rotate(4deg) translateY(-10px) scale(1.03);
+  box-shadow: 0 22px 50px rgba(7, 7, 26, 0.68);
+  z-index: 3;
+}
+
+.tape {
+  position: absolute;
+  width: 74px;
+  height: 24px;
+  top: -10px;
+  left: calc(50% - 37px);
+  transform: rotate(-5deg);
+  background: rgba(220, 203, 226, 0.75);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  z-index: 1;
+}
+
+.picture {
+  position: relative;
+  display: block;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 2px;
+}
+
+.picture svg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.polaroid:hover .picture svg {
+  transform: scale(1.05);
+}
+
+.picture > span {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 14px;
+  color: #fff6ee;
+  font: italic 24px/1 Georgia, Cambria, serif;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+}
+
+.polaroid strong {
+  display: block;
+  font: italic 18px/1.3 Georgia, Cambria, serif;
+  margin-top: 14px;
+  color: #432e40;
+}
+
+.polaroid small {
+  display: block;
+  font: 11px/1.4 system-ui, -apple-system, sans-serif;
+  color: #7b6276;
+  margin-top: 4px;
+}
+
+.caption {
+  position: absolute;
+  bottom: 2px;
+  left: 12px;
+  font: italic 14px/1.5 Georgia, Cambria, serif;
+  color: #c2afcb;
+  opacity: 0.85;
+}
+
+/* Trail Links */
+.trail {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding-top: 24px;
+}
+
+.trail a {
+  color: #d0bdd8;
+  font: 13px/1.5 system-ui, -apple-system, sans-serif;
+  padding: 8px 14px;
+  border-radius: 99px;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid transparent;
+  transition: all 0.2s;
+}
+
+.trail a:hover {
+  color: #ffd4e4;
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(245, 182, 198, 0.25);
+}
+
+.trail span {
+  color: #b58baf;
+  font-size: 11px;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 768px) {
+  .hero {
+    grid-template-columns: 1fr;
+    padding-top: 28px;
+    gap: 16px;
+  }
+  .copy {
+    text-align: center;
+  }
+  .dedicationBadge {
+    margin: 0 auto 16px;
+  }
+  .copy h1 {
+    font-size: clamp(42px, 9.5vw, 64px);
+    margin-bottom: 16px;
+  }
+  .intro {
+    font-size: 15px;
+    line-height: 1.7;
+    margin: 0 auto 22px;
+  }
+  .actions {
+    justify-content: center;
+  }
+  .signature {
+    margin: 18px 0 0;
+  }
+  .keepsakes {
+    width: min(100%, 420px);
+    margin: 14px auto 0;
+    height: 380px;
+  }
+  .envelope {
+    height: 255px;
+    top: 30px;
+  }
+  .pocket {
+    inset: 125px 0 0;
+  }
+  .paper {
+    padding: 16px;
+  }
+  .paper strong {
+    font-size: 22px;
+  }
+  .polaroid {
+    top: 95px;
+  }
+  .scribble {
+    font-size: 15px;
+  }
+  .trail {
+    gap: 10px;
+    padding-top: 14px;
+    flex-wrap: wrap;
+  }
+  .trail a {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .openLettersBtn,
+  .albumLink,
+  .envelope,
+  .paper,
+  .flap,
+  .waxSeal,
+  .polaroid,
+  .dedicationSparkle,
+  .picture svg {
+    transition: none !important;
+    animation: none !important;
+  }
+}

@@ -102,7 +102,7 @@ export default function Home() {
           <span className="brand">{companionEnabled ? "Aura" : "Just for you"}</span>
           {companionEnabled && <Link className="topline-note" href="/control">Connect your desk buddy →</Link>}
         </header>
-        <KeepsakeIntro buttonRef={openRef} onOpen={() => { setLetterIndex(0); setChoosingLetter(true); setOpen(true); }} />
+        <KeepsakeIntro buttonRef={openRef} isOpen={open} onOpen={() => { setLetterIndex(0); setChoosingLetter(true); setOpen(true); }} />
         {companionEnabled && <div className="hero"><div className="scene-wrap" role="img" aria-label="Aura, a floating little companion with a heart">{show3D ? <AuraScene /> : <FallbackBuddy />}</div><CompanionPet /></div>}
         </div>
         <MemoryGallery />
@@ -114,6 +114,9 @@ export default function Home() {
         {open && (
           <motion.div
             className="letter-scrim"
+            onClick={(event) => {
+              if (event.target === event.currentTarget) setOpen(false);
+            }}
             initial={reduceMotion ? false : { opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={reduceMotion ? { opacity: 0 } : { opacity: 0 }}
