@@ -20,13 +20,20 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-snap-type: y proximity; }
+html {
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+  scroll-padding: 0;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
 html:has(.admin-page) { scroll-snap-type: none; }
 html:has(#moment-answer:focus), html:has(#album input:focus) { scroll-snap-type: none; }
 .admin-page { overflow: visible; }
 .admin-page .topline { gap: 20px; flex-wrap: wrap; }
 body {
   margin: 0;
+  overflow-x: hidden;
   background: var(--ink);
   color: var(--moon);
   font-family: var(--font-serif);
@@ -141,7 +148,8 @@ button:focus-visible { outline: 3px solid var(--rose); outline-offset: 4px; }
 
 .universe {
   min-height: 100svh;
-  overflow: clip;
+  overflow-x: clip;
+  overflow-y: visible;
   position: relative;
   isolation: isolate;
   background:
@@ -163,8 +171,45 @@ button:focus-visible { outline: 3px solid var(--rose); outline-offset: 4px; }
 .star:nth-child(3n) { width: 3px; height: 3px; opacity: .42; }
 @keyframes twinkle { to { opacity: .15; transform: scale(.65); } }
 
-.portal { position: relative; width: min(100%, 1120px); min-height: 100svh; margin: auto; display: flex; flex-direction: column; align-items: center; padding: 0 24px 24px; text-align: center; }
-.first-screen { width: 100%; min-height: 100svh; min-height: 100dvh; display: flex; flex-direction: column; align-items: center; scroll-snap-align: start; scroll-snap-stop: always; }
+.portal {
+  position: relative;
+  width: min(100%, 1120px);
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 24px;
+  text-align: center;
+}
+.first-screen {
+  width: 100%;
+  height: 100svh;
+  height: 100dvh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  scroll-snap-align: start;
+  scroll-snap-stop: normal;
+  padding: clamp(10px, 1.8vh, 24px) 0;
+  box-sizing: border-box;
+}
+
+.fourth-screen {
+  width: 100%;
+  height: 100svh;
+  height: 100dvh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  scroll-snap-align: start;
+  scroll-snap-stop: normal;
+  padding: clamp(10px, 1.8vh, 20px) 0 clamp(8px, 1.4vh, 16px);
+  box-sizing: border-box;
+}
 .topline {
   align-self: stretch;
   display: flex;
@@ -195,7 +240,7 @@ button:focus-visible { outline: 3px solid var(--rose); outline-offset: 4px; }
 .buddy-fallback .fallback-smile { position: absolute; top: 99px; left: 88px; width: 15px; height: 12px; border-bottom: 2px solid #45405d; border-radius: 0 0 50% 50%; }
 .fallback-shadow { position: absolute; left: 33%; bottom: 11%; width: 34%; height: 16px; border-radius: 50%; background: #06071c88; filter: blur(12px); }
 
-.footer { padding: 32px 0 24px; color: #8e88ac; font: 400 12px/1.4 var(--font-sans); letter-spacing: 0.04em; }
+.footer { padding: 14px 0 6px; color: #8e88ac; font: 400 12px/1.4 var(--font-sans); letter-spacing: 0.04em; }
 
 /* Fullscreen Letter Deck Dialog */
 .letter-scrim {
