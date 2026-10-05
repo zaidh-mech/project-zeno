@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import type { FormEvent } from "react";
 import styles from "./MemoryGallery.module.css";
 import { isStaticGallery, readPublishedGallery } from "@/lib/gallery-reader";
+import { nicknameList } from "@/lib/gallery-names";
 
 type Memory = { id: string; photo: string; caption: string; story: string };
 const prompts = ["Where our story began", "A day I wish we could replay", "The little things about us", "Somewhere, with you", "A moment that felt like home", "Another memory to keep"];
@@ -18,6 +19,7 @@ async function api(url: string, options?: RequestInit) {
 export default function MemoryGallery({ admin = false }: { admin?: boolean }) {
   const [unlocked, setUnlocked] = useState(false);
   const [passcode, setPasscode] = useState("");
+  const [nameAnswers, setNameAnswers] = useState<string[]>(Array(5).fill(""));
   const [error, setError] = useState("");
   const [busy, setBusy] = useState(false);
   const [memories, setMemories] = useState<Memory[]>([]);
@@ -60,7 +62,8 @@ export default function MemoryGallery({ admin = false }: { admin?: boolean }) {
     event.preventDefault(); setBusy(true); setError("");
     try {
       if (isStaticGallery) {
-        setMemories(await readPublishedGallery(passcode)); viewerPin.current = passcode; setStatus(""); setUnlocked(true); return;
+        const answers = nameAnswers.map(value => value.trim());
+        setMemories(await readPublishedGallery(answers)); viewerPin.current = answers; setStatus(""); setNameAnswers(Array(5).fill("")); setUnlocked(true); return;
       }
       await api("/api/gallery/unlock", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(admin ? { role: "admin", password: passcode } : { pin: passcode }) });
       const result = await api("/api/gallery");
@@ -138,10 +141,54 @@ export default function MemoryGallery({ admin = false }: { admin?: boolean }) {
       <div className={styles.stack} aria-hidden="true"><span /><span /><span>just us ♡</span></div>
       <form onSubmit={unlock} className={styles.pinForm}>
         <h3>{admin ? "Your album studio." : "Our memories live here."}</h3>
-        <label htmlFor="gallery-passcode">{admin ? "Sign in with your private admin password" : "Enter our four-digit PIN to open the album"}</label>
-        <input ref={passcodeInput} className={admin ? styles.adminPassword : undefined} id="gallery-passcode" type="password" inputMode={admin ? "text" : "numeric"} autoComplete={admin ? "current-password" : "off"} pattern={admin ? undefined : "[0-9]{4}"} maxLength={admin ? 200 : 4} minLength={admin ? 12 : 4} required value={passcode} onChange={e => setPasscode(admin ? e.target.value : e.target.value.replace(/\D/g, ""))} aria-describedby="pin-error" placeholder={admin ? "Admin password" : "••••"} />
+        {isStaticGallery ? (
+          <fieldset className={styles.nameAnswers}>
+            <legend>What are five cute names I love to call you?</legend>
+            <p>Five different names, in any order. You know them by heart ♡</p>
+            {nameAnswers.map((value, index) => (
+              <label key={index} htmlFor={`gallery-name-${index}`} className={styles.nameField}>
+                <span className={styles.nameLabel}>Name {index + 1}</span>
+                <input
+                  ref={index === 0 ? passcodeInput : undefined}
+                  id={`gallery-name-${index}`}
+                  className={styles.nameInput}
+                  type="text"
+                  autoComplete="off"
+                  autoCapitalize="none"
+                  maxLength={100}
+                  required
+                  value={value}
+                  onChange={event => setNameAnswers(previous => previous.map((name, i) => i === index ? event.target.value : name))}
+                  placeholder={`Cute name ${index + 1}`}
+                  aria-describedby="pin-error"
+                  disabled={busy}
+                />
+              </label>
+            ))}
+          </fieldset>
+        ) : (
+          <>
+            <label htmlFor="gallery-passcode">{admin ? "Sign in with your private admin password" : "Enter our four-digit PIN to open the album"}</label>
+            <input
+              ref={passcodeInput}
+              className={admin ? styles.adminPassword : styles.pinInput}
+              id="gallery-passcode"
+              type="password"
+              inputMode={admin ? "text" : "numeric"}
+              autoComplete={admin ? "current-password" : "off"}
+              pattern={admin ? undefined : "[0-9]{4}"}
+              maxLength={admin ? 200 : 4}
+              minLength={admin ? 12 : 4}
+              required
+              value={passcode}
+              onChange={e => setPasscode(admin ? e.target.value : e.target.value.replace(/\D/g, ""))}
+              aria-describedby="pin-error"
+              placeholder={admin ? "Admin password" : "••••"}
+            />
+          </>
+        )}
         <p id="pin-error" role="alert" className={styles.error}>{error}</p>
-        <button className={styles.primary} disabled={busy || (admin ? passcode.length < 12 : passcode.length !== 4)}>{busy ? "Opening…" : admin ? "Sign in to edit" : "Open our album"}</button>
+        <button className={styles.primary} disabled={busy || (isStaticGallery ? nicknameList(nameAnswers.join("\n")).length !== 5 : admin ? passcode.length < 12 : passcode.length !== 4)}>{busy ? "Opening…" : admin ? "Sign in to edit" : "Open our album"}</button>
       </form>
     </div> : <>
       <div className={styles.toolbar}><p>{admin ? "Add a photo. Leave a little love underneath." : "Take your time. There’s a story in every photo."}</p><div className={styles.actions}>
