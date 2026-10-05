@@ -1,0 +1,70 @@
+.cropperOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.cropperContainer {
+  background: var(--surface);
+  border-radius: 12px;
+  width: 100%;
+  max-width: 500px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.cropArea {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  background: #333;
+}
+
+.controls {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  color: var(--on-surface);
+}
+
+.controls input[type="range"] {
+  width: 100%;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.actions button {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--on-surface);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.actions button.primary {
+  background: var(--on-surface);
+  color: var(--surface);
+  border: none;
+}
+
+.actions button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

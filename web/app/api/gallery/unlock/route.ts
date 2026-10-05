@@ -10,7 +10,7 @@ export async function POST(request: Request) {
   try { body = await request.json(); } catch { return NextResponse.json({ error: "Enter your passcode." }, { status: 400 }); }
   const role = body?.role === "admin" ? "admin" : "viewer";
   const configured = role === "admin" ? process.env.AURA_GALLERY_ADMIN_PASSWORD : process.env.AURA_GALLERY_PIN;
-  if (!configured || (role === "viewer" ? !/^\d{4}$/.test(configured) : configured.length < 12)) {
+  if (!configured || (role === "viewer" ? !/^\d{4}$/.test(configured) : configured.length < 5)) {
     return NextResponse.json({ error: role === "admin" ? "The admin password hasn’t been set yet." : "The gallery PIN hasn’t been set yet." }, { status: 503 });
   }
   const budget = budgets[role];
@@ -29,3 +29,4 @@ export async function DELETE(request: Request) {
   if (!sameOrigin(request)) return NextResponse.json({ error: "Invalid origin." }, { status: 403 });
   return logoutResponse();
 }
+

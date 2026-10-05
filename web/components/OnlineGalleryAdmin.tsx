@@ -6,6 +6,7 @@ import { openGithubNicknameAlbum, publishGithubNicknameAlbum, publishGithubAlbum
 import { nicknameList } from "@/lib/gallery-names";
 import type { GalleryMemory } from "@/lib/gallery-reader";
 import styles from "./MemoryGallery.module.css";
+import ImageCropper from "./ImageCropper";
 import online from "./OnlineGalleryAdmin.module.css";
 
 const photoTypes = ["image/jpeg", "image/png", "image/webp", "image/gif"];
@@ -26,6 +27,7 @@ export default function OnlineGalleryAdmin() {
   const [status, setStatus] = useState("");
   const [memories, setMemories] = useState<GalleryMemory[]>([]);
   const [deleting, setDeleting] = useState<{ id: string; kind: "photo" | "memory" } | null>(null);
+  const [cropTarget, setCropTarget] = useState<{ id: string; url: string; file: File } | null>(null);
   const token = useRef("");
   const pin = useRef("");
   const sha = useRef("");
@@ -97,11 +99,20 @@ export default function OnlineGalleryAdmin() {
     setDirty(true); setStatus("Unsaved writing. Choose Save writing to publish it.");
   }
 
-  async function upload(id: string, file?: File) {
+
+  function prepareUpload(id: string, file?: File) {
     if (!file) return;
     if (!photoTypes.includes(file.type) || file.size > 8 * 1024 * 1024) { setStatus("Choose a JPG, PNG, WebP or GIF smaller than 8 MB."); return; }
+    setCropTarget({ id, url: URL.createObjectURL(file), file });
+  }
+
+  async function uploadCropped(blob: Blob) {
+    if (!cropTarget) return;
+    const { id, url } = cropTarget;
+    setCropTarget(null);
+    URL.revokeObjectURL(url);
     const photo = await new Promise<string>((resolve, reject) => {
-      const reader = new FileReader(); reader.onload = () => resolve(String(reader.result)); reader.onerror = () => reject(new Error("Couldn’t read that photo.")); reader.readAsDataURL(file);
+      const reader = new FileReader(); reader.onload = () => resolve(String(reader.result)); reader.onerror = () => reject(new Error("Couldn't read that photo.")); reader.readAsDataURL(blob);
     }).catch((error) => { setStatus(error.message); return ""; });
     if (photo) await publish(memories.map(memory => memory.id === id ? { ...memory, photo } : memory), "Photo saved.");
   }
@@ -155,7 +166,7 @@ export default function OnlineGalleryAdmin() {
       {!memories.length && <div className={styles.empty}><p>Start with a moment you never want to forget.</p><button className={styles.primary} disabled={busy} onClick={() => { void publish([{ id: crypto.randomUUID(), photo: "", caption: "", story: "" }], "Memory added."); }}>Add our first memory</button></div>}
       <div className={styles.grid}>{memories.map((memory, index) => <article className={styles.polaroid} key={memory.id}>
         <label className={styles.photo}>{memory.photo ? <img src={memory.photo} alt={memory.caption || `Memory ${index + 1}`} /> : <span className={styles.placeholder}><span aria-hidden="true">＋</span><span>Add our photo</span></span>}
-          <input disabled={busy} type="file" accept="image/jpeg,image/png,image/webp,image/gif" aria-label={`${memory.photo ? "Replace" : "Add"} photo ${index + 1}`} onChange={event => { void upload(memory.id, event.target.files?.[0]); event.target.value = ""; }} />
+          <input disabled={busy} type="file" accept="image/jpeg,image/png,image/webp,image/gif" aria-label={`${memory.photo ? "Replace" : "Add"} photo ${index + 1}`} onChange={event => { prepareUpload(memory.id, event.target.files?.[0]); event.target.value = ""; }} />
           {memory.photo && <span className={styles.replace}>Change photo</span>}
         </label>
         <label className={styles.caption}><span className={styles.srOnly}>Caption for memory {index + 1}</span><textarea disabled={busy} rows={2} maxLength={140} placeholder="A few words about us…" value={memory.caption} onChange={event => update(memory.id, { caption: event.target.value })} /></label>
@@ -168,5 +179,18 @@ export default function OnlineGalleryAdmin() {
       <p>{deleting?.kind === "photo" ? "The caption and story will stay in your studio." : "The photo, caption and story will be removed from the album."}</p>
       <p role="status">{status}</p><div className={styles.actions}><button disabled={busy} onClick={() => confirmation.current?.close()}>Keep it</button><button className={styles.primary} disabled={busy} onClick={() => { void deleteItem(); }}>{busy ? "Publishing…" : "Delete and publish"}</button></div>
     </dialog>
+
+      {cropTarget && (
+        <ImageCropper
+          imageSrc={cropTarget.url}
+          onCropComplete={uploadCropped}
+          onCancel={() => { URL.revokeObjectURL(cropTarget.url); setCropTarget(null); }}
+        />
+      )}
   </section>;
+
 }
+
+
+
+
