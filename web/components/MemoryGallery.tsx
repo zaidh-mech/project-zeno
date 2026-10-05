@@ -5,6 +5,7 @@ import type { FormEvent } from "react";
 import styles from "./MemoryGallery.module.css";
 import { isStaticGallery, readPublishedGallery } from "@/lib/gallery-reader";
 import { nicknameList } from "@/lib/gallery-names";
+import ImageCropper from "./ImageCropper";
 
 type Memory = { id: string; photo: string; caption: string; story: string };
 const prompts = ["Where our story began", "A day I wish we could replay", "The little things about us", "Somewhere, with you", "A moment that felt like home", "Another memory to keep"];
@@ -27,6 +28,7 @@ export default function MemoryGallery({ admin = false }: { admin?: boolean }) {
   const [status, setStatus] = useState("");
   const [dirty, setDirty] = useState(false);
   const [deleteTarget, setDeleteTarget] = useState<{ id: string; kind: "photo" | "memory" } | null>(null);
+  const [cropTarget, setCropTarget] = useState<{ id: string; url: string; file: File } | null>(null);
   const dialog = useRef<HTMLDialogElement>(null);
   const confirmation = useRef<HTMLDialogElement>(null);
   const heading = useRef<HTMLHeadingElement>(null);
@@ -101,14 +103,23 @@ export default function MemoryGallery({ admin = false }: { admin?: boolean }) {
     });
   }
 
-  async function addPhoto(id: string, file?: File) {
+  function preparePhoto(id: string, file?: File) {
+    
     if (!file || !admin) return;
     if (!["image/jpeg", "image/png", "image/webp", "image/gif"].includes(file.type) || file.size > 8 * 1024 * 1024) { setStatus("Choose a JPG, PNG, WebP or GIF smaller than 8 MB."); return; }
+    setCropTarget({ id, url: URL.createObjectURL(file), file });
+  }
+
+  async function uploadCropped(blob: Blob) {
+    if (!cropTarget) return;
+    const { id, file, url } = cropTarget;
+    setCropTarget(null);
+    URL.revokeObjectURL(url);
     await action(async () => {
-      const data = new FormData(); data.append("photo", file);
+      const data = new FormData(); data.append("photo", blob, file.name);
       const { memory } = await api(`/api/gallery/photo/${id}`, { method: "POST", body: data });
       setMemories(previous => previous.map(item => item.id === id ? { ...item, photo: memory.photo } : item));
-      setStatus("Photo saved locally. Export the album when you’re ready to publish.");
+      setStatus("Photo saved locally. Export the album when you're ready to publish.");
     });
   }
 
@@ -201,7 +212,7 @@ export default function MemoryGallery({ admin = false }: { admin?: boolean }) {
       <div className={styles.grid}>{memories.map((memory, index) => <article className={styles.polaroid} key={memory.id}>
         {admin ? <label className={styles.photo}>
           {memory.photo ? <img src={memory.photo} alt={memory.caption || `Our memory ${index + 1}`} /> : <span className={styles.placeholder}><span aria-hidden="true">＋</span><span>Add our photo</span><small>{prompts[index % prompts.length]}</small></span>}
-          <input disabled={busy} type="file" accept="image/jpeg,image/png,image/webp,image/gif" aria-label={`${memory.photo ? "Replace" : "Add"} photo ${index + 1}`} onChange={e => { void addPhoto(memory.id, e.target.files?.[0]); e.target.value = ""; }} />
+          <input disabled={busy} type="file" accept="image/jpeg,image/png,image/webp,image/gif" aria-label={`${memory.photo ? "Replace" : "Add"} photo ${index + 1}`} onChange={e => { preparePhoto(memory.id, e.target.files?.[0]); e.target.value = ""; }} />
           {memory.photo && <span className={styles.replace}>Change photo</span>}
         </label> : <button className={`${styles.photo} ${styles.viewPhoto}`} onClick={() => setActiveId(memory.id)} aria-label={`Open story: ${memory.caption || `memory ${index + 1}`}`}><img src={memory.photo} alt={memory.caption || `Our memory ${index + 1}`} loading="lazy" /></button>}
         {admin ? <label className={styles.caption}><span className={styles.srOnly}>Caption for memory {index + 1}</span><textarea disabled={busy} rows={2} maxLength={140} placeholder="A few words about us…" value={memory.caption} onChange={e => update(memory.id, { caption: e.target.value })} /></label> : <p className={styles.readCaption}>{memory.caption || "A moment with you."}</p>}
@@ -230,5 +241,20 @@ export default function MemoryGallery({ admin = false }: { admin?: boolean }) {
       <p>{deleteTarget?.kind === "photo" ? "The caption and story will stay in your studio. Export and republish to remove the photo from the live site." : "The photo, caption and story will be removed locally. Export and republish to update the live site."}</p>
       <p role="status">{status}</p><div className={styles.actions}><button disabled={busy} onClick={() => confirmation.current?.close()}>Keep it</button><button className={styles.primary} disabled={busy} onClick={deleteItem}>{busy ? "Deleting…" : "Delete"}</button></div>
     </dialog>
+
+      {cropTarget && (
+        <ImageCropper
+          imageSrc={cropTarget.url}
+          onCropComplete={uploadCropped}
+          onCancel={() => { URL.revokeObjectURL(cropTarget.url); setCropTarget(null); }}
+        />
+      )}
   </section>;
+
 }
+
+
+
+
+
+
