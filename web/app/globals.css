@@ -168,7 +168,7 @@ button:focus-visible { outline: 3px solid var(--rose); outline-offset: 4px; }
   justify-content: space-between;
   align-items: center;
   scroll-snap-align: start;
-  scroll-snap-stop: normal;
+  scroll-snap-stop: always;
   padding: clamp(10px, 1.8vh, 24px) 0;
   box-sizing: border-box;
 }
@@ -183,7 +183,7 @@ button:focus-visible { outline: 3px solid var(--rose); outline-offset: 4px; }
   justify-content: space-between;
   align-items: center;
   scroll-snap-align: start;
-  scroll-snap-stop: normal;
+  scroll-snap-stop: always;
   padding: clamp(10px, 1.8vh, 20px) 0 clamp(8px, 1.4vh, 16px);
   box-sizing: border-box;
 }

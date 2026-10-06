@@ -4,7 +4,7 @@
   height: 100dvh;
   min-height: 100dvh;
   scroll-snap-align: start;
-  scroll-snap-stop: normal;
+  scroll-snap-stop: always;
   padding: clamp(20px, 3vh, 48px) 16px;
   display: grid;
   grid-template-columns: 1fr 1fr;
